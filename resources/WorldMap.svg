@@ -2,12 +2,8 @@
 <svg
    version="1.1"
    id="svg2985"
-   viewBox="30 0 2750 1200"
-   width="1600"
-   height="900"
+   viewBox="30 0 2750 1300"
    sodipodi:docname="WorldMap.svg"
-   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
@@ -229,7 +225,7 @@
  .bh, .ye, .al, .mw, .nf, .mx, .so, .es, .nu, .pk, 
 .il, .iq, .by, .kz, .fi, .bg, .ae, .sv, .ne, .gy, 
 .bt, .it, .cd, .kp, .au, .ba, .la, .de, .mu, .az,
-.lk, .zw, .sd, .vu, .my,  .tg, .lr, .jm, .gm, .sz, .vc, .fk, .ws
+.lk, .sd, .vu, .my,  .tg, .lr, .jm, .gm, .sz, .vc, .fk, .ws
 {
    fill:      #e41a1c; /* red */
 }
@@ -239,8 +235,8 @@
 .na, .sx, .vg, .mt, .hu, .pn, .nz, .sa, .vn, .gd, 
 .gi, .im, .st, .mg, .ru, .ky, .kg, .sh, .ms, .sb, .cw, 
 .dz, .ai, .lc, .me, .bj, .aw, .gt, .ci,
-.bm, .sm, .ch, .ca, .ru, .do, .in, .tz, .sn, .tl,
-.py, .cm, .pt, .sy, .se, .je, .gs, .an, .tk, .mc, .dj, .pw, .ls, .co, .gb, .nl, .tm, .tv
+.bm, .sm, .ch, .ca, .do, .in, .tz, .sn, .tl,
+.py, .cm, .pt, .sy, .se, .je, .gs, .tk, .mc, .dj, .pw, .ls, .co, .gb, .nl, .tm, .tv
 {
    fill:       #ff7f00; /* orange */
 }
@@ -306,8 +302,8 @@
      fill="none"
 	class="oceanxx"
 	y="-150"
-     width="150%"
-     height="200%"
+     width="110%"
+     height="110%"
      id="ocean" />
 
   <path
