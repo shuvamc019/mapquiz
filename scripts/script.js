@@ -1,7 +1,9 @@
-const svg = document.getElementById("map").contentDocument;
-
 const groupColors = []; //array to hold color for each group
 const colorMap = new Map(); //map country code to color
+const grayMap = new Map(); //map country code to grayscale color
+const codeMap = new Map(); //map different country names to country code
+
+const svg = document.getElementById("map");
 
 async function init() {
   //read in group csv and build data structure
@@ -10,17 +12,23 @@ async function init() {
   //read in country csv and build data structure
   await fetch("resources/countries.csv").then(r=>r.text()).then(readCountryFile);
 
-  colorAllCountries();
+  //read in country codes csv and build data structure
+  await fetch("resources/codes.csv").then(r=>r.text()).then(readCodesFile);
+
+  grayAllCountries();  
+  removeTitles();
+  timerStart();
 }
 
+//based on codes.csv, build map from country name to code
+function readCodesFile(fileText) {
+  //split text by newline
+  const lines = fileText.split("\n");
 
-function colorAllCountries() {
-  for(const code of colorMap.keys()) {
-    const elements = svg.getElementsByClassName(code);
-    for(const element of elements) {
-      console.log(element)
-      element.style.fill = "black";
-    }
+  //start from i=1 since first line of csv is header
+  for(let i = 1; i < lines.length; i++) {
+    const line = lines[i].split(",");
+    codeMap.set(line[0].trim().toLowerCase(), line[1].trim());
   }
 }
 
@@ -33,7 +41,9 @@ function readGroupFile(fileText) {
   for(let i = 1; i < lines.length; i++) {
     const line = lines[i].split(",");
     const color = line[1];
-    groupColors[i] = color;
+    const grayScale = line[2];
+    groupColors[2 * i - 2] = color;
+    groupColors[2 * i - 1] = grayScale;
   }
 }
 
@@ -45,12 +55,15 @@ function readCountryFile(fileText) {
   //start from i=1 since first line of csv is header
   for(let i = 1; i < lines.length; i++) {
     const line = lines[i].split(",");
-    const countryCode = line[1];
+    const countryCode = line[1].trim();
     const groupNum = parseInt(line[3]);
-    const color = groupColors[groupNum];
 
+    const color = groupColors[2 * groupNum - 2];
     colorMap.set(countryCode, color);
+
+    const grayScale = groupColors[2 * groupNum - 1];
+    grayMap.set(countryCode, grayScale);
   }
 }
 
-window.onload = init();
+svg.addEventListener("load", init, false);

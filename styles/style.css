@@ -1,8 +1,38 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 
-#map {
-    width: 100%;
+.mapContainer {
+    width: 100vw;
     height: auto;
+    position: fixed;
+    bottom: 0;
+    background-color: #40bfbf;
+
+    #map {
+        bottom: 0;
+    }
 }
+
+.mapContainer .controlPanel {
+    background-color: gray;
+    position: absolute;
+    bottom: 10%;
+    left: 3%;
+
+    width: 10%;
+
+    text-align: center;
+
+
+    .entry {
+        #textEntry {
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    }
+}
+
