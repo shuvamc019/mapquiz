@@ -6,13 +6,8 @@ body {
 .mapContainer {
     width: 100vw;
     height: auto;
-    position: fixed;
-    bottom: 0;
-    background-color: #40bfbf;
 
-    #map {
-        bottom: 0;
-    }
+    position: fixed;
 }
 
 .mapContainer .controlPanel {
