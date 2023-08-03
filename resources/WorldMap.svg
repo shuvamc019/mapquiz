@@ -180,9 +180,8 @@
 </pattern>
   <rect
      fill="#40bfbf"
-	y="-150"
      width="3000"
-     height="2000"
+     height="1450"
      id="ocean" />
 
   <path
@@ -7348,7 +7347,7 @@
        id="title2500">Falkland Islands (Malvinas)</title>
     <g
        id="fk-"
-       class="landxx coastxx fk">
+       class="landxx coastxx fk ar">
       <path
          id="path4876"
          d="m 882.70,1206.86 c 0.427,-0.13 0.559,-0.39 0.394,-0.76 -0.676,-0.94 -0.963,0.99 -0.963,-0.75 -1.503,0.23 -0.04,1.26 0.569,1.51" />

@@ -20,6 +20,14 @@ async function init() {
   //read in country codes csv and build data structure
   await fetch("resources/codes.csv").then(r=>r.text()).then(readCodesFile);
 
+  svgPanZoom(svg,  {
+    minZoom: 1,
+    maxZoom: 10,
+    zoomScaleSensitivity: 0.3,
+    contain: true,
+    beforePan: beforePan
+  })
+
   grayAllCountries();  
   removeTitles();
 
@@ -84,6 +92,25 @@ function readCountryFile(fileText) {
       }
     }
   }
+}
+
+function beforePan(oldPan, newPan){
+  var stopHorizontal = false
+    , stopVertical = false
+    , gutterWidth = window.innerWidth
+    , gutterHeight = window.innerHeight
+      // Computed variables
+    , sizes = this.getSizes()
+    , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth
+    , rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
+    , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
+    , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
+
+  customPan = {}
+  customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
+  customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+
+  return customPan
 }
 
 svg.addEventListener("load", init, false);
