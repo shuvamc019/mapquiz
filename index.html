@@ -5,25 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/map.css">
+        <link rel="stylesheet" href="styles/controlPanel.css">
     </head>
     <body>
         <div class="mapContainer">
             <object id="map" type="image/svg+xml" data="resources/WorldMap.svg"></object>
 
-            <!--<div class="controlPanel">
+            <div class="controlPanel">
+                <div class="titleContainer">
+                    <h3>World Map Quiz</h3>
+                </div>
                 <div class="timerContainer">
                     <p id="timer">00:00</p>
                 </div>
                 <div class="entry">
-                    <input id="textEntry">
+                    <input id="textEntry" placeholder="Enter a country">
                 </div>
-            </div>-->
+                <div class="progressContainer">
+                    <p id="progressLabel">0 / 198 Countries Found</p>
+                </div>
+                <div class="countryListContainer">
+                    <button id="showCountryButton" class="transparentButton">Show Country List ▶</button>
+                </div>
+                <div class="buttonRow">
+                    <div class="restartContainer">
+                        <button id="restartButton" class="transparentButton">Restart</button>
+                    </div>
+                    <div class="buttonSpacer">
+                    </div>
+                    <div class="giveUpContainer">
+                        <button id="giveUpButton" class="transparentButton">Give Up</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="scripts/script.js"></script>
         <script src="scripts/textEntry.js"></script>
         <script src="scripts/timer.js"></script>
         <script src="scripts/map.js"></script>
+        <script src="scripts/buttons.js"></script>
+        <script src="scripts/countryList.js"></script>
     </body>
 </html>

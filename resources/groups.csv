@@ -1,7 +1,7 @@
 Group,Color
-1,#984ea3,#6D6D6D
-2,#e41a1c,#565656
-3,#ff7f00,#979797
-4,#ffcf33,#CCCCCC
-5,#377eb8,#6F6F6F
-6,#4daf4a,#868686
+1,#984ea3,#787878,purple
+2,#e41a1c,#5a5a5a,red
+3,#ff7f00,#696969,orange
+4,#ffcf33,#4b4b4b,yellow
+5,#377eb8,#878787,blue
+6,#4daf4a,#969696,green

@@ -1,0 +1,66 @@
+.controlPanel {
+    position: absolute;
+    bottom: 15%;
+    left: 3%;
+
+    background-color: gray;
+    border-radius: 10px;
+
+    width: 15%;
+    text-align: center;
+
+    .entry {
+        #textEntry {
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    }
+}
+
+p, h3, input {
+    font-family: Arial;
+}
+
+.buttonRow {
+    display: flex;
+}
+
+.restartContainer, .giveUpContainer, .buttonSpacer {
+    flex: 1;
+}
+
+.transparentButton {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.transparentButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.countryGrid {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 5%;
+    height: auto;
+}
+
+.countryListDiv {
+    height: 25vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+.hiddenLabel {
+    opacity: 0;
+}
+
+.shownLabel {
+    opacity: 1;
+}

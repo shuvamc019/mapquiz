@@ -1,19 +1,25 @@
 const timer = document.getElementById("timer")
 let timerId = 0
+let seconds = 0
 
 function timerStart() {
-    timer.innerHTML = "00:00"
-
-    const start = Date.now()
+    let start = Date.now()
     timerId = setInterval(function() {
         let delta = Date.now() - start;
         let secondsElapsed = Math.floor(delta / 1000)
-        timer.innerHTML = formatTime(secondsElapsed)
-    }, 500)
+        timer.innerHTML = formatTime(secondsElapsed + seconds)
+    }, 100)
 }
 
-function timerStop() {
+function timerPause() {
+    seconds = getSecondsPassed()
     clearInterval(timerId)
+}
+
+function timerReset() {
+    clearInterval(timerId)
+    timer.innerHTML = "00:00"
+    seconds = 0
 }
 
 function formatTime(seconds) {
@@ -25,3 +31,20 @@ function formatTime(seconds) {
 
     return mString + ":" + sString
 }
+
+function getSecondsPassed() {
+    displayString = timer.innerHTML.split(":")
+    const seconds = parseInt(displayString[1])
+    const minutes = parseInt(displayString[0])
+
+    return 60 * minutes + seconds
+}
+
+timerStart()
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      timerStart()
+    } else {
+      timerPause()
+    }
+  });

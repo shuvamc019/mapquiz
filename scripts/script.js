@@ -1,7 +1,12 @@
 const groupColors = []; //array to hold color for each group
 const colorMap = new Map(); //map country code to color
 const grayMap = new Map(); //map country code to grayscale color
-const codeMap = new Map(); //map different country names to country code
+const countryToCodeMap = new Map(); //map different country names to country code
+const codeToCountryMap = new Map(); //map different country codes to main country name
+const countryFoundMap = new Map(); //map country code to whether they were found yet
+
+//2D array that holds the countries in each continent, first element in each array is continent name
+const continentCountries = [["Africa"], ["Asia"], ["Europe"], ["North America"], ["Oceania"], ["South America"]]
 
 const svg = document.getElementById("map");
 
@@ -17,7 +22,9 @@ async function init() {
 
   grayAllCountries();  
   removeTitles();
-  timerStart();
+
+  initCountryList();
+  hideCountryLabels()
 }
 
 //based on codes.csv, build map from country name to code
@@ -28,7 +35,7 @@ function readCodesFile(fileText) {
   //start from i=1 since first line of csv is header
   for(let i = 1; i < lines.length; i++) {
     const line = lines[i].split(",");
-    codeMap.set(line[0].trim().toLowerCase(), line[1].trim());
+    countryToCodeMap.set(line[0].trim().toLowerCase(), line[1].trim());
   }
 }
 
@@ -55,7 +62,10 @@ function readCountryFile(fileText) {
   //start from i=1 since first line of csv is header
   for(let i = 1; i < lines.length; i++) {
     const line = lines[i].split(",");
-    const countryCode = line[1].trim();
+
+    const countryName = line[0]
+    const countryCode = line[1]
+    const continent = line[2]
     const groupNum = parseInt(line[3]);
 
     const color = groupColors[2 * groupNum - 2];
@@ -63,6 +73,16 @@ function readCountryFile(fileText) {
 
     const grayScale = groupColors[2 * groupNum - 1];
     grayMap.set(countryCode, grayScale);
+
+    countryFoundMap.set(countryCode, false);
+
+    codeToCountryMap.set(countryCode, countryName)
+
+    for(const continentArr of continentCountries) {
+      if(continentArr[0] === continent) {
+        continentArr.push(countryName)
+      }
+    }
   }
 }
 
