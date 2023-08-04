@@ -16,7 +16,7 @@ Bangladesh,bd,Asia,6
 Barbados,bb,North America,1
 Belarus,by,Europe,2
 Belgium,be,Europe,1
-Belize,bz,South America,5
+Belize,bz,North America,5
 Benin,bj,Africa,3
 Bhutan,bt,Asia,2
 Bolivia,bo,South America,6
@@ -49,7 +49,7 @@ Denmark,dk,Europe,1
 Djibouti,dj,Africa,3
 Dominica,dm,North America,1
 Dominican Republic,do,North America,3
-Ecuador,ec,North America,5
+Ecuador,ec,South America,5
 Egypt,eg,Africa,1
 El Salvador,sv,North America,2
 Equatorial Guinea,gq,Africa,1
@@ -167,7 +167,7 @@ South Sudan,ss,Africa,4
 Spain,es,Europe,2
 Sri Lanka,lk,Asia,2
 Sudan,sd,Africa,2
-Suriname,sr,North America,4
+Suriname,sr,South America,4
 Sweden,se,Europe,3
 Switzerland,ch,Europe,3
 Syria,sy,Asia,3

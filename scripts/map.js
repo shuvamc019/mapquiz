@@ -42,3 +42,20 @@ function colorCountry(countryName) {
     }
   }
 }
+
+function initSpecialCases() {
+  //setting dashed lines for oceania island ellipses
+  for(const island of svg.contentDocument.getElementsByClassName("oceania-ellipse")) {
+    island.setAttribute("stroke-dasharray", "4 2")
+  }
+
+  for(const circleOpaque of svg.contentDocument.getElementsByClassName("circle-opaque")) {
+    circleOpaque.style.opacity = "0";
+  }
+}
+
+function initMap() {
+  grayAllCountries();  
+  removeTitles();
+  initSpecialCases();
+}

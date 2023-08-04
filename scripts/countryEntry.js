@@ -3,6 +3,7 @@ textEntry.addEventListener("keyup", countryEntered, false);
 const progressLabel = document.getElementById("progressLabel")
 
 let countriesFound = 0;
+const totalCountries = 197;
 
 function countryEntered(event) {
     const countryName = textEntry.value.toLowerCase()
@@ -16,7 +17,11 @@ function countryEntered(event) {
         textEntry.value = ""
 
         countriesFound++
-        progressLabel.innerHTML = countriesFound.toString() + " / 198 Countries Found"
+        progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
+
+        if(countriesFound == 198) {
+          gameWon()
+        }
       }
 
     }
@@ -24,7 +29,7 @@ function countryEntered(event) {
 
 function resetCountriesFound() {
   countriesFound = 0
-  progressLabel.innerHTML = "0 / 198 Countries Found"
+  progressLabel.innerHTML = "0 / " + totalCountries + " Countries Found"
 
   for(const key of countryFoundMap.keys()) {
     countryFoundMap.set(key, false);

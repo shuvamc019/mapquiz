@@ -22,9 +22,15 @@ function showCountryList() {
 }
 
 function hideCountryLabels() {
-    for(const continentDiv of countryListDiv.getElementsByTagName("div")) {
+    for(const continentDiv of countryListDiv.getElementsByClassName("continentDiv")) {
         for(const countryLabel of continentDiv.getElementsByClassName("countryLabel")) {
             countryLabel.style.opacity = "0"
+        }
+
+        const continentLabel = continentDiv.getElementsByTagName("h3")[0]
+        const labelText = continentLabel.innerHTML
+        if(labelText.includes("✓")) {
+            continentLabel.innerHTML = labelText.slice(0, labelText.length - 4)
         }
     }
     countryListDiv.scrollTop = 0;
@@ -33,14 +39,28 @@ function hideCountryLabels() {
 function showLabel(code) {
     const countryName = removeWhiteSpace(codeToCountryMap.get(code))
 
-    for(const continentDiv of countryListDiv.getElementsByTagName("div")) {
-        for(const countryLabel of continentDiv.getElementsByClassName("countryLabel")) {
-            if(countryLabel.id === (countryName + "label")) {
-                countryLabel.style.opacity = 1;
-                countryLabel.scrollIntoView({block: "center"})
+    for(const countryLabel of countryListDiv.getElementsByClassName("countryLabel")) {
+        if(countryLabel.id === (countryName + "label")) {
+            countryLabel.style.opacity = 1;
+            countryLabel.scrollIntoView({block: "center"})
+
+            const continentDiv = countryLabel.parentElement.parentElement.parentElement
+            if(continentCompleted(continentDiv)) {
+                const continentLabel = continentDiv.getElementsByTagName("h3")[0]
+                continentLabel.innerHTML = continentLabel.innerHTML + " - ✓"
             }
         }
     }
+}
+
+//check if all countries in a continent div have been found 
+function continentCompleted(continentDiv) {
+    for(const countryLabel of continentDiv.getElementsByClassName("countryLabel")) {
+        if(countryLabel.style.opacity == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 
@@ -50,6 +70,7 @@ function initCountryList() {
     for(const continentArr of continentCountries) {
         const continent = continentArr[0]
         const continentDiv = document.createElement("div")
+        continentDiv.classList.add("continentDiv")
 
 
         const continentLabel = document.createElement("h3")
@@ -76,7 +97,7 @@ function initCountryList() {
         continentDiv.appendChild(countryGrid)
         countryListDiv.appendChild(continentDiv)
     }
-
+    hideCountryLabels();
 }
 
 function removeWhiteSpace(str) {

@@ -17,9 +17,11 @@
          .circle-opaque
          {
             opacity: 0;
-            fill:#e0e0e0;
-            stroke:#000000;
-            stroke-width:0.5;
+         }
+
+         .circle-translucent
+         {
+            opacity: 0;
          }
 
          //Ellipse around small Oceania islands
@@ -31,7 +33,6 @@
             fill: transparent;
             stroke-dasharray: 4 1
          }
-
 
          /*
          * Circles around small countries
@@ -180,8 +181,9 @@
 </pattern>
   <rect
      fill="#40bfbf"
+	y="-150"
      width="3000"
-     height="1450"
+     height="2000"
      id="ocean" />
 
   <path
@@ -7948,10 +7950,10 @@
        d="m 1694.5,800.999 c 0.1,-0.7 -0.19,-1.573 -1.08,-1.37 0.53,0.28 0.95,0.774 1.08,1.37" />
     <circle
        id="sc_"
-       class="circle-translucent sc"
-       r="3"
-       cy="800"
-       cx="1694.2" />
+       class="oceania-ellipse sc"
+       r="10"
+       cy="798"
+       cx="1695.2" />
   </g>
   <g
      id="ag">
@@ -8081,13 +8083,16 @@
     <path
        id="mv-"
        class="landxx smallislandxx mv"
-       d="m 1785.09,736.359 c 0.1,-0.7 -0.19,-1.573 -1.08,-1.37 0.53,0.28 0.95,0.774 1.08,1.37" />
-    <circle
+       d="m 1825.09,736.359 c 0.1,-0.7 -0.19,-1.573 -1.08,-1.37 0.53,0.28 0.95,0.774 1.08,1.37" />
+    <ellipse
        id="mv_"
-       class="circle-translucent mv"
-       r="3"
-       cy="735.374"
-       cx="1784.8" />
+       class="oceania-ellipse mv"
+       rx="5"
+       ry="30"
+       cy="730.374"
+       cx="1824.8"
+       transform-origin="1824 730"
+       transform="rotate(-3)" />
   </g>
   <g
      id="ky">
@@ -8392,7 +8397,7 @@
 	 />
     <circle
        id="sm_"
-       class="circle-opaque sm"
+       class="circle-opaque sm-circle"
        r="2"
        cy="381.493"
        cx="1363.64" />
@@ -8488,7 +8493,7 @@
  />
     <circle
        id="mc_"
-       class="circle-opaque mc"
+       class="circle-opaque mc-circle"
        r="2"
        cy="381.304"
        cx="1329.15" />
@@ -8506,7 +8511,7 @@
 	transform="translate(-15006.53, -4385.656) scale(12)" />
     <circle
        id="va_"
-       class="circle-opaque va"
+       class="circle-opaque va-circle"
        r="2"
        cy="398.696"
        cx="1364.23" />
