@@ -46,7 +46,7 @@ function showLabel(code) {
 
             const continentDiv = countryLabel.parentElement.parentElement.parentElement
             if(continentCompleted(continentDiv)) {
-                const continentLabel = continentDiv.getElementsByTagName("h3")[0]
+                const continentLabel = continentDiv.getElementsByClassName("continentLabel")[0]
                 continentLabel.innerHTML = continentLabel.innerHTML + " - ✓"
             }
         }
@@ -73,6 +73,7 @@ function initCountryList() {
         continentDiv.classList.add("continentDiv")
 
         const continentLabel = document.createElement("h3")
+        continentLabel.classList.add("continentLabel")
         continentLabel.innerHTML = continent
 
         const countryGrid = document.createElement("div");

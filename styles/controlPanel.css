@@ -59,6 +59,11 @@
     display: flex;
     flex-direction: column;
     scroll-behavior: smooth;
+    padding-top: 5%;
+}
+
+.continentLabel {
+    margin: 0;
 }
 
 .hiddenLabel {
