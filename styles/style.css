@@ -11,3 +11,7 @@ body {
         height: 100vh;
     }
 }
+
+#dialog::backdrop {
+    backdrop-filter: blur(2px);
+}

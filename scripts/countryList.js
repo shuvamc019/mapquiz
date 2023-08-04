@@ -72,7 +72,6 @@ function initCountryList() {
         const continentDiv = document.createElement("div")
         continentDiv.classList.add("continentDiv")
 
-
         const continentLabel = document.createElement("h3")
         continentLabel.innerHTML = continent
 
@@ -81,8 +80,7 @@ function initCountryList() {
 
         for(let i = 1; i < continentArr.length; i++) {
             const labelDiv = document.createElement("div");
-            labelDiv.style.backgroundColor = "purple"
-            labelDiv.style.margin = "5%"
+            labelDiv.classList.add("labelDiv")
 
             const countryLabel = document.createElement("p")
             countryLabel.classList.add("countryLabel")

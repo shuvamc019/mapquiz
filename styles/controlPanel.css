@@ -1,10 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 .controlPanel {
     position: absolute;
     bottom: 15%;
     left: 3%;
 
-    background-color: gray;
+    font-family: "Roboto", sans-serif;
+
+    background-color: #cbcbcb;
     border-radius: 10px;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 
     width: 15%;
     text-align: center;
@@ -19,12 +26,9 @@
     }
 }
 
-p, h3, input {
-    font-family: Arial;
-}
-
 .buttonRow {
     display: flex;
+    padding: 5%;
 }
 
 .restartContainer, .giveUpContainer, .buttonSpacer {
@@ -63,4 +67,9 @@ p, h3, input {
 
 .shownLabel {
     opacity: 1;
+}
+
+.labelDiv {
+    background-color: rgb(132, 75, 132);
+    margin: 5%;
 }
