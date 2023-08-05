@@ -153,7 +153,7 @@
          */
          .oceanxx
          {
-            fill: #40bfbf;
+            fill: #40a8bf;
          }
 
          .ocean-lines {
@@ -171,13 +171,13 @@
 
 </style>
 
-<pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse" class="oceanxx">
-      <rect width="40" height="40" class="oceanxx"/>
-      <path d="M 0 0 L 40 0 40 40" class="oceanxx ocean-lines" stroke-width="0.3"/>
+<pattern id="smallGrid" width="50" height="50" patternUnits="userSpaceOnUse" class="oceanxx">
+      <rect width="50" height="50" class="oceanxx"/>
+      <path d="M 0 0 L 50 0 50 50" class="oceanxx ocean-lines" stroke-width="0.4"/>
 </pattern>
-<pattern id="grid" width="400" height="400" patternUnits="userSpaceOnUse">
-      <rect width="400" height="400" fill="url(#smallGrid)"/>
-      <path d="M 0 0 L 400 0 400 400" fill="url(#smallGrid)" class="ocean-lines" stroke-width="1"/>
+<pattern id="grid" width="500" height="500" patternUnits="userSpaceOnUse">
+      <rect width="500" height="500" fill="url(#smallGrid)"/>
+      <path d="M 0 0 L 500 0 500 500" fill="url(#smallGrid)" class="ocean-lines" stroke-width="0.7"/>
 </pattern>
   <rect
      fill="url(#grid)"

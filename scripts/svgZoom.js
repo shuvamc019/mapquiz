@@ -1,10 +1,11 @@
+import { gsap } from "gsap";
 let panZoom = null;
 
 function initZoom() {
   panZoom = svgPanZoom(svg,  {
     minZoom: 1,
     maxZoom: 10,
-    zoomScaleSensitivity: 0.25,
+    zoomScaleSensitivity: 0.15,
     contain: true,
     refreshRate: 50,
     beforePan: beforePan
@@ -39,4 +40,19 @@ function beforePan(oldPan, newPan){
   customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
 
   return customPan
+}
+
+function zoomInViewBox(minX, minY, width, height) {
+  //setViewBox(minX, minY, width, height)
+  /*gsap.to(svg.contentDocument.getElementsByTagName("svg")[0], {
+    viewBox: "500 500 100 100"
+  })*/
+  gsap.to(controlPanel, {
+    x: 1000
+  })
+}
+
+function setViewBox(minX, minY, width, height) {
+  const svgTag = svg.contentDocument.getElementsByTagName("svg")[0]
+  svgTag.setAttribute("viewBox", minX.toString() + " " + minY.toString() + " " + width.toString() + " " + height.toString())
 }

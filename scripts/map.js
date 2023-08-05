@@ -55,7 +55,7 @@ function initSpecialCases() {
 }
 
 function initMap() {
-  grayAllCountries();  
+  colorAllCountries();  
   removeTitles();
   initSpecialCases();
 }

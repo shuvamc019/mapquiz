@@ -41,7 +41,7 @@ function gameWon() {
     const seconds = secondsPassed % 60;
 
     dialogHeader.innerHTML = "You won!";
-    dialog.innerHTML = "You found all 197 countries in " + minutes + " minutes and " + seconds + " seconds";
+    dialog.innerHTML = "You found all " + totalCountries + " countries in " + minutes + " minutes and " + seconds + " seconds";
 
     dialog.showModal();
 }
