@@ -18,6 +18,7 @@ dialogCloseButton.addEventListener("click", function() {
 
 function giveUp() {
     timerPause();
+    showNotFoundCountryLabels()
     textEntry.disabled = true;
     giveUpButton.disabled = true;
 

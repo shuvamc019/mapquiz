@@ -4,6 +4,9 @@ const controlPanel = document.getElementsByClassName("controlPanel")[0]
 const countryListContainer = document.getElementsByClassName("countryListContainer")[0]
 const countryListDiv = document.createElement("div")
 
+const defaultCountryLabelColor = "black"
+const notFoundCountryLabelColor = "red"
+
 showCountryButton.addEventListener("click", showCountryList);
 let expanded = false
 
@@ -24,7 +27,8 @@ function showCountryList() {
 function hideCountryLabels() {
     for(const continentDiv of countryListDiv.getElementsByClassName("continentDiv")) {
         for(const countryLabel of continentDiv.getElementsByClassName("countryLabel")) {
-            countryLabel.style.opacity = "0"
+            countryLabel.style.opacity = 0
+            countryLabel.style.color = defaultCountryLabelColor
         }
 
         const continentLabel = continentDiv.getElementsByTagName("h3")[0]
@@ -49,6 +53,15 @@ function showLabel(code) {
                 const continentLabel = continentDiv.getElementsByClassName("continentLabel")[0]
                 continentLabel.innerHTML = continentLabel.innerHTML + " - ✓"
             }
+        }
+    }
+}
+
+function showNotFoundCountryLabels() {
+    for(const countryLabel of countryListDiv.getElementsByClassName("countryLabel")) {
+        if(countryLabel.style.opacity == 0) {
+            countryLabel.style.opacity = 1
+            countryLabel.style.color = notFoundCountryLabelColor
         }
     }
 }

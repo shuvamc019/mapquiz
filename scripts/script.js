@@ -22,7 +22,7 @@ async function init() {
 
   initMap();
   initCountryList();
-  //initZoom();
+  initZoom();
 }
 
 svg.addEventListener("load", init, false);

@@ -2,7 +2,7 @@
 <svg
    version="1.1"
    id="svg2985"
-   viewBox="50 20 2690 1430"
+   viewBox="0 0 2690 1430"
    sodipodi:docname="WorldMap.svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +160,11 @@
             stroke: gray;
          }
 
+         .countrylabel {
+            fill: white;
+            font-family: Arial;
+         }
+
          /*
 
          Reserved class names:
@@ -181,10 +186,12 @@
 </pattern>
   <rect
      fill="url(#grid)"
+     x="-100"
      width="3000"
      height="2000"
      id="ocean" />
 
+<g id="wholeMap" transform="translate(-50 -20)">
   <path
      id="sd"
      class="landxx sd"
@@ -8717,4 +8724,11 @@
 				</g>
 			</g>
 		</g>
+      <text x="480" y="430" class="countrylabel" id="us-label">United States of America</text>
+      <text x="530" y="300" class="countrylabel" id="ca-label">Canada</text>
+      <text x="480" y="550" class="countrylabel" id="mx-label">Mexico</text>
+      <text x="1800" y="250" class="countrylabel" id="ru-label">Russia</text>
+      <text x="850" y="860" class="countrylabel" id="br-label">Brazil</text>
+      <text x="2000" y="470" class="countrylabel" id="cn-label">China</text>
+      </g>
 </svg>
