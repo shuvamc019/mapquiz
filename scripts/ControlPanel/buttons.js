@@ -1,20 +1,35 @@
 const giveUpButton = document.getElementById("giveUpButton")
 const restartButton = document.getElementById("restartButton")
+const startButton = document.getElementById("startButton")
 const dialog = document.getElementById("dialog")
 const dialogHeader = document.getElementById("dialogHeader")
 const dialogText = document.getElementById("dialogText")
 const dialogCloseButton = document.getElementById("dialogCloseButton")
 const dialogRestartButton = document.getElementById("dialogRestartButton")
 
-restartButton.addEventListener("click", restart);
-giveUpButton.addEventListener("click", giveUp);
-dialogRestartButton.addEventListener("click", function() {
-    dialog.close()
-    restart();
-});
-dialogCloseButton.addEventListener("click", function() {
-    dialog.close()
-});
+function initButtons() {
+    restartButton.addEventListener("click", restart);
+    giveUpButton.addEventListener("click", giveUp);
+    dialogRestartButton.addEventListener("click", function() {
+        dialog.close()
+        restart();
+    });
+    dialogCloseButton.addEventListener("click", function() {
+        dialog.close()
+    });
+    startButton.addEventListener("click", start)
+
+}
+
+function start() {
+    document.getElementsByClassName("timerContainer")[0].removeChild(startButton)
+    document.getElementsByClassName("timerContainer")[0].appendChild(timer)
+    timerStart()
+    textEntry.disabled = false
+    textEntry.focus()
+    giveUpButton.disabled = false
+}
+
 
 function giveUp() {
     timerPause();
@@ -48,17 +63,13 @@ function gameWon() {
 }
 
 function restart() {
-    grayAllCountries();
+    document.getElementsByClassName("timerContainer")[0].removeChild(timer)
+    document.getElementsByClassName("timerContainer")[0].appendChild(startButton)
 
-    timerReset();
-    timerStart();
-
-    textEntry.disabled = false
-    giveUpButton.disabled = false
 
     resetCountriesFound();
-
     hideCountryLabels();
-
-    zoomToDefault();
+    zoomToFullScreen();
+    grayAllCountries();
+    timerReset();
 }

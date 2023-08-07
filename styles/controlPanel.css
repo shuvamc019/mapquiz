@@ -13,7 +13,7 @@
     -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
     -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 
-    width: 15%;
+    width: 18%;
     text-align: center;
 
     .entry {
@@ -76,5 +76,31 @@
 
 .labelDiv {
     background-color: rgb(132, 75, 132);
+    margin: 5%;
+}
+
+.optionsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: -3%;
+    justify-content: center;
+}
+
+.dropDown {
+    border: transparent;
+    background-color: transparent;
+    text-align: center;
+}
+
+#modeContainer, #regionContainer {
+    flex: 1;
+    margin: auto;
+    width: auto;
+}
+
+.timerContainer {
+    position: relative;
+    align-items: center;
     margin: 5%;
 }

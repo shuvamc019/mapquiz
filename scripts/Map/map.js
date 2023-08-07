@@ -1,3 +1,5 @@
+const defaultGray = "#555555"
+
 function removeTitles() {
     const titles = svg.contentDocument.getElementsByTagName("title");
     for(const title of titles) {
@@ -54,8 +56,38 @@ function initSpecialCases() {
   }
 }
 
+function setBaselineColors() {
+  //color all landmasses as defaultGray
+  //anything that is a country will later be overwritten
+  //non-countries will always stay defaultGray
+  let elements = svg.contentDocument.getElementsByClassName("landxx")
+  for(const element of elements) {
+    element.style.fill = defaultGray
+  }
+  elements = svg.contentDocument.getElementsByClassName("coastxx")
+  for(const element of elements) {
+    element.style.fill = defaultGray
+  }
+  elements = svg.contentDocument.getElementsByClassName("antxx")
+  for(const element of elements) {
+    element.style.fill = defaultGray
+  }
+  elements = svg.contentDocument.getElementsByClassName("smallislandxx")
+  for(const element of elements) {
+    element.style.fill = defaultGray
+  }
+
+  //color Antarctica even though it's a non-country
+  elements = svg.contentDocument.getElementsByClassName("an")
+  for(const element of elements) {
+    element.style.fill = "#D3D3D3"
+  }
+}
+
 function initMap() {
+  setBaselineColors()
   colorAllCountries();  
   removeTitles();
   initSpecialCases();
+  initZoom();
 }

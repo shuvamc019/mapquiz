@@ -29,7 +29,6 @@ function initZoom() {
 
   svg.contentDocument.addEventListener("wheel", zoom);
   svgTag.addEventListener("mousedown", function(mouseEvent) {
-    console.log("Mouse down")
     mouseDown = true
     panOrigin = getPoint(mouseEvent)
   });
@@ -81,11 +80,11 @@ function zoom(wheelEvent) {
   window.clearTimeout(zoomTimeout);
 	zoomTimeout = setTimeout(function() {
     zoomCenter = null
-	}, 100);
+	}, 500);
 }
 
 function fitViewBoxInBounds(viewBox) {
- let newWidth = viewBox.width <= MAX_WIDTH? viewBox.width : MAX_WIDTH
+ let newWidth = viewBox.width <= MAX_WIDTH ? viewBox.width : MAX_WIDTH
  let newHeight= viewBox.height <= MAX_HEIGHT ? viewBox.height : MAX_HEIGHT
 
  if(newWidth < MIN_WIDTH) newWidth = MIN_WIDTH
@@ -128,6 +127,5 @@ function animateSetViewBox(viewBox) {
 }
 
 function viewBoxString(viewBox) {
-  //console.log(viewBox)
   return viewBox.minX.toString() + " " + viewBox.minY.toString() + " " + viewBox.width.toString() + " " + viewBox.height.toString()
 }

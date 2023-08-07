@@ -1,9 +1,11 @@
 const timer = document.getElementById("timer")
+let timerRunning = false
 let timerId = 0
 let seconds = 0
 
 function timerStart() {
     let start = Date.now()
+    timerRunning = true
     timerId = setInterval(function() {
         let delta = Date.now() - start;
         let secondsElapsed = Math.floor(delta / 1000)
@@ -14,6 +16,7 @@ function timerStart() {
 function timerPause() {
     seconds = getSecondsPassed()
     clearInterval(timerId)
+    timerRunning = false
 }
 
 function timerReset() {
@@ -39,12 +42,3 @@ function getSecondsPassed() {
 
     return 60 * minutes + seconds
 }
-
-timerStart()
-document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      timerStart()
-    } else {
-      timerPause()
-    }
-  });

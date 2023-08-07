@@ -21,8 +21,9 @@ async function init() {
   await fetch("resources/codes.csv").then(r=>r.text()).then(readCodesFile);
 
   initMap();
-  initCountryList();
-  initZoom();
+  initControlPanel();
+
+  //automateCountryLabels();
 }
 
 svg.addEventListener("load", init, false);
