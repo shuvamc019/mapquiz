@@ -31,9 +31,9 @@ function colorAllCountries() {
 
 }
 
-function colorCountry(countryName) {
-  const elements = svg.contentDocument.getElementsByClassName(countryName);
-  const color = colorMap.get(countryName)
+function colorCountry(code) {
+  const elements = svg.contentDocument.getElementsByClassName(code);
+  const color = colorMap.get(code)
 
   for(const element of elements) {
     element.style.fill = color;
@@ -86,7 +86,6 @@ function setBaselineColors() {
 
 function initMap() {
   setBaselineColors()
-  colorAllCountries();  
   removeTitles();
   initSpecialCases();
   initZoom();

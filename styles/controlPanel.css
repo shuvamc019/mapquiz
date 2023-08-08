@@ -10,20 +10,23 @@
     background-color: #cbcbcb;
     border-radius: 10px;
 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
     -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
     -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 
     width: 18%;
     text-align: center;
+}
 
-    .entry {
-        #textEntry {
-            width: 75%;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
-    }
+#mode1Entry, #mode3Entry {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+button:hover:enabled {
+    cursor: pointer;
 }
 
 .buttonRow {
@@ -41,8 +44,7 @@
     outline: none;
 }
 
-.transparentButton:hover {
-    cursor: pointer;
+.transparentButton:hover:enabled {
     text-decoration: underline;
 }
 
@@ -93,6 +95,14 @@
     text-align: center;
 }
 
+.dropDown:hover {
+    cursor: pointer;
+}
+
+.dropDown:focus {
+    outline: none;
+}
+
 #modeContainer, #regionContainer {
     flex: 1;
     margin: auto;
@@ -103,4 +113,8 @@
     position: relative;
     align-items: center;
     margin: 5%;
+}
+
+.non-selectable {
+    user-select: none;
 }

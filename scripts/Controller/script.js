@@ -3,7 +3,7 @@ const colorMap = new Map(); //map country code to color
 const grayMap = new Map(); //map country code to grayscale color
 const countryToCodeMap = new Map(); //map different country names to country code
 const codeToCountryMap = new Map(); //map different country codes to main country name
-const countryFoundMap = new Map(); //map country code to whether they were found yet
+const allCountries = []; //map country code to whether they were found yet
 
 //2D array that holds the countries in each continent, first element in each array is continent name
 const continentCountries = [["Africa"], ["Asia"], ["Europe"], ["North America"], ["Oceania"], ["South America"]]

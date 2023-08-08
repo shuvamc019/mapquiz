@@ -45,7 +45,7 @@ function readCodesFile(fileText) {
       const grayScale = groupColors[2 * groupNum - 1];
       grayMap.set(countryCode, grayScale);
   
-      countryFoundMap.set(countryCode, false);
+      allCountries.push(countryCode)
   
       codeToCountryMap.set(countryCode, countryName)
   

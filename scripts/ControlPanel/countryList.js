@@ -1,6 +1,4 @@
 const showCountryButton = document.getElementById("showCountryButton")
-const controlPanel = document.getElementsByClassName("controlPanel")[0]
-
 const countryListContainer = document.getElementsByClassName("countryListContainer")[0]
 const countryListDiv = document.createElement("div")
 

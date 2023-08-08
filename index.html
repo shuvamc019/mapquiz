@@ -13,7 +13,7 @@
 
             <div class="controlPanel">
                 <div class="titleContainer">
-                    <h3>Countries of the World Quiz</h3>
+                    <h3 class="non-selectable">Countries of the World Quiz</h3>
                 </div>
                 <div class="optionsContainer">
                     <form class="modeContainer">
@@ -38,14 +38,19 @@
                      
                 </div>
                 <div class="timerContainer">
-                    <button id="startButton">Start</button>
-                    <p id="timer">00:00</p>
+                    <p id="timer" class="non-selectable">00:00</p>
                 </div>
-                <div class="entry">
-                    <input id="textEntry" placeholder="Enter a country">
+                <div class="mode1Control" id="mode1Control">
+                    <input id="mode1Entry" placeholder="Enter a country">
+                </div>
+                <div class="mode2Control" id="mode2Control">
+                    <p id="mode2Label">Find:</p>
+                </div>
+                <div class="mode3Control" id="mode3Control">
+                    <input id="mode3Entry" placeholder="Enter a country">
                 </div>
                 <div class="progressContainer">
-                    <p id="progressLabel">0 / 197 Countries Found</p>
+                    <p id="progressLabel" class="non-selectable">0 / 197 Countries Found</p>
                 </div>
                 <div class="countryListContainer">
                     <button id="showCountryButton" class="transparentButton">Show Country List ▶</button>
@@ -83,6 +88,9 @@
         <script src="scripts/Map/svgZoom.js"></script>
         <script src="scripts/ControlPanel/controlPanel.js"></script>
         <script src="scripts/Map/automateCountryLabels.js"></script>
+        <script src="scripts/Modes/mode1.js"></script>
+        <script src="scripts/Modes/mode2.js"></script>
+        <script src="scripts/Modes/mode3.js"></script>
 
     </body>
 </html>
