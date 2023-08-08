@@ -8666,7 +8666,7 @@
 			</g>
 		</g>
 
-         <text x="480" y="430" class="countrylabel" id="us-label">United States of America</text>
+        <!-- <text x="480" y="430" class="countrylabel" id="us-label">United States of America</text>
          <text x="530" y="300" class="countrylabel" id="ca-label">Canada</text>
          <text x="480" y="550" class="countrylabel" id="mx-label">Mexico</text>
          <text x="1800" y="250" class="countrylabel" id="ru-label">Russia</text>
@@ -8680,7 +8680,7 @@
          <text x="780" y="1080" class="countrylabel" id="ar-label">Argentina</text>
          <text x="1710" y="470" class="countrylabel" id="af-label">Afghanistan</text>
          <text x="1390" y="407" class="countrylabel" id="al-label">Albania</text>
-         <text x="1260" y="525" class="countrylabel" id="dz-label">Algeria</text>
+         <text x="1260" y="525" class="countrylabel" id="dz-label">Algeria</text> -->
 
       </g>
 </svg>

@@ -16,10 +16,7 @@ function mode1Entered(event) {
 }
 
 function mode1Init() {
-    if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
-    if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
-
-    if(!controlPanel.contains(mode1Control))controlPanel.insertBefore(mode1Control, progressContainer)
+    controlPanel.insertBefore(mode1Control, progressContainer)
 
     mode1Entry.value = ""
     grayAllCountries();

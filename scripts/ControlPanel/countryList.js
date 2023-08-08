@@ -77,9 +77,11 @@ function continentCompleted(continentDiv) {
 
 function initCountryList() {
     countryListDiv.classList.add("countryListDiv")
-    
-    for(const continentArr of continentCountries) {
-        const continent = continentArr[0]
+
+    for(let i = 0; i < continents.length; i++) {
+        const continent = continents[i]
+        const continentArr = continentCountries[i]
+
         const continentDiv = document.createElement("div")
         continentDiv.classList.add("continentDiv")
 
@@ -107,6 +109,8 @@ function initCountryList() {
         continentDiv.appendChild(countryGrid)
         countryListDiv.appendChild(continentDiv)
     }
+    
+    
     hideCountryLabels();
 }
 

@@ -16,7 +16,7 @@ function grayAllCountries() {
         element.style.fill = color;
 
         if(element.classList.contains("oceania-ellipse")) {
-          element.style.fill = "none";
+          element.style.fill = "transparent";
           element.style.stroke = color;
         }
       }
@@ -39,7 +39,7 @@ function colorCountry(code) {
     element.style.fill = color;
 
     if(element.classList.contains("oceania-ellipse")) {
-      element.style.fill = "none";
+      element.style.fill = "transparent";
       element.style.stroke = color;
     }
   }
@@ -53,6 +53,29 @@ function initSpecialCases() {
 
   for(const circleOpaque of svg.contentDocument.getElementsByClassName("circle-opaque")) {
     circleOpaque.style.opacity = "0";
+  }
+}
+
+function saturateMap(saturation) {
+  let elements = svg.contentDocument.getElementsByClassName("landxx")
+  for(const element of elements) {
+    element.setAttribute("filter", "saturate(" + saturation + ")")
+  }
+  elements = svg.contentDocument.getElementsByClassName("coastxx")
+  for(const element of elements) {
+    element.setAttribute("filter", "saturate(" + saturation + ")")
+  }
+  elements = svg.contentDocument.getElementsByClassName("antxx")
+  for(const element of elements) {
+    element.setAttribute("filter", "saturate(" + saturation + ")")
+  }
+  elements = svg.contentDocument.getElementsByClassName("smallislandxx")
+  for(const element of elements) {
+    element.setAttribute("filter", "saturate(" + saturation + ")")
+  }
+  elements = svg.contentDocument.getElementsByClassName("oceania-ellipse")
+  for(const element of elements) {
+    element.setAttribute("filter", "saturate(" + saturation + ")")
   }
 }
 

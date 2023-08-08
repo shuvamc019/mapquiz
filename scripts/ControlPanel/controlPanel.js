@@ -34,7 +34,7 @@ function initControlPanel() {
         dialog.close()
         restart();
     });
-    dialogCloseButton.addEventListener("click", dialog.close());
+    dialogCloseButton.addEventListener("click", function() { dialog.close() });
 
     modeDropdown.addEventListener("change", restart)
 
@@ -43,6 +43,12 @@ function initControlPanel() {
 }
 
 function restart() {
+    if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
+    if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
+    if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
+    saturateMap("1")
+    removeHoverListeners()
+
     resetCountriesFound();
     hideCountryLabels();
     zoomToFullScreen();
@@ -74,6 +80,8 @@ function newCountryFound(code) {
     countriesFound++
     progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
 
+    console.log(countriesFound)
+
     if(countriesFound == totalCountries) {
         gameWon()
     }
@@ -92,6 +100,7 @@ function resetCountriesFound() {
 
   function giveUp() {
     timerPause();
+    removeHoverListeners()
     showNotFoundCountryLabels()
     //TODO: make things disabled
 

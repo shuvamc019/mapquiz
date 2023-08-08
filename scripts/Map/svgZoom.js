@@ -1,5 +1,3 @@
-let svgTag = null
-
 let mouseDown = false
 let panOrigin = null
 
@@ -25,8 +23,6 @@ let currentViewBox = {
 }
 
 function initZoom() {
-  svgTag = svg.contentDocument.getElementsByTagName("svg")[0]
-
   svg.contentDocument.addEventListener("wheel", zoom);
   svgTag.addEventListener("mousedown", function(mouseEvent) {
     mouseDown = true
@@ -37,6 +33,10 @@ function initZoom() {
   svg.contentDocument.addEventListener("mousemove", pan);
 
   zoomToFullScreen()
+
+  svgTag.addEventListener("keydown", function() {
+    console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
+  })
 }
 
 function getPoint(event) {
@@ -120,7 +120,7 @@ function setViewBox(viewBox) {
 function animateSetViewBox(viewBox) {
   fitViewBoxInBounds(viewBox)
   currentViewBox = viewBox
-  gsap.to(svgTag, 2, { 
+  gsap.to(svgTag, 1, { 
     attr: { viewBox: viewBoxString(viewBox)
   }, 
   ease:"power2.inOut"})

@@ -3,17 +3,45 @@ const mode3Entry = document.getElementById("mode3Entry");
 mode3Entry.addEventListener("keyup", mode3Entered);
 
 function mode3Entered(event) {
-    
+    const countryName = mode3Entry.value.toLowerCase()
+
+    if(countryToCodeMap.has(countryName)) {
+      const code = countryToCodeMap.get(countryName);
+      if(code == randomCountryCode) {
+        newCountryFound(code)
+        mode3Entry.value = ""
+
+        deselectCountry(code)
+        randomCountryCode = getRandomCountryCode()
+        selectCountry(randomCountryCode)
+      }
+    }
 }
 
 function mode3Init() {
-    if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
-    if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
-
-    if(!controlPanel.contains(mode3Control)) controlPanel.insertBefore(mode3Control, progressContainer)
-
-    randomCountry = getRandomCountry()
+    controlPanel.insertBefore(mode3Control, progressContainer)
 
     mode3Entry.value = ""
     colorAllCountries()
+    saturateMap("0.4")
+
+    randomCountryCode = getRandomCountryCode()
+    selectCountry(randomCountryCode)
+}
+
+function selectCountry(code) {
+    const countryViewbox = viewboxMap.get(code)
+    animateSetViewBox(countryViewbox)
+
+    const elements = svgTag.getElementsByClassName(code)
+    for(const element of elements) {
+        element.setAttribute("filter", "saturate(1.5)")
+    }
+}
+
+function deselectCountry(code) {
+    const elements = svgTag.getElementsByClassName(code)
+    for(const element of elements) {
+        element.setAttribute("filter", "saturate(0.3)")
+    }
 }

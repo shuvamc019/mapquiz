@@ -2,10 +2,7 @@ const mode2Control = document.getElementById("mode2Control")
 const mode2Label = document.getElementById("mode2Label");
 
 function mode2Init() {
-    if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
-    if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
-
-    if(!controlPanel.contains(mode2Control)) controlPanel.insertBefore(mode2Control, progressContainer)
+    controlPanel.insertBefore(mode2Control, progressContainer)
 
     addHoverListeners()
     randomCountryCode = getRandomCountryCode()
@@ -19,8 +16,8 @@ function addHoverListeners() {
     for(const code of colorMap.keys()) {
         const elements = svg.contentDocument.getElementsByClassName(code);
         for(const element of elements) {
-            element.addEventListener("mouseover", function() { svgTag.style.cursor = "pointer" })
-            element.addEventListener("mouseout", function() { svgTag.style.cursor = "auto" })
+            element.addEventListener("mouseover", hoverCursor)
+            element.addEventListener("mouseout", defaultCursor)
         }
     }
 }
@@ -29,8 +26,8 @@ function removeHoverListeners() {
     for(const code of colorMap.keys()) {
         const elements = svg.contentDocument.getElementsByClassName(code);
         for(const element of elements) {
-            element.removeEventListener("mouseover", function() { svgTag.style.cursor = "pointer" })
-            element.removeEventListener("mouseout", function() { svgTag.style.cursor = "auto" })
+            element.removeEventListener("mouseover", hoverCursor)
+            element.removeEventListener("mouseout", defaultCursor)
         }
     }
 }
@@ -49,11 +46,22 @@ function removeClickListener(code) {
     }
 }
 
+function removeClickListeners() {
+    for(const code of colorMap.keys()) {
+        removeClickListener(code)
+    }
+}
+
 function countryClicked() {
     newCountryFound(randomCountryCode)
+    removeClickListener(randomCountryCode)
+
     if(countriesRemainingArr.length > 0) {
         randomCountryCode = getRandomCountryCode()
         mode2Label.innerHTML = "Find: " + codeToCountryMap.get(randomCountryCode)
         addClickListener(randomCountryCode)
     }
 }
+
+function hoverCursor() { svgTag.style.cursor = "pointer" }
+function defaultCursor() { svgTag.style.cursor = "auto" }
