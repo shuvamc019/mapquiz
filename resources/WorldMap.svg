@@ -128,8 +128,9 @@
   <rect
      fill="url(#grid)"
      x="-100"
+     y="-5000"
      width="3000"
-     height="2000"
+     height="10000"
      id="ocean" />
 
 <g id="wholeMap" transform="translate(-50 -20)">
@@ -7467,7 +7468,7 @@
        id="title2557">Trinidad and Tobago</title>
     <g
        id="tt-"
-       class="landxx coastxx tt">
+       class="smallislandxx tt">
       <path
          id="path6114"
          d="m 799.83,672.69 c 0.842,-1.256 3.108,-1.125 3.625,-2.606 0.318,-0.911 0.113,-3.013 -1.245,-2.938 0.962,-0.973 2.597,-1.168 3.887,-1.287 2.629,-0.241 0.408,1.407 0.573,2.943 0.154,1.428 1.032,2.739 -0.816,3.417 -1.948,0.713 -4.084,-0.293 -6.024,0.471" />
@@ -8062,7 +8063,7 @@
        id="title2749">Saint Kitts and Nevis</title>
     <g
        id="kn-"
-       class="landxx smallislandxx kn">
+       class="smallislandxx kn">
       <path
          id="path5926"
          d="m 798.886,610.63 c -0.501,-0.434 -0.981,-0.89 -1.44,-1.368 0.858,-0.412 1.487,0.631 1.44,1.368" />

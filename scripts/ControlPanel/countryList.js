@@ -35,11 +35,12 @@ function hideCountryLabels() {
             continentLabel.innerHTML = labelText.slice(0, labelText.length - 4)
         }
     }
+
     countryListDiv.scrollTop = 0;
 }
 
 function showLabel(code) {
-    const countryName = removeWhiteSpace(codeToCountryMap.get(code))
+    const countryName = removeWhiteSpace(countryMap.get(code).name)
 
     for(const countryLabel of countryListDiv.getElementsByClassName("countryLabel")) {
         if(countryLabel.id === (countryName + "label")) {
@@ -93,13 +94,15 @@ function initCountryList() {
         countryGrid.classList.add("countryGrid")
 
         for(let i = 1; i < continentArr.length; i++) {
+            const country = continentArr[i];
+            
             const labelDiv = document.createElement("div");
             labelDiv.classList.add("labelDiv")
 
             const countryLabel = document.createElement("p")
             countryLabel.classList.add("countryLabel")
-            countryLabel.id = removeWhiteSpace(continentArr[i]) + "label"
-            countryLabel.innerHTML = continentArr[i]
+            countryLabel.id = removeWhiteSpace(country.name) + "label"
+            countryLabel.innerHTML = country.name
 
             labelDiv.appendChild(countryLabel)
             countryGrid.appendChild(labelDiv)

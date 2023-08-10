@@ -8,9 +8,9 @@ function removeTitles() {
 } 
 
 function grayAllCountries() {
-    for(const code of colorMap.keys()) {
+    for(const code of countryMap.keys()) {
       const elements = svg.contentDocument.getElementsByClassName(code);
-      const color = grayMap.get(code)
+      const color = countryMap.get(code).grayScale
   
       for(const element of elements) {
         element.style.fill = color;
@@ -25,7 +25,7 @@ function grayAllCountries() {
 }
 
 function colorAllCountries() {
-    for(const code of colorMap.keys()) {
+    for(const code of countryMap.keys()) {
       colorCountry(code)
     }
 
@@ -33,7 +33,7 @@ function colorAllCountries() {
 
 function colorCountry(code) {
   const elements = svg.contentDocument.getElementsByClassName(code);
-  const color = colorMap.get(code)
+  const color = countryMap.get(code).color
 
   for(const element of elements) {
     element.style.fill = color;

@@ -30,12 +30,12 @@ function mode3Init() {
 }
 
 function selectCountry(code) {
-    const countryViewbox = viewboxMap.get(code)
+    const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
     const elements = svgTag.getElementsByClassName(code)
     for(const element of elements) {
-        element.setAttribute("filter", "saturate(1.5)")
+        element.setAttribute("filter", "saturate(2)")
     }
 }
 

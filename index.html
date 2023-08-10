@@ -10,60 +10,76 @@
     <body>
         <div class="mapContainer">
             <object id="map" type="image/svg+xml" data="resources/WorldMap.svg"></object>
+        </div>
 
-            <div class="controlPanel">
-                <div class="titleContainer">
-                    <h3 class="non-selectable">Countries of the World Quiz</h3>
-                </div>
-                <div class="optionsContainer">
-                    <form class="modeContainer">
-                        <select name="mode" id="modeDropdown" class="dropDown">
-                            <option value="1">Name All Countries</option>
-                            <option value="2" selected>Find The Country</option>
-                            <option value="3">Name The Country</option>
-                         </select>
-                    </form>
+        <div class="controlPanel panelStyle">
+            <div class="titleContainer">
+                <h3 class="non-selectable">Countries of the World Quiz</h3>
+                <div class="helpContainer">
+                    <img id="helpIcon" src="resources/help-icon.svg"/>
+                    <div class="helpTooltip panelStyle">
+                        <h3>How To Play</h3>
+                        <p>Use the touchpad scroll or mouse wheel to zoom in and out of the map. Drag to pan the map. </p>
 
-                     <form id="regionContainer">
-                        <select name="region" id="regionDropdown" class="dropDown">
-                            <option value="1" selected>Whole World</option>
-                            <option value="2">Africa</option>
-                            <option value="3">Asia</option>
-                            <option value="4">Europe</option>
-                            <option value="5">N. America</option>
-                            <option value="6">Oceania</option>
-                            <option value="7">S. America</option>
-                          </select>
-                     </form>
-                     
-                </div>
-                <div class="timerContainer">
-                    <p id="timer" class="non-selectable">00:00</p>
-                </div>
-                <div class="mode1Control" id="mode1Control">
-                    <input id="mode1Entry" placeholder="Enter a country">
-                </div>
-                <div class="mode2Control" id="mode2Control">
-                    <p id="mode2Label">Find:</p>
-                </div>
-                <div class="mode3Control" id="mode3Control">
-                    <input id="mode3Entry" placeholder="What country is this?">
-                </div>
-                <div class="progressContainer">
-                    <p id="progressLabel" class="non-selectable">0 / 197 Countries Found</p>
-                </div>
-                <div class="countryListContainer">
-                    <button id="showCountryButton" class="transparentButton">Show Country List ▶</button>
-                </div>
-                <div class="buttonRow">
-                    <div class="restartContainer">
-                        <button id="restartButton" class="transparentButton">Restart</button>
+                        <h4>Mode 1 - Name All Countries</h4>
+                        <p>Name all 197 countries in the world. Countries will show up in color once found. Try to color the whole map!</p>
+
+                        <h4>Mode 2 - Find The Country</h4>
+                        <p>A country will show up on the control panel, find it on the map and click on it.</p>
+
+                        <h4>Mode 3 - Name The Country</h4>
+                        <p>Name the highlighted country.</p>
                     </div>
-                    <div class="buttonSpacer">
-                    </div>
-                    <div class="giveUpContainer">
-                        <button id="giveUpButton" class="transparentButton">Give Up</button>
-                    </div>
+                </div>    
+            </div>
+            <div class="optionsContainer">
+                <form class="modeContainer">
+                    <select name="mode" id="modeDropdown" class="dropDown">
+                        <option value="1">Name All Countries</option>
+                        <option value="2" selected>Find The Country</option>
+                        <option value="3">Name The Country</option>
+                     </select>
+                </form>
+
+                 <form id="regionContainer">
+                    <select name="region" id="regionDropdown" class="dropDown">
+                        <option value="1" selected>Whole World</option>
+                        <option value="2">Africa</option>
+                        <option value="3">Asia</option>
+                        <option value="4">Europe</option>
+                        <option value="5">N. America</option>
+                        <option value="6">Oceania</option>
+                        <option value="7">S. America</option>
+                      </select>
+                 </form>
+                 
+            </div>
+            <div class="timerContainer">
+                <p id="timer" class="non-selectable">00:00</p>
+            </div>
+            <div class="mode1Control" id="mode1Control">
+                <input id="mode1Entry" placeholder="Enter a country">
+            </div>
+            <div class="mode2Control" id="mode2Control">
+                <p id="mode2Label">Find:</p>
+            </div>
+            <div class="mode3Control" id="mode3Control">
+                <input id="mode3Entry" placeholder="What country is this?">
+            </div>
+            <div class="progressContainer">
+                <p id="progressLabel" class="non-selectable">0 / 197 Countries Found</p>
+            </div>
+            <div class="countryListContainer">
+                <button id="showCountryButton" class="transparentButton">Show Country List ▶</button>
+            </div>
+            <div class="buttonRow">
+                <div class="restartContainer">
+                    <button id="restartButton" class="transparentButton">Restart</button>
+                </div>
+                <div class="buttonSpacer">
+                </div>
+                <div class="giveUpContainer">
+                    <button id="giveUpButton" class="transparentButton">Give Up</button>
                 </div>
             </div>
         </div>

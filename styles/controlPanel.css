@@ -1,18 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+.panelStyle {
+    background-color: #cbcbcb;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
 .controlPanel {
     position: absolute;
     bottom: 15%;
     left: 3%;
 
     font-family: "Roboto", sans-serif;
-
-    background-color: #cbcbcb;
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 
     width: 18%;
     text-align: center;
@@ -117,4 +118,42 @@ button:hover:enabled {
 
 .non-selectable {
     user-select: none;
+}
+
+.helpContainer {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 6%;
+    height: 6%;
+}
+
+#helpIcon {
+    width: 90%;
+    height: auto;
+}
+
+.helpTooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -10%;
+    left: 200%;
+    width: 2000%;
+    padding: 15%;
+}
+
+.helpTooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #cbcbcb transparent transparent;
+}
+
+.helpContainer:hover .helpTooltip {
+    cursor: pointer;
+    visibility: visible;
 }

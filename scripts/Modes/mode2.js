@@ -6,14 +6,15 @@ function mode2Init() {
 
     addHoverListeners()
     randomCountryCode = getRandomCountryCode()
-    mode2Label.innerHTML = "Find: " + codeToCountryMap.get(randomCountryCode)
+    const randomCountry = countryMap.get(randomCountryCode)
+    mode2Label.innerHTML = "Find: " + randomCountry.name
     addClickListener(randomCountryCode)
 
     colorAllCountries()
 }
 
 function addHoverListeners() {
-    for(const code of colorMap.keys()) {
+    for(const code of countryMap.keys()) {
         const elements = svg.contentDocument.getElementsByClassName(code);
         for(const element of elements) {
             element.addEventListener("mouseover", hoverCursor)
@@ -23,7 +24,7 @@ function addHoverListeners() {
 }
 
 function removeHoverListeners() {
-    for(const code of colorMap.keys()) {
+    for(const code of countryMap.keys()) {
         const elements = svg.contentDocument.getElementsByClassName(code);
         for(const element of elements) {
             element.removeEventListener("mouseover", hoverCursor)
@@ -47,7 +48,7 @@ function removeClickListener(code) {
 }
 
 function removeClickListeners() {
-    for(const code of colorMap.keys()) {
+    for(const code of countryMap.keys()) {
         removeClickListener(code)
     }
 }
@@ -58,7 +59,8 @@ function countryClicked() {
 
     if(countriesRemainingArr.length > 0) {
         randomCountryCode = getRandomCountryCode()
-        mode2Label.innerHTML = "Find: " + codeToCountryMap.get(randomCountryCode)
+        const randomCountry = countryMap.get(randomCountryCode);
+        mode2Label.innerHTML = "Find: " + randomCountry.name
         addClickListener(randomCountryCode)
     }
 }

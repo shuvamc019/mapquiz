@@ -18,15 +18,23 @@ const totalCountries = 197;
 let randomCountryCode = ""
 
 function initControlPanel() {
-    document.addEventListener("visibilitychange", () => {
-        if(timerRunning) {
-            if (document.visibilityState === "visible") {
-                timerStart()
-            } else {
-                timerPause()
-            }
-        } 
-    });
+    document.addEventListener("visibilitychange", function() {
+        if(document.visibilityState === "visible" && !timerRunning) {
+            timerStart()
+        } else if(document.visibilityState !== "visible" && timerRunning) {
+            timerPause()
+        }
+    })
+    document.addEventListener("focus", function() {
+        if(document.visibilityState === "visible" && !timerRunning) {
+            timerStart() 
+        }
+    })
+    document.addEventListener("blur", function() {
+        if(document.visibilityState !== "visible" && timerRunning) {
+            timerPause()
+        }
+    })
 
     restartButton.addEventListener("click", restart);
     giveUpButton.addEventListener("click", giveUp);
@@ -80,8 +88,6 @@ function newCountryFound(code) {
     countriesFound++
     progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
 
-    console.log(countriesFound)
-
     if(countriesFound == totalCountries) {
         gameWon()
     }
@@ -93,7 +99,7 @@ function resetCountriesFound() {
   
     //clear the array and repopulate
     countriesRemainingArr.length = 0 
-    for(const code of allCountries) {
+    for(const code of countryMap.keys()) {
       countriesRemainingArr.push(code)
     }
   }

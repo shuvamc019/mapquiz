@@ -1,198 +1,198 @@
-Name,Code,Continent,Group,MinX,MinY,Width,Height
-Afghanistan,af,Asia,1,1398,253,554,294
-Albania,al,Europe,2,1290,304,293,156
-Algeria,dz,Africa,3,765,394,651,346
-Andorra,ad,Europe,1,1085,291,297,158
-Angola,ao,Africa,5,1004,654,790,420
-Antigua & Barbuda,ag,North America,1,535,467,375,200
-Argentina,ar,South America,2,160,595,1203,640
-Armenia,am,Asia,4,1398,253,554,294
-Australia,au,Oceania,2,1894,816,669,355
-Austria,at,Europe,1,1186,230,297,158
-Azerbaijan,az,Asia,2,1398,253,554,294
-The Bahamas,bs,North America,5,535,467,375,200
-Bahrain,bh,Asia,2,1324,379,502,267
-Bangladesh,bd,Asia,6,1104,63,1553,826
-Barbados,bb,North America,1,535,467,375,200
-Belarus,by,Europe,2,1253,204,297,158
-Belgium,be,Europe,1,1186,230,297,158
-Belize,bz,North America,5,280,450,460,245
-Benin,bj,Africa,3,765,394,651,346
-Bhutan,bt,Asia,2,1506,414,638,339
-Bolivia,bo,South America,6,160,595,1203,640
-Bosnia & Herzegovina,ba,Europe,2,1290,304,293,156
-Botswana,bw,Africa,6,1004,654,790,420
-Brazil,br,South America,1,160,595,1203,640
-Brunei,bn,Asia,5,1785,475,720,383
-Bulgaria,bg,Europe,2,1290,304,293,156
-Burkina Faso,bf,Africa,6,765,394,651,346
-Burundi,bi,Africa,5,1004,654,790,420
-Cape Verde,cv,Africa,6,765,394,651,346
-Cambodia,kh,Asia,4,1785,475,720,383
-Cameroon,cm,Africa,3,1019,412,651,346
-Canada,ca,North America,3,25,0,1088,578
-Central African Republic,cf,Africa,6,1019,412,651,346
-Chad,td,Africa,1,1019,412,651,346
-Chile,cl,South America,5,160,595,1203,640
-China,cn,Asia,5,1655,210,760,405
-Colombia,co,South America,3,160,595,1203,640
-Comoros,km,Africa,1,1317,715,591,314
-Republic of the Congo,cg,Africa,1,1004,654,790,420
-Democratic Republic of the Congo,cd,Africa,2,1004,654,790,420
-Costa Rica,cr,North America,6,280,450,460,245
-Ivory Coast,ci,Africa,3,765,394,651,346
-Croatia,hr,Europe,1,1290,304,293,156
-Cuba,cu,North America,4,535,467,375,200
-Cyprus,cy,Asia,2,1324,379,502,267
-Czechia,cz,Europe,6,1186,230,297,158
-Denmark,dk,Europe,1,877,20,668,355
-Djibouti,dj,Africa,3,1019,412,651,346
-Dominica,dm,North America,1,535,467,375,200
-Dominican Republic,do,North America,3,535,467,375,200
-Ecuador,ec,South America,5,160,595,1203,640
-Egypt,eg,Africa,1,1019,412,651,346
-El Salvador,sv,North America,2,280,450,460,245
-Equatorial Guinea,gq,Africa,1,1004,654,790,420
-Eritrea,er,Africa,1,1019,412,651,346
-Estonia,ee,Europe,5,1253,204,297,158
-Eswatini,sz,Africa,2,1004,654,790,420
-Ethiopia,et,Africa,6,1019,412,651,346
-Fiji,fj,Oceania,4,1186,230,297,158
-Finland,fi,Europe,2,877,20,668,355
-France,fr,Europe,5,1085,291,297,158
-Gabon,ga,Africa,4,1004,654,790,420
-Gambia,gm,Africa,2,765,394,651,346
-Georgia,ge,Asia,6,1398,253,554,294
-Germany,de,Europe,2,1186,230,297,158
-Ghana,gh,Africa,1,765,394,651,346
-Greece,gr,Europe,6,1290,304,293,156
-Grenada,gd,North America,3,535,467,375,200
-Guatemala,gt,North America,3,280,450,460,245
-Guinea,gn,Africa,6,765,394,651,346
-Guinea-Bissau,gw,Africa,1,765,394,651,346
-Guyana,gy,South America,2,160,595,1203,640
-Haiti,ht,North America,1,535,467,375,200
-Vatican City,va,Europe,6,1085,291,297,158
-Honduras,hn,North America,1,280,450,460,245
-Hungary,hu,Europe,3,1186,230,297,158
-Iceland,is,Europe,2,877,20,668,355
-India,in,Asia,3,1506,414,638,339
-Indonesia,id,Asia,6,1785,475,720,383
-Iran,ir,Asia,5,1324,379,502,267
-Iraq,iq,Asia,2,1324,379,502,267
-Ireland,ie,Europe,6,877,20,668,355
-Israel,il,Asia,2,1324,379,502,267
-Italy,it,Europe,2,1085,291,297,158
-Jamaica,jm,North America,2,535,467,375,200
-Japan,jp,Asia,1,1655,210,760,405
-Jordan,jo,Asia,4,1324,379,502,267
-Kazakhstan,kz,Asia,2,1398,253,554,294
-Kenya,ke,Africa,1,1004,654,790,420
-Kiribati,ki,Oceania,2,1186,230,297,158
-Kosovo,xk,Europe,1,1290,304,293,156
-North Korea,kp,Asia,2,1655,210,760,405
-South Korea,kr,Asia,4,1655,210,760,405
-Kuwait,kw,Asia,1,1324,379,502,267
-Kyrgyzstan,kg,Asia,3,1398,253,554,294
-Laos,la,Asia,2,1785,475,720,383
-Latvia,lv,Europe,1,1253,204,297,158
-Lebanon,lb,Asia,6,1324,379,502,267
-Lesotho,ls,Africa,3,1004,654,790,420
-Liberia,lr,Africa,2,765,394,651,346
-Libya,ly,Africa,6,1019,412,651,346
-Liechtenstein,li,Europe,6,1186,230,297,158
-Lithuania,lt,Europe,6,1253,204,297,158
-Luxembourg,lu,Europe,4,1186,230,297,158
-Madagascar,mg,Africa,3,1317,715,591,314
-Malawi,mw,Africa,2,1004,654,790,420
-Malaysia,my,Asia,2,1785,475,720,383
-Maldives,mv,Asia,1,1506,414,638,339
-Mali,ml,Africa,4,765,394,651,346
-Malta,mt,Europe,3,968,126,752,400
-Marshall Islands,mh,Oceania,4,1186,230,297,158
-Mauritania,mr,Africa,2,765,394,651,346
-Mauritius,mu,Africa,2,1317,715,591,314
-Mexico,mx,North America,2,280,450,460,245
-Federated States of Micronesia,fm,Oceania,5,1186,230,297,158
-Moldova,md,Europe,1,968,126,752,400
-Monaco,mc,Europe,3,1085,291,297,158
-Mongolia,mn,Asia,1,1655,210,760,405
-Montenegro,me,Europe,3,1290,304,293,156
-Morocco,ma,Africa,4,765,394,651,346
-Mozambique,mz,Africa,5,1004,654,790,420
-Myanmar,mm,Asia,1,1785,475,720,383
-Namibia,na,Africa,3,1004,654,790,420
-Nauru,nr,Oceania,5,1520,1186,230,297,158
-Nepal,np,Asia,1,1506,414,638,339
-Netherlands,nl,Europe,3,1186,230,297,158
-New Zealand,nz,Oceania,3,1894,816,669,355
-Nicaragua,ni,North America,4,280,450,460,245
-Niger,ne,Africa,2,765,394,651,346
-Nigeria,ng,Africa,6,765,394,651,346
-North Macedonia,mk,Europe,4,1290,304,293,156
-Norway,no,Europe,6,877,20,668,355
-Oman,om,Asia,6,1324,379,502,267
-Pakistan,pk,Asia,2,1398,253,554,294
-Palau,pw,Oceania,3,1186,230,297,158
-Palestine,ps,Asia,5,1324,379,502,267
-Panama,pa,North America,1,280,450,460,245
-Papua New Guinea,pg,Oceania,1,1186,230,297,158
-Paraguay,py,South America,3,160,595,1203,640
-Peru,pe,South America,2,160,595,1203,640
-The Philippines,ph,Asia,1,1785,475,720,383
-Poland,pl,Europe,1,1186,230,297,158
-Portugal,pt,Europe,3,1085,291,297,158
-Qatar,qa,Asia,1,1324,379,502,267
-Romania,ro,Europe,5,1290,304,293,156
-Russia,ru,Europe,3,968,126,752,400
-Rwanda,rw,Africa,1,1004,654,790,420
-St. Kitts & Nevis,kn,North America,2,535,467,375,200
-St. Lucia,lc,North America,3,535,467,375,200
-St. Vincent & the Grenadines,vc,North America,2,535,467,375,200
-Samoa,ws,Oceania,2,1186,230,297,158
-San Marino,sm,Europe,3,1085,291,297,158
-Sao Tome and Principe,st,Africa,3,1004,654,790,420
-Saudi Arabia,sa,Asia,3,1324,379,502,267
-Senegal,sn,Africa,3,765,394,651,346
-Serbia,rs,Europe,6,1290,304,293,156
-Seychelles,sc,Africa,5,1317,715,591,314
-Sierra Leone,sl,Africa,1,765,394,651,346
-Singapore,sg,Asia,1,1785,475,720,383
-Slovakia,sk,Europe,4,1186,230,297,158
-Slovenia,si,Europe,6,1290,304,293,156
-Solomon Islands,sb,Oceania,3,1186,230,297,158
-Somalia,so,Africa,2,725,390,1325,705
-South Africa,za,Africa,1,1004,654,790,420
-South Sudan,ss,Africa,4,1019,412,651,346
-Spain,es,Europe,2,1085,291,297,158
-Sri Lanka,lk,Asia,2,1506,414,638,339
-Sudan,sd,Africa,2,1019,412,651,346
-Suriname,sr,South America,4,160,595,1203,640
-Sweden,se,Europe,3,877,20,668,355
-Switzerland,ch,Europe,3,1186,230,297,158
-Syria,sy,Asia,3,1324,379,502,267
-Taiwan,tw,Asia,6,1655,210,760,405
-Tajikistan,tj,Asia,4,1398,253,554,294
-Tanzania,tz,Africa,3,1004,654,790,420
-Thailand,th,Asia,6,1785,475,720,383
-Timor-Leste,tl,Asia,3,1785,475,720,383
-Togo,tg,Africa,2,765,394,651,346
-Tonga,to,Oceania,1,1186,230,297,158
-Trinidad & Tobago,tt,North America,1,535,467,375,200
-Tunisia,tn,Africa,1,1019,412,651,346
-Turkey,tr,Asia,1,1290,304,293,156
-Turkmenistan,tm,Asia,3,1398,253,554,294
-Tuvalu,tv,Oceania,3,1186,230,297,158
-Uganda,ug,Africa,5,1004,654,790,420
-Ukraine,ua,Europe,6,1253,204,297,158
-United Arab Emirates,ae,Asia,2,1398,253,554,294
-United Kingdom,gb,Europe,3,877,20,668,355
-United States of America,us,North America,6,25,0,1088,578
-Uruguay,uy,South America,4,160,595,1203,640
-Uzbekistan,uz,Asia,6,1398,253,554,294
-Vanuatu,vu,Oceania,2,1186,230,297,158
-Venezuela,ve,South America,6,160,595,1203,640
-Vietnam,vn,Asia,3,1785,475,720,383
-Yemen,ye,Asia,2,1324,379,502,267
-Zambia,zm,Africa,1,1004,654,790,420
-Zimbabwe,zw,Africa,4,1004,654,790,420
+Name,Code,Continent,Region,Group
+Afghanistan,af,Asia,Central Asia,1
+Albania,al,Europe,Southeast Europe,2
+Algeria,dz,Africa,West Africa,3
+Andorra,ad,Europe,West Europe,1
+Angola,ao,Africa,Southern Africa,5
+Antigua & Barbuda,ag,North America,West Caribbean,1
+Argentina,ar,South America,South America,2
+Armenia,am,Asia,Middle East,4
+Australia,au,Oceania,South Oceania,2
+Austria,at,Europe,Central Europe,1
+Azerbaijan,az,Asia,Middle East,2
+The Bahamas,bs,North America,West Caribbean,5
+Bahrain,bh,Asia,Middle East,2
+Bangladesh,bd,Asia,South Asia,6
+Barbados,bb,North America,West Caribbean,1
+Belarus,by,Europe,Northeast Europe,2
+Belgium,be,Europe,Central Europe,1
+Belize,bz,North America,Central America,5
+Benin,bj,Africa,West Africa,3
+Bhutan,bt,Asia,South Asia,2
+Bolivia,bo,South America,South America,6
+Bosnia & Herzegovina,ba,Europe,Southeast Europe,2
+Botswana,bw,Africa,Southern Africa,6
+Brazil,br,South America,South America,1
+Brunei,bn,Asia,Southeast Asia,5
+Bulgaria,bg,Europe,Southeast Europe,2
+Burkina Faso,bf,Africa,West Africa,6
+Burundi,bi,Africa,Southern Africa,5
+Cape Verde,cv,Africa,West Africa,6
+Cambodia,kh,Asia,Southeast Asia,4
+Cameroon,cm,Africa,East Africa,3
+Canada,ca,North America,Northern America,3
+Central African Republic,cf,Africa,East Africa,6
+Chad,td,Africa,East Africa,1
+Chile,cl,South America,South America,5
+China,cn,Asia,East Asia,5
+Colombia,co,South America,South America,3
+Comoros,km,Africa,Southeast African Islands,1
+Republic of the Congo,cg,Africa,Southern Africa,1
+Democratic Republic of the Congo,cd,Africa,Southern Africa,2
+Costa Rica,cr,North America,Central America,6
+Ivory Coast,ci,Africa,West Africa,3
+Croatia,hr,Europe,Southeast Europe,1
+Cuba,cu,North America,West Caribbean,4
+Cyprus,cy,Asia,Southeast Europe,2
+Czechia,cz,Europe,Central Europe,6
+Denmark,dk,Europe,North Europe,1
+Djibouti,dj,Africa,East Africa,3
+Dominica,dm,North America,West Caribbean,1
+Dominican Republic,do,North America,West Caribbean,3
+Ecuador,ec,South America,South America,5
+Egypt,eg,Africa,East Africa,1
+El Salvador,sv,North America,Central America,2
+Equatorial Guinea,gq,Africa,Southern Africa,1
+Eritrea,er,Africa,East Africa,1
+Estonia,ee,Europe,Northeast Europe,5
+Eswatini,sz,Africa,Southern Africa,2
+Ethiopia,et,Africa,East Africa,6
+Fiji,fj,Oceania,North Oceania,4
+Finland,fi,Europe,North Europe,2
+France,fr,Europe,West Europe,5
+Gabon,ga,Africa,Southern Africa,4
+Gambia,gm,Africa,West Africa,2
+Georgia,ge,Asia,Middle East,6
+Germany,de,Europe,Central Europe,2
+Ghana,gh,Africa,West Africa,1
+Greece,gr,Europe,Southeast Europe,6
+Grenada,gd,North America,West Caribbean,3
+Guatemala,gt,North America,Central America,3
+Guinea,gn,Africa,West Africa,6
+Guinea-Bissau,gw,Africa,West Africa,1
+Guyana,gy,South America,South America,2
+Haiti,ht,North America,West Caribbean,1
+Vatican City,va,Europe,West Europe,6
+Honduras,hn,North America,Central America,1
+Hungary,hu,Europe,Central Europe,3
+Iceland,is,Europe,North Europe,2
+India,in,Asia,South Asia,3
+Indonesia,id,Asia,Southeast Asia,6
+Iran,ir,Asia,Middle East,5
+Iraq,iq,Asia,Middle East,2
+Ireland,ie,Europe,North Europe,6
+Israel,il,Asia,Middle East,2
+Italy,it,Europe,West Europe,2
+Jamaica,jm,North America,West Caribbean,2
+Japan,jp,Asia,East Asia,1
+Jordan,jo,Asia,Middle East,4
+Kazakhstan,kz,Asia,Central Asia,2
+Kenya,ke,Africa,Southern Africa,1
+Kiribati,ki,Oceania,North Oceania,2
+Kosovo,xk,Europe,Southeast Europe,1
+North Korea,kp,Asia,East Asia,2
+South Korea,kr,Asia,East Asia,4
+Kuwait,kw,Asia,Middle East,1
+Kyrgyzstan,kg,Asia,Central Asia,3
+Laos,la,Asia,Southeast Asia,2
+Latvia,lv,Europe,Northeast Europe,1
+Lebanon,lb,Asia,Middle East,6
+Lesotho,ls,Africa,Southern Africa,3
+Liberia,lr,Africa,West Africa,2
+Libya,ly,Africa,East Africa,6
+Liechtenstein,li,Europe,Central Europe,6
+Lithuania,lt,Europe,Northeast Europe,6
+Luxembourg,lu,Europe,Central Europe,4
+Madagascar,mg,Africa,Southeast African Islands,3
+Malawi,mw,Africa,Southern Africa,2
+Malaysia,my,Asia,Southeast Asia,2
+Maldives,mv,Asia,South Asia,1
+Mali,ml,Africa,West Africa,4
+Malta,mt,Europe,96,3
+Marshall Islands,mh,Oceania,North Oceania,4
+Mauritania,mr,Africa,West Africa,2
+Mauritius,mu,Africa,Southeast African Islands,2
+Mexico,mx,North America,Central America,2
+Federated States of Micronesia,fm,Oceania,North Oceania,5
+Moldova,md,Europe,96,1
+Monaco,mc,Europe,West Europe,3
+Mongolia,mn,Asia,East Asia,1
+Montenegro,me,Europe,Southeast Europe,3
+Morocco,ma,Africa,West Africa,4
+Mozambique,mz,Africa,Southern Africa,5
+Myanmar,mm,Asia,Southeast Asia,1
+Namibia,na,Africa,Southern Africa,3
+Nauru,nr,Oceania,North Oceania,5
+Nepal,np,Asia,South Asia,1
+Netherlands,nl,Europe,Central Europe,3
+New Zealand,nz,Oceania,South Oceania,3
+Nicaragua,ni,North America,Central America,4
+Niger,ne,Africa,West Africa,2
+Nigeria,ng,Africa,West Africa,6
+North Macedonia,mk,Europe,Southeast Europe,4
+Norway,no,Europe,North Europe,6
+Oman,om,Asia,Middle East,6
+Pakistan,pk,Asia,Central Asia,2
+Palau,pw,Oceania,North Oceania,3
+Palestine,ps,Asia,Middle East,5
+Panama,pa,North America,Central America,1
+Papua New Guinea,pg,Oceania,North Oceania,1
+Paraguay,py,South America,South America,3
+Peru,pe,South America,South America,2
+The Philippines,ph,Asia,Southeast Asia,1
+Poland,pl,Europe,Central Europe,1
+Portugal,pt,Europe,West Europe,3
+Qatar,qa,Asia,Middle East,1
+Romania,ro,Europe,Southeast Europe,5
+Russia,ru,Europe,North Asia,3
+Rwanda,rw,Africa,Southern Africa,1
+St. Kitts & Nevis,kn,North America,West Caribbean,2
+St. Lucia,lc,North America,West Caribbean,3
+St. Vincent & the Grenadines,vc,North America,West Caribbean,2
+Samoa,ws,Oceania,North Oceania,2
+San Marino,sm,Europe,West Europe,3
+Sao Tome and Principe,st,Africa,Southern Africa,3
+Saudi Arabia,sa,Asia,Middle East,3
+Senegal,sn,Africa,West Africa,3
+Serbia,rs,Europe,Southeast Europe,6
+Seychelles,sc,Africa,Southeast African Islands,5
+Sierra Leone,sl,Africa,West Africa,1
+Singapore,sg,Asia,Southeast Asia,1
+Slovakia,sk,Europe,Central Europe,4
+Slovenia,si,Europe,Southeast Europe,6
+Solomon Islands,sb,Oceania,North Oceania,3
+Somalia,so,Africa,East Africa,2
+Southern Africa,za,Africa,Southern Africa,1
+South Sudan,ss,Africa,East Africa,4
+Spain,es,Europe,West Europe,2
+Sri Lanka,lk,Asia,South Asia,2
+Sudan,sd,Africa,East Africa,2
+Suriname,sr,South America,South America,4
+Sweden,se,Europe,North Europe,3
+Switzerland,ch,Europe,Central Europe,3
+Syria,sy,Asia,Middle East,3
+Taiwan,tw,Asia,East Asia,6
+Tajikistan,tj,Asia,Central Asia,4
+Tanzania,tz,Africa,Southern Africa,3
+Thailand,th,Asia,Southeast Asia,6
+Timor-Leste,tl,Asia,Southeast Asia,3
+Togo,tg,Africa,West Africa,2
+Tonga,to,Oceania,North Oceania,1
+Trinidad & Tobago,tt,North America,West Caribbean,1
+Tunisia,tn,Africa,East Africa,1
+Turkey,tr,Asia,Southeast Europe,1
+Turkmenistan,tm,Asia,Central Asia,3
+Tuvalu,tv,Oceania,North Oceania,3
+Uganda,ug,Africa,Southern Africa,5
+Ukraine,ua,Europe,Northeast Europe,6
+United Arab Emirates,ae,Asia,Middle East,2
+United Kingdom,gb,Europe,North Europe,3
+United States of America,us,North America,Northern America,6
+Uruguay,uy,South America,South America,4
+Uzbekistan,uz,Asia,Central Asia,6
+Vanuatu,vu,Oceania,North Oceania,2
+Venezuela,ve,South America,South America,6
+Vietnam,vn,Asia,Southeast Asia,3
+Yemen,ye,Asia,Middle East,2
+Zambia,zm,Africa,Southern Africa,1
+Zimbabwe,zw,Africa,Southern Africa,4
