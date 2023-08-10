@@ -4,9 +4,22 @@ const regionViewboxes = new Map(); //map each region to its viewbox
 const countryToCodeMap = new Map(); //map all different country names to country code
 const countryMap = new Map(); //map code to country object
 
-const continents = ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"]
-const continentCountries = [[], [], [], [], [], []]
-const continentViewboxes = ["968 126 752 400", "1104 63 1553 826", "968 126 752 400", "0 41 1401 745", "1520 578 1170 622", "160 595 1203 640"];
+const continents = []
+
+function Country(name, continent, group, color, grayScale, viewBox) {
+  this.name = name;
+  this.continent = continent;
+  this.group = group;
+  this.color = color;
+  this.grayScale = grayScale;
+  this.viewBox = viewBox;
+}
+
+function Continent(name, countries, viewBox) {
+  this.name = name;
+  this.countries = countries;
+  this.viewBox = viewBox;
+}
 
 //based on codes.csv, build map from country name to code
 function readCodesFile(fileText) {
@@ -55,6 +68,29 @@ function readRegionFile(fileText) {
     }
 }
 
+function readContinentFile(fileText) {
+  const lines = fileText.split("\n");
+
+  for(let i = 1; i < lines.length; i++) {
+    const line = lines[i].split(",");
+    const name = line[0]
+    const viewBox = {
+      minX: parseInt(line[1]),
+      minY: parseInt(line[2]),
+      width: parseInt(line[3]),
+      height: parseInt(line[4]),
+    }
+
+    const continent = {
+      name: name,
+      countries: [],
+      viewBox: viewBox
+    }
+
+    continents.push(continent)
+  }
+}
+
 //based on countries.csv, build map from country code to color
 function readCountryFile(fileText) {
   //split text by newline
@@ -78,7 +114,12 @@ function readCountryFile(fileText) {
     const country = new Country(countryName, continent, groupNum, color, grayScale, viewBox)
     countryMap.set(countryCode, country)
 
-    const continentInd = continents.indexOf(continent)
-    continentCountries[continentInd] = country
+    for(let j = 0; j < continents.length; j++) {
+      if(continents[j].name === continent) {
+        continents[j].countries.push(country)
+      }
+    }
   }
+
+  console.log(countryMap.get("sv"))
 }

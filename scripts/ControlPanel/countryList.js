@@ -76,25 +76,32 @@ function continentCompleted(continentDiv) {
 }
 
 
-function initCountryList() {
+function resetCountryList() {
     countryListDiv.classList.add("countryListDiv")
 
     for(let i = 0; i < continents.length; i++) {
-        const continent = continents[i]
-        const continentArr = continentCountries[i]
+        initContinentDiv(continents[i])
+
+    }
+    
+    hideCountryLabels();
+}
+
+function initContinentDiv(continent) {
+    const countryArr = continent.countries
 
         const continentDiv = document.createElement("div")
         continentDiv.classList.add("continentDiv")
 
         const continentLabel = document.createElement("h3")
         continentLabel.classList.add("continentLabel")
-        continentLabel.innerHTML = continent
+        continentLabel.innerHTML = continent.name
 
         const countryGrid = document.createElement("div");
         countryGrid.classList.add("countryGrid")
 
-        for(let i = 1; i < continentArr.length; i++) {
-            const country = continentArr[i];
+        for(let i = 1; i < countryArr.length; i++) {
+            const country = countryArr[i];
             
             const labelDiv = document.createElement("div");
             labelDiv.classList.add("labelDiv")
@@ -111,11 +118,7 @@ function initCountryList() {
         continentDiv.appendChild(continentLabel)
         continentDiv.appendChild(countryGrid)
         countryListDiv.appendChild(continentDiv)
-    }
-    
-    
-    hideCountryLabels();
-}
+} 
 
 function removeWhiteSpace(str) {
     return str.replace(/\s/g,"")

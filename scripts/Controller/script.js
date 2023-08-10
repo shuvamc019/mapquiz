@@ -1,15 +1,6 @@
 const svg = document.getElementById("map");
 let svgTag = null
 
-function Country(name, continent, group, color, grayScale, viewBox) {
-  this.name = name;
-  this.continent = continent;
-  this.group = group;
-  this.color = color;
-  this.grayScale = grayScale;
-  this.viewBox = viewBox;
-}
-
 async function init() {
   svgTag = svg.contentDocument.getElementsByTagName("svg")[0]
   
@@ -21,6 +12,9 @@ async function init() {
 
   //read in country codes csv and build data structure
   await fetch("resources/regions.csv").then(r=>r.text()).then(readRegionFile);
+
+  //read in continents csv and build data structure
+  await fetch("resources/continents.csv").then(r=>r.text()).then(readContinentFile);
 
   //read in country csv and build data structure
   await fetch("resources/countries.csv").then(r=>r.text()).then(readCountryFile);

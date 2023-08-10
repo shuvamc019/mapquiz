@@ -46,7 +46,7 @@ function initControlPanel() {
 
     modeDropdown.addEventListener("change", restart)
 
-    initCountryList();
+    resetCountryList();
     restart();
 }
 

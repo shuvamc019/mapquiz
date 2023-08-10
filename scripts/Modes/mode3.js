@@ -30,6 +30,7 @@ function mode3Init() {
 }
 
 function selectCountry(code) {
+    console.log(countryMap.get(code).name)
     const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
