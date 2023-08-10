@@ -14,7 +14,7 @@ const regionDropdown = document.getElementById("regionDropdown")
 
 const countriesRemainingArr = []
 let countriesFound = 0;
-const totalCountries = 197;
+let totalCountries;
 let randomCountryCode = ""
 
 function initControlPanel() {
@@ -26,12 +26,12 @@ function initControlPanel() {
         }
     })
     document.addEventListener("focus", function() {
-        if(document.visibilityState === "visible" && !timerRunning) {
+        if(!timerRunning) {
             timerStart() 
         }
     })
     document.addEventListener("blur", function() {
-        if(document.visibilityState !== "visible" && timerRunning) {
+        if(timerRunning) {
             timerPause()
         }
     })
@@ -45,24 +45,44 @@ function initControlPanel() {
     dialogCloseButton.addEventListener("click", function() { dialog.close() });
 
     modeDropdown.addEventListener("change", restart)
+    regionDropdown.addEventListener("change", restart)
 
-    resetCountryList();
+    initCountryList();
     restart();
 }
 
 function restart() {
+    initContinentSelection();
+    initModeSelection();
+
+    timerReset();
+    timerStart();
+}
+
+function initContinentSelection() {
+    resetCountriesFound(regionDropdown.value)
+    resetCountryList(regionDropdown.value)
+
+    if(regionDropdown.value == "Whole World") {
+        zoomToFullScreen();
+    } else {
+       for(const continent of continents) {
+            if(continent.name === regionDropdown.value) {
+                animateSetViewBox(continent.viewBox)
+            }
+       }
+    }
+
+}
+
+function initModeSelection() {
     if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
     if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
     if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
     saturateMap("1")
     removeHoverListeners()
 
-    resetCountriesFound();
-    hideCountryLabels();
-    zoomToFullScreen();
-
-    timerReset();
-    timerStart();
+    console.log(countriesRemainingArr)
 
     switch(modeDropdown.value) {
         case "1": //Name All Countries
@@ -93,18 +113,28 @@ function newCountryFound(code) {
     }
 }
 
-function resetCountriesFound() {
+function resetCountriesFound(continentName) {
     countriesFound = 0
-    progressLabel.innerHTML = "0 / " + totalCountries + " Countries Found"
   
     //clear the array and repopulate
     countriesRemainingArr.length = 0 
+
     for(const code of countryMap.keys()) {
-      countriesRemainingArr.push(code)
+        if(continentName === "Whole World") {
+            countriesRemainingArr.push(code)
+        } else {
+            const country = countryMap.get(code)
+            if(country.continent === continentName) {
+                countriesRemainingArr.push(code)
+            }
+        }   
     }
+    
+    totalCountries = countriesRemainingArr.length
+    progressLabel.innerHTML = "0 / " + totalCountries + " Countries Found"
   }
 
-  function giveUp() {
+function giveUp() {
     timerPause();
     removeHoverListeners()
     showNotFoundCountryLabels()

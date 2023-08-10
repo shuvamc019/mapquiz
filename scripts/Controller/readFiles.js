@@ -120,6 +120,4 @@ function readCountryFile(fileText) {
       }
     }
   }
-
-  console.log(countryMap.get("sv"))
 }

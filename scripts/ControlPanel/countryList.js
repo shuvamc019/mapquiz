@@ -5,6 +5,8 @@ const countryListDiv = document.createElement("div")
 const defaultCountryLabelColor = "black"
 const notFoundCountryLabelColor = "red"
 
+const continentDivs = []
+
 showCountryButton.addEventListener("click", showCountryList);
 let expanded = false
 
@@ -76,22 +78,16 @@ function continentCompleted(continentDiv) {
 }
 
 
-function resetCountryList() {
+function initCountryList() {
     countryListDiv.classList.add("countryListDiv")
 
     for(let i = 0; i < continents.length; i++) {
-        initContinentDiv(continents[i])
-
-    }
-    
-    hideCountryLabels();
-}
-
-function initContinentDiv(continent) {
-    const countryArr = continent.countries
+        const continent = continents[i]
+        const countryArr = continent.countries
 
         const continentDiv = document.createElement("div")
         continentDiv.classList.add("continentDiv")
+        continentDiv.id = removeWhiteSpace(continent.name)
 
         const continentLabel = document.createElement("h3")
         continentLabel.classList.add("continentLabel")
@@ -118,6 +114,26 @@ function initContinentDiv(continent) {
         continentDiv.appendChild(continentLabel)
         continentDiv.appendChild(countryGrid)
         countryListDiv.appendChild(continentDiv)
+        continentDivs.push(continentDiv)
+    }
+        
+}
+
+function resetCountryList(continentName) {
+    //clearing all continent divs to reset
+    for(const continentDiv of continentDivs) {
+        if(countryListDiv.contains(continentDiv)) countryListDiv.removeChild(continentDiv)
+    }
+
+    for(const continentDiv of continentDivs) {
+        if(continentName === "Whole World") {
+            countryListDiv.appendChild(continentDiv)
+        } else if(continentDiv.id === removeWhiteSpace(continentName)) {
+            countryListDiv.appendChild(continentDiv)
+        }
+    }
+
+    hideCountryLabels();
 } 
 
 function removeWhiteSpace(str) {

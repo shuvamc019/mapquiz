@@ -8,11 +8,13 @@ function mode1Entered(event) {
     if(countryToCodeMap.has(countryName)) {
       const code = countryToCodeMap.get(countryName);
       if(countriesRemainingArr.includes(code)) {
+        console.log(countryName + " found")
         colorCountry(code);
         newCountryFound(code)
         mode1Entry.value = ""
       }
     }
+
 }
 
 function mode1Init() {
@@ -20,4 +22,6 @@ function mode1Init() {
 
     mode1Entry.value = ""
     grayAllCountries();
+
+    console.log("\nMode 1 Started")
 }

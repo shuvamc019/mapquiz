@@ -11,6 +11,8 @@ function mode2Init() {
     addClickListener(randomCountryCode)
 
     colorAllCountries()
+
+    console.log("\nMode 2 started")
 }
 
 function addHoverListeners() {
@@ -34,6 +36,7 @@ function removeHoverListeners() {
 }
 
 function addClickListener(code) {
+    
     const elements = svg.contentDocument.getElementsByClassName(code);
     for(const element of elements) {
         element.addEventListener("click", countryClicked)
