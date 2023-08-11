@@ -37,7 +37,7 @@ function selectCountry(code) {
     const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
-    saturateCountry(code, "1.2")
+    saturateCountry(code, "1.5")
 }
 
 function deselectCountry(code) {

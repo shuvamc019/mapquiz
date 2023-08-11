@@ -52,11 +52,11 @@ function initControlPanel() {
 }
 
 function restart() {
-    initContinentSelection();
-    initModeSelection();
-
     giveUpButton.disabled = false
     desaturateMap("1")
+    
+    initContinentSelection();
+    initModeSelection();
     
     timerReset();
     timerStart();
