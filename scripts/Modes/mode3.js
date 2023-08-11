@@ -10,6 +10,8 @@ function mode3Entered(event) {
       if(code == randomCountryCode) {
         newCountryFound(code)
         mode3Entry.value = ""
+        console.log(countryMap.get(randomCountryCode).name + " found")
+
 
         deselectCountry(code)
         randomCountryCode = getRandomCountryCode()
@@ -30,13 +32,17 @@ function mode3Init() {
 }
 
 function selectCountry(code) {
-    console.log(countryMap.get(code).name)
+    console.log(countryMap.get(code).name + " selected")
     const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
     const elements = svgTag.getElementsByClassName(code)
     for(const element of elements) {
         element.setAttribute("filter", "saturate(2)")
+        if(element.classList.contains("oceania-ellipse")) {
+            element.style.fill = element.style.stroke
+            element.style.opacity = 0.3
+        }
     }
 }
 
@@ -44,5 +50,8 @@ function deselectCountry(code) {
     const elements = svgTag.getElementsByClassName(code)
     for(const element of elements) {
         element.setAttribute("filter", "saturate(0.3)")
+        if(element.classList.contains("oceania-ellipse")) {
+            element.style.fill = "transparent"
+        }
     }
 }

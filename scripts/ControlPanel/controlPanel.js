@@ -82,8 +82,6 @@ function initModeSelection() {
     saturateMap("1")
     removeHoverListeners()
 
-    console.log(countriesRemainingArr)
-
     switch(modeDropdown.value) {
         case "1": //Name All Countries
             mode1Init()

@@ -59,22 +59,27 @@ function initSpecialCases() {
 function saturateMap(saturation) {
   let elements = svg.contentDocument.getElementsByClassName("landxx")
   for(const element of elements) {
+    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
   }
   elements = svg.contentDocument.getElementsByClassName("coastxx")
   for(const element of elements) {
+    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
   }
   elements = svg.contentDocument.getElementsByClassName("antxx")
   for(const element of elements) {
+    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
   }
   elements = svg.contentDocument.getElementsByClassName("smallislandxx")
   for(const element of elements) {
+    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
   }
   elements = svg.contentDocument.getElementsByClassName("oceania-ellipse")
   for(const element of elements) {
+    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
   }
 }

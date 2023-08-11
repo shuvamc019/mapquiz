@@ -8338,14 +8338,15 @@
     <title
        id="title2840">San Marino</title>
     <path
-       id="sm-"
+       id="sm"
        class="smallislandxx sm"
        d="m 1363.24,381.462 0.47,-0.69 0.68,0.536 -0.56,0.595 -0.59,-0.441 z"
-	transform="translate(-1363.64, -381.493) scale(2)"
+       transform-origin="1363.24 381.462"
+	transform="scale(2)"
 	 />
     <circle
        id="sm_"
-       class="hide sm-circle"
+       class="hide sm"
        r="2"
        cy="381.493"
        cx="1363.64" />
@@ -8432,7 +8433,7 @@
     <title
        id="title2870">Monaco</title>
     <path
-       id="mc-"
+       id="mc"
        class="mc"
        d="m 1328.74,381.62 c -0.12,-0.144 0.15,-0.405 0.39,-0.45 0.22,-0.04 -0.1,0.553 -0.39,0.45"
 	stroke="black"
@@ -8441,7 +8442,7 @@
  />
     <circle
        id="mc_"
-       class="hide mc-circle"
+       class="hide mc"
        r="2"
        cy="381.304"
        cx="1329.15" />
@@ -8459,7 +8460,7 @@
 	transform="translate(-15006.53, -4385.656) scale(12)" />
     <circle
        id="va_"
-       class="hide va-circle"
+       class="hide va"
        r="2"
        cy="398.696"
        cx="1364.23" />

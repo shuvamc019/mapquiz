@@ -2,22 +2,23 @@ const mode2Control = document.getElementById("mode2Control")
 const mode2Label = document.getElementById("mode2Label");
 
 function mode2Init() {
+    console.log("\nMode 2 started")
     controlPanel.insertBefore(mode2Control, progressContainer)
 
     addHoverListeners()
     randomCountryCode = getRandomCountryCode()
     const randomCountry = countryMap.get(randomCountryCode)
     mode2Label.innerHTML = "Find: " + randomCountry.name
+    console.log(randomCountry.name + " selected")
     addClickListener(randomCountryCode)
 
     colorAllCountries()
-
-    console.log("\nMode 2 started")
 }
 
 function addHoverListeners() {
     for(const code of countryMap.keys()) {
-        const elements = svg.contentDocument.getElementsByClassName(code);
+        const elements = svgTag.getElementsByClassName(code);
+       
         for(const element of elements) {
             element.addEventListener("mouseover", hoverCursor)
             element.addEventListener("mouseout", defaultCursor)
@@ -36,7 +37,6 @@ function removeHoverListeners() {
 }
 
 function addClickListener(code) {
-    
     const elements = svg.contentDocument.getElementsByClassName(code);
     for(const element of elements) {
         element.addEventListener("click", countryClicked)
@@ -57,6 +57,7 @@ function removeClickListeners() {
 }
 
 function countryClicked() {
+    console.log(countryMap.get(randomCountryCode).name + " found")
     newCountryFound(randomCountryCode)
     removeClickListener(randomCountryCode)
 
@@ -64,6 +65,7 @@ function countryClicked() {
         randomCountryCode = getRandomCountryCode()
         const randomCountry = countryMap.get(randomCountryCode);
         mode2Label.innerHTML = "Find: " + randomCountry.name
+        console.log(randomCountry.name + " selected")
         addClickListener(randomCountryCode)
     }
 }

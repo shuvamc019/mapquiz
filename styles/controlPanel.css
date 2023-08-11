@@ -136,7 +136,7 @@ button:hover:enabled {
 .helpTooltip {
     visibility: hidden;
     position: absolute;
-    top: -10%;
+    top: -550%;
     left: 200%;
     width: 2000%;
     padding: 15%;
