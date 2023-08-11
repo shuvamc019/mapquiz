@@ -56,31 +56,30 @@ function initSpecialCases() {
   }
 }
 
-function saturateMap(saturation) {
-  let elements = svg.contentDocument.getElementsByClassName("landxx")
-  for(const element of elements) {
-    element.setAttribute("filter", "saturate(1)")
-    element.setAttribute("filter", "saturate(" + saturation + ")")
+function desaturateMap(saturation) {
+  for(const code of countryMap.keys()) {
+    desaturateCountry(code, saturation)
   }
-  elements = svg.contentDocument.getElementsByClassName("coastxx")
+}
+
+function desaturateCountry(code, saturation) {
+  const elements = svg.contentDocument.getElementsByClassName(code)
+    for(const element of elements) {
+      element.setAttribute("filter", "saturate(" + saturation + ")")
+      if(element.classList.contains("oceania-ellipse")) {
+        element.style.fill = "transparent"
+      }
+    }
+}
+
+function saturateCountry(code, saturation) {
+  const elements = svg.contentDocument.getElementsByClassName(code)
   for(const element of elements) {
-    element.setAttribute("filter", "saturate(1)")
     element.setAttribute("filter", "saturate(" + saturation + ")")
-  }
-  elements = svg.contentDocument.getElementsByClassName("antxx")
-  for(const element of elements) {
-    element.setAttribute("filter", "saturate(1)")
-    element.setAttribute("filter", "saturate(" + saturation + ")")
-  }
-  elements = svg.contentDocument.getElementsByClassName("smallislandxx")
-  for(const element of elements) {
-    element.setAttribute("filter", "saturate(1)")
-    element.setAttribute("filter", "saturate(" + saturation + ")")
-  }
-  elements = svg.contentDocument.getElementsByClassName("oceania-ellipse")
-  for(const element of elements) {
-    element.setAttribute("filter", "saturate(1)")
-    element.setAttribute("filter", "saturate(" + saturation + ")")
+    if(element.classList.contains("oceania-ellipse")) {
+      element.style.fill = element.style.stroke
+      element.style.opacity = 0.3
+   }
   }
 }
 

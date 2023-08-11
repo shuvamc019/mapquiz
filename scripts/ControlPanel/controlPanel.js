@@ -37,7 +37,7 @@ function initControlPanel() {
     })
 
     restartButton.addEventListener("click", restart);
-    giveUpButton.addEventListener("click", giveUp);
+    giveUpButton.addEventListener("click", gameEnd);
     dialogRestartButton.addEventListener("click", function() {
         dialog.close()
         restart();
@@ -55,6 +55,9 @@ function restart() {
     initContinentSelection();
     initModeSelection();
 
+    giveUpButton.disabled = false
+    desaturateMap("1")
+    
     timerReset();
     timerStart();
 }
@@ -79,17 +82,17 @@ function initModeSelection() {
     if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
     if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
     if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
-    saturateMap("1")
+    desaturateMap("1")
     removeHoverListeners()
 
     switch(modeDropdown.value) {
-        case "1": //Name All Countries
+        case "Name All Countries": //Name All Countries
             mode1Init()
             break;
-        case "2": //Find The Country
+        case "Find The Country": //Find The Country
             mode2Init()
             break;
-        case "3": //Name The Country
+        case "Name The Country": //Name The Country
             mode3Init()
             break;
     }
@@ -107,7 +110,7 @@ function newCountryFound(code) {
     progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
 
     if(countriesFound == totalCountries) {
-        gameWon()
+        gameEnd()
     }
 }
 
@@ -132,31 +135,38 @@ function resetCountriesFound(continentName) {
     progressLabel.innerHTML = "0 / " + totalCountries + " Countries Found"
   }
 
-function giveUp() {
-    timerPause();
+function gameEnd(type) {
+    timerPause()
+
+    mode1Entry.disabled = true
+    mode3Entry.disabled = true
+    giveUpButton.disabled = true
     removeHoverListeners()
+    removeClickListeners()
+
     showNotFoundCountryLabels()
     //TODO: make things disabled
 
-    const secondsPassed = getSecondsPassed();
-    const minutes = Math.floor(secondsPassed / 60);
-    const seconds = secondsPassed % 60;
+    if(type === "Game Won") {
+        dialogHeader.innerHTML = "Good job!"
+    } else {
+        dialogHeader.innerHTML = "Better luck next time"
+    }
 
-    dialogHeader.innerHTML = "Better luck next time";
-    dialogText.innerHTML = "You found " + countriesFound + " countries in " + minutes + " minutes and " + seconds + " seconds";  
+    const timeString = timerTextToTimeString(timer.innerHTML)
+    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br>Region: " + regionDropdown.value + "<br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
 
-    dialog.showModal();
+    dialog.showModal()
 }
 
-function gameWon() {
-    timerPause();
+function timerTextToTimeString(timerText) {
+    timerText = timerText.split(":")
+    const minutes = parseInt(timerText[0])
+    const seconds = parseInt(timerText[1])
 
-    const secondsPassed = getSecondsPassed();
-    const minutes = Math.floor(secondsPassed / 60);
-    const seconds = secondsPassed % 60;
-
-    dialogHeader.innerHTML = "You won!";
-    dialogText.innerHTML = "You found all " + totalCountries + " countries in " + minutes + " minutes and " + seconds + " seconds";
-
-    dialog.showModal();
+    if(minutes != 0) {
+        return minutes.toString() + " minutes and " + seconds.toString() + " seconds"
+    } else {
+        return seconds.toString() + " seconds"
+    }
 }

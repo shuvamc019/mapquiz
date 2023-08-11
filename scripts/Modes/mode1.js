@@ -18,6 +18,7 @@ function mode1Entered(event) {
 }
 
 function mode1Init() {
+    mode1Entry.disabled = false
     controlPanel.insertBefore(mode1Control, progressContainer)
 
     mode1Entry.value = ""

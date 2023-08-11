@@ -21,11 +21,12 @@ function mode3Entered(event) {
 }
 
 function mode3Init() {
+    mode3Entry.disabled = false
     controlPanel.insertBefore(mode3Control, progressContainer)
 
     mode3Entry.value = ""
     colorAllCountries()
-    saturateMap("0.4")
+    desaturateMap("0.4")
 
     randomCountryCode = getRandomCountryCode()
     selectCountry(randomCountryCode)
@@ -36,22 +37,9 @@ function selectCountry(code) {
     const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
-    const elements = svgTag.getElementsByClassName(code)
-    for(const element of elements) {
-        element.setAttribute("filter", "saturate(2)")
-        if(element.classList.contains("oceania-ellipse")) {
-            element.style.fill = element.style.stroke
-            element.style.opacity = 0.3
-        }
-    }
+    saturateCountry(code, "1.2")
 }
 
 function deselectCountry(code) {
-    const elements = svgTag.getElementsByClassName(code)
-    for(const element of elements) {
-        element.setAttribute("filter", "saturate(0.3)")
-        if(element.classList.contains("oceania-ellipse")) {
-            element.style.fill = "transparent"
-        }
-    }
+    desaturateCountry(code, "0.4")
 }

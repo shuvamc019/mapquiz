@@ -20,36 +20,37 @@
                     <img id="helpIcon" src="resources/help-icon.svg"/>
                     <div class="helpTooltip panelStyle">
                         <h3>How To Play</h3>
-                        <p>Use the touchpad scroll or mouse wheel to zoom in and out of the map. Drag to pan the map. </p>
+                        <p> Use the dropdown menus at the top to toggle quiz mode and the region you want to be quizzed on. </p>
+                        <p>Touchpad scroll or mouse whell can be used to zoom in and out of the map. Drag to pan the map.</p>
 
                         <h4>Mode 1 - Name All Countries</h4>
-                        <p>Name all 197 countries in the world. Countries will show up in color once found. Try to color the whole map!</p>
+                        <p>Can you name every country? Countries will show up in color once found. Try to color the whole map!</p>
 
                         <h4>Mode 2 - Find The Country</h4>
-                        <p>A country will show up on the control panel, find it on the map and click on it.</p>
+                        <p>Test your ability to find countries on a map. The control panel will indicate a country. Locate and click on the country to win.</p>
 
                         <h4>Mode 3 - Name The Country</h4>
-                        <p>Name the highlighted country.</p>
+                        <p>The map will zoom to and highlight a country. Can you name it?</p>
                     </div>
                 </div>    
             </div>
             <div class="optionsContainer">
                 <form class="modeContainer">
                     <select name="mode" id="modeDropdown" class="dropDown">
-                        <option value="1">Name All Countries</option>
-                        <option value="2">Find The Country</option>
-                        <option value="3" selected>Name The Country</option>
+                        <option value="Name All Countries">Name All Countries</option>
+                        <option value="Find The Country" selected>Find The Country</option>
+                        <option value="Name The Country">Name The Country</option>
                      </select>
                 </form>
 
                  <form id="regionContainer">
                     <select name="region" id="regionDropdown" class="dropDown">
-                        <option value="Whole World">Whole World</option>
+                        <option value="Whole World" selected>Whole World</option>
                         <option value="Africa">Africa</option>
                         <option value="Asia">Asia</option>
                         <option value="Europe">Europe</option>
                         <option value="North America">N. America</option>
-                        <option value="Oceania" selected>Oceania</option>
+                        <option value="Oceania">Oceania</option>
                         <option value="South America">S. America</option>
                       </select>
                  </form>
