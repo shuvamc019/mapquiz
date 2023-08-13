@@ -167,16 +167,12 @@ button:hover:enabled {
 .modeControl {
     display: flex;
     flex-direction: row;
+    position: relative;
 
     width: 75%;
     margin: auto;
 }
 
-.modeControl {
-    flex: 4;
-
-}
-
-.skipButton {
+.skipButton, .modeControlSpacer {
     flex: 1;
 }
