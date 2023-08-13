@@ -2,7 +2,7 @@
 <svg
    version="1.1"
    id="svg2985"
-   viewBox="0 0 2690 1430"
+   viewBox="0 0 2700 1430"
    sodipodi:docname="WorldMap.svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -122,27 +122,27 @@
 
          .al,.ar,.au,.az,.bh,.by,.bt,.ba,.bg,.cd,.cy,.sv,.sz,.fi,.gm,.de,.gy,.is,.iq,.il,.it,.jm,.kz,.ki,.kp,.la,.lr,.mw,.my,.mr,.mu,.mx,.ne,.pk,.pe,.kn,.vc,.ws,.so,.es,.lk,.sd,.tg,.ae,.vu,.ye
          {
-            fill: #984ea3;
+            fill: #e41a1c;
          }
 
          .dz,.bj,.cm,.ca,.co,.ci,.dj,.do,.gd,.gt,.hu,.in,.kg,.ls,.mg,.mt,.mc,.me,.na,.nl,.nz,.pw,.py,.pt,.ru,.lc,.sm,.st,.sa,.sn,.sb,.se,.ch,.sy,.tz,.tl,.tm,.tv,.gb,.vn
          {
-            fill: #984ea3;
+            fill: #ff7f00;
          }
 
          .am,.kh,.cu,.fj,.ga,.jo,.kr,.lu,.mh,.ma,.ni,.mk,.sk,.ss,.sr,.tj,.uy,.zw
          {
-            fill: #984ea3;
+            fill: #ffcf33;
          }
 
          .ao,.bs,.bz,.bn,.bi,.cl,.cn,.ec,.ee,.fr,.ir,.ml,.fm,.mz,.nr,.ps,.ro,.sc,.ug
          {
-            fill: #984ea3;
+            fill: #377eb8;
          }
 
          .bd,.bo,.bw,.bf,.cv,.cf,.cr,.cz,.et,.ge,.gr,.gn,.va,.id,.ie,.lb,.ly,.li,.lt,.ng,.no,.om,.rs,.si,.tw,.th,.ua,.us,.uz,.ve
          {
-            fill: #984ea3;
+            fill: #4daf4a;
          }
 
 

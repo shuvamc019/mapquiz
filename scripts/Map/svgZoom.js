@@ -4,7 +4,7 @@ let panOrigin = null
 let zoomCenter = null
 let zoomTimeout = null
 
-const MAX_WIDTH = 2690, MAX_HEIGHT = 1430, MIN_WIDTH = MAX_WIDTH / 15, MIN_HEIGHT = MAX_HEIGHT / 15
+const MAX_WIDTH = 2700, MAX_HEIGHT = 1430, MIN_WIDTH = MAX_WIDTH / 15, MIN_HEIGHT = MAX_HEIGHT / 15
 
 const defaultViewBox = {
   minX: 0,

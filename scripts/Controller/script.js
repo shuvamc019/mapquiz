@@ -25,4 +25,4 @@ async function init() {
   //automateCountryLabels();
 }
 
-svg.addEventListener("load", init, false);
+svg.addEventListener("load", init);

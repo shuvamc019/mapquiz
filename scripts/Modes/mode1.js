@@ -8,7 +8,7 @@ function mode1Entered(event) {
     if(countryToCodeMap.has(countryName)) {
       const code = countryToCodeMap.get(countryName);
       if(countriesRemainingArr.includes(code)) {
-        console.log(countryName + " found")
+        console.log(countryMap.get(code).name + " found")
         colorCountry(code);
         newCountryFound(code)
         mode1Entry.value = ""
