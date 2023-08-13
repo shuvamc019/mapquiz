@@ -1,15 +1,17 @@
 body {
     margin: 0;
     overflow: hidden;
+    background-color: #40a8bf;
 }
 
 .mapContainer {
     position: fixed;
+    bottom: -1%;
 }
 
 #map {
-    height: 100vh;
-    width: auto;
+    width: 100vw;
+    height: auto;
 }
 
 #dialog::backdrop {

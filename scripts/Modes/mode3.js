@@ -25,7 +25,7 @@ function mode3Init() {
 
     mode3Entry.value = ""
     colorAllCountries()
-    desaturateMap("0.4")
+    desaturateMap("0.3")
 
     mode3NewCountry()
 }
@@ -35,11 +35,11 @@ function selectCountry(code) {
     const countryViewbox = countryMap.get(code).viewBox
     animateSetViewBox(countryViewbox)
 
-    saturateCountry(code, "1.5")
+    saturateCountry(code, "1.3")
 }
 
 function deselectCountry(code) {
-    desaturateCountry(code, "0.4")
+    desaturateCountry(code, "0.3")
 }
 
 function mode3NewCountry() {
