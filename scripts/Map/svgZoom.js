@@ -95,7 +95,7 @@ function setViewBox(viewBox) {
 
 function animateSetViewBox(viewBox) {
   currentViewBox = viewBox
-  gsap.to(svgTag, 1, { 
+  gsap.to(svgTag, 0.75, { 
     attr: { viewBox: viewBoxString(viewBox)
   }, 
   ease:"power2.inOut"})
