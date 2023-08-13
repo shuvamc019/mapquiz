@@ -1,10 +1,9 @@
 let mouseDown = false
 let panOrigin = null
 
-let zoomCenter = null
-let zoomTimeout = null
+const MIN_SCALE = 1 / 10;
 
-const MAX_WIDTH = 2700, MAX_HEIGHT = 1440, MIN_WIDTH = MAX_WIDTH / 15, MIN_HEIGHT = MAX_HEIGHT / 15
+const MAX_WIDTH = 2700, MAX_HEIGHT = 1440, MIN_WIDTH = MAX_WIDTH * MIN_SCALE, MIN_HEIGHT = MAX_HEIGHT * MIN_SCALE
 
 const defaultViewBox = {
   minX: 0,
@@ -63,32 +62,26 @@ function pan(mouseEvent) {
 }
 
 function zoom(wheelEvent) {
-  const point = getPoint(wheelEvent)
-  if(zoomCenter === null) {
-    zoomCenter = point
-  }
+  //can't zoom in more if already fully zoomed
+  if(wheelEvent.deltaY > 0 && currentViewBox.width == MIN_WIDTH && currentViewBox.height == MIN_HEIGHT) return
 
-  const factor = 0.999 ** wheelEvent.deltaY
+  const point = getPoint(wheelEvent)
+  const factor = 0.9993 ** wheelEvent.deltaY
+
   const newWidth = currentViewBox.width * factor
   const newHeight = currentViewBox.height * factor
-
-  const newX = zoomCenter.x - newWidth / 2
-  const newY = zoomCenter.y - newHeight / 2
+  const newX = point.x - (point.x - currentViewBox.minX) * factor
+  const newY = point.y - (point.y - currentViewBox.minY) * factor
 
   setViewBox({minX: newX, minY: newY, width: newWidth, height: newHeight})
-
-  window.clearTimeout(zoomTimeout);
-	zoomTimeout = setTimeout(function() {
-    zoomCenter = null
-	}, 500);
 }
 
 function fitViewBoxInBounds(viewBox) {
   const newWidth = clamp(viewBox.width, MIN_WIDTH, MAX_WIDTH)
-  const newHeight = clamp(viewBox.width, MIN_HEIGHT, MAX_HEIGHT)
+  const newHeight = clamp(viewBox.height, MIN_HEIGHT, MAX_HEIGHT)
 
-  const newMinX = clamp(viewBox.minX, 0, defaultViewBox.width - newWidth)
-  const newMinY = clamp(viewBox.minY, 0, defaultViewBox.height - newHeight)
+  const newMinX = clamp(viewBox.minX, 0, MAX_WIDTH - newWidth)
+  const newMinY = clamp(viewBox.minY, 0, MAX_HEIGHT - newHeight)
 
   viewBox.minX = newMinX
   viewBox.minY = newMinY
