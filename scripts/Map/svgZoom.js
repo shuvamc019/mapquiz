@@ -53,8 +53,8 @@ function pan(mouseEvent) {
 
     const point = getPoint(mouseEvent)
 
-    const newMinX = currentViewBox.minX + (panOrigin.x - point.x)
-    const newMinY = currentViewBox.minY + (panOrigin.y - point.y)
+    const newMinX = clamp(currentViewBox.minX + (panOrigin.x - point.x), 0, MAX_WIDTH - currentViewBox.width)
+    const newMinY = clamp(currentViewBox.minY + (panOrigin.y - point.y), 0, MAX_HEIGHT - currentViewBox.height)
 
     setViewBox({minX: newMinX, minY: newMinY, width: currentViewBox.width, height: currentViewBox.height})
   }
@@ -68,25 +68,13 @@ function zoom(wheelEvent) {
   const point = getPoint(wheelEvent)
   const factor = 0.9993 ** wheelEvent.deltaY
 
-  const newWidth = currentViewBox.width * factor
-  const newHeight = currentViewBox.height * factor
-  const newX = point.x - (point.x - currentViewBox.minX) * factor
-  const newY = point.y - (point.y - currentViewBox.minY) * factor
+  const newWidth = clamp(currentViewBox.width * factor, MIN_WIDTH, MAX_WIDTH)
+  const newHeight = clamp(currentViewBox.height * factor, MIN_HEIGHT, MAX_HEIGHT)
 
-  setViewBox({minX: newX, minY: newY, width: newWidth, height: newHeight})
-}
+  const newMinX = clamp(point.x - ((point.x - currentViewBox.minX) * factor), 0, MAX_WIDTH - newWidth)
+  const newMinY = clamp(point.y - ((point.y - currentViewBox.minY) * factor), 0, MAX_HEIGHT - newHeight)
 
-function fitViewBoxInBounds(viewBox) {
-  const newWidth = clamp(viewBox.width, MIN_WIDTH, MAX_WIDTH)
-  const newHeight = clamp(viewBox.height, MIN_HEIGHT, MAX_HEIGHT)
-
-  const newMinX = clamp(viewBox.minX, 0, MAX_WIDTH - newWidth)
-  const newMinY = clamp(viewBox.minY, 0, MAX_HEIGHT - newHeight)
-
-  viewBox.minX = newMinX
-  viewBox.minY = newMinY
-  viewBox.width = newWidth
-  viewBox.height = newHeight
+  setViewBox({minX: newMinX, minY: newMinY, width: newWidth, height: newHeight})
 }
 
 //fits val inside min and max
@@ -101,13 +89,11 @@ function zoomToFullScreen() {
 }
 
 function setViewBox(viewBox) {
-  fitViewBoxInBounds(viewBox)
   currentViewBox = viewBox
   svgTag.setAttribute("viewBox", viewBoxString(viewBox))
 }
 
 function animateSetViewBox(viewBox) {
-  fitViewBoxInBounds(viewBox)
   currentViewBox = viewBox
   gsap.to(svgTag, 1, { 
     attr: { viewBox: viewBoxString(viewBox)
