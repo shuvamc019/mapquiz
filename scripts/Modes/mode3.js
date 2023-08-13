@@ -12,10 +12,7 @@ function mode3Entered(event) {
         mode3Entry.value = ""
         console.log(countryMap.get(randomCountryCode).name + " found")
 
-
-        deselectCountry(code)
-        randomCountryCode = getRandomCountryCode()
-        selectCountry(randomCountryCode)
+        mode3NewCountry()
       }
     }
 }
@@ -24,12 +21,13 @@ function mode3Init() {
     mode3Entry.disabled = false
     controlPanel.insertBefore(mode3Control, progressContainer)
 
+    document.getElementById("mode3SkipButton").addEventListener("click", mode3NewCountry)
+
     mode3Entry.value = ""
     colorAllCountries()
     desaturateMap("0.4")
 
-    randomCountryCode = getRandomCountryCode()
-    selectCountry(randomCountryCode)
+    mode3NewCountry()
 }
 
 function selectCountry(code) {
@@ -42,4 +40,10 @@ function selectCountry(code) {
 
 function deselectCountry(code) {
     desaturateCountry(code, "0.4")
+}
+
+function mode3NewCountry() {
+  deselectCountry(randomCountryCode)
+  randomCountryCode = getRandomCountryCode()
+  selectCountry(randomCountryCode)
 }

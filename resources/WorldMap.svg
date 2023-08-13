@@ -112,7 +112,38 @@
 
          .eu - for members of European Union
          .eaeu - for members of Euroasian Economical Union
+         Color countries
          */
+
+         .af,.ad,.ag,.at,.bb,.be,.br,.td,.km,.cg,.hr,.dk,.dm,.eg,.gq,.er,.gh,.gw,.ht,.hn,.jp,.ke,.xk,.kw,.lv,.mv,.md,.mn,.mm,.np,.pa,.pg,.ph,.pl,.qa,.rw,.sl,.sg,.za,.to,.tt,.tn,.tr,.zm
+         {
+            fill: #984ea3;
+         }
+
+         .al,.ar,.au,.az,.bh,.by,.bt,.ba,.bg,.cd,.cy,.sv,.sz,.fi,.gm,.de,.gy,.is,.iq,.il,.it,.jm,.kz,.ki,.kp,.la,.lr,.mw,.my,.mr,.mu,.mx,.ne,.pk,.pe,.kn,.vc,.ws,.so,.es,.lk,.sd,.tg,.ae,.vu,.ye
+         {
+            fill: #984ea3;
+         }
+
+         .dz,.bj,.cm,.ca,.co,.ci,.dj,.do,.gd,.gt,.hu,.in,.kg,.ls,.mg,.mt,.mc,.me,.na,.nl,.nz,.pw,.py,.pt,.ru,.lc,.sm,.st,.sa,.sn,.sb,.se,.ch,.sy,.tz,.tl,.tm,.tv,.gb,.vn
+         {
+            fill: #984ea3;
+         }
+
+         .am,.kh,.cu,.fj,.ga,.jo,.kr,.lu,.mh,.ma,.ni,.mk,.sk,.ss,.sr,.tj,.uy,.zw
+         {
+            fill: #984ea3;
+         }
+
+         .ao,.bs,.bz,.bn,.bi,.cl,.cn,.ec,.ee,.fr,.ir,.ml,.fm,.mz,.nr,.ps,.ro,.sc,.ug
+         {
+            fill: #984ea3;
+         }
+
+         .bd,.bo,.bw,.bf,.cv,.cf,.cr,.cz,.et,.ge,.gr,.gn,.va,.id,.ie,.lb,.ly,.li,.lt,.ng,.no,.om,.rs,.si,.tw,.th,.ua,.us,.uz,.ve
+         {
+            fill: #984ea3;
+         }
 
 
 </style>
@@ -127,9 +158,9 @@
 </pattern>
   <rect
      fill="url(#grid)"
-     x="-100"
+     x="-5000"
      y="-5000"
-     width="3000"
+     width="10000"
      height="10000"
      id="ocean" />
 

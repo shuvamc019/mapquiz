@@ -4,7 +4,7 @@ Albania,al,Europe,Southeast Europe,2
 Algeria,dz,Africa,West Africa,3
 Andorra,ad,Europe,West Europe,1
 Angola,ao,Africa,Southern Africa,5
-Antigua & Barbuda,ag,North America,West Caribbean,1
+Antigua & Barbuda,ag,North America,East Caribbean,1
 Argentina,ar,South America,South America,2
 Armenia,am,Asia,Middle East,4
 Australia,au,Oceania,South Oceania,2
@@ -13,7 +13,7 @@ Azerbaijan,az,Asia,Middle East,2
 The Bahamas,bs,North America,West Caribbean,5
 Bahrain,bh,Asia,Middle East,2
 Bangladesh,bd,Asia,South Asia,6
-Barbados,bb,North America,West Caribbean,1
+Barbados,bb,North America,East Caribbean,1
 Belarus,by,Europe,Northeast Europe,2
 Belgium,be,Europe,Central Europe,1
 Belize,bz,North America,Central America,5
@@ -47,7 +47,7 @@ Cyprus,cy,Asia,Southeast Europe,2
 Czechia,cz,Europe,Central Europe,6
 Denmark,dk,Europe,North Europe,1
 Djibouti,dj,Africa,East Africa,3
-Dominica,dm,North America,West Caribbean,1
+Dominica,dm,North America,East Caribbean,1
 Dominican Republic,do,North America,West Caribbean,3
 Ecuador,ec,South America,South America,5
 Egypt,eg,Africa,East Africa,1
@@ -66,13 +66,13 @@ Georgia,ge,Asia,Middle East,6
 Germany,de,Europe,Central Europe,2
 Ghana,gh,Africa,West Africa,1
 Greece,gr,Europe,Southeast Europe,6
-Grenada,gd,North America,West Caribbean,3
+Grenada,gd,North America,East Caribbean,3
 Guatemala,gt,North America,Central America,3
 Guinea,gn,Africa,West Africa,6
 Guinea-Bissau,gw,Africa,West Africa,1
 Guyana,gy,South America,South America,2
 Haiti,ht,North America,West Caribbean,1
-Vatican City,va,Europe,West Europe,6
+Vatican City,va,Europe,Small European Countries,6
 Honduras,hn,North America,Central America,1
 Hungary,hu,Europe,Central Europe,3
 Iceland,is,Europe,North Europe,2
@@ -100,7 +100,7 @@ Lebanon,lb,Asia,Middle East,6
 Lesotho,ls,Africa,Southern Africa,3
 Liberia,lr,Africa,West Africa,2
 Libya,ly,Africa,East Africa,6
-Liechtenstein,li,Europe,Central Europe,6
+Liechtenstein,li,Europe,Liechtenstein,6
 Lithuania,lt,Europe,Northeast Europe,6
 Luxembourg,lu,Europe,Central Europe,4
 Madagascar,mg,Africa,Southeast African Islands,3
@@ -108,14 +108,14 @@ Malawi,mw,Africa,Southern Africa,2
 Malaysia,my,Asia,Southeast Asia,2
 Maldives,mv,Asia,South Asia,1
 Mali,ml,Africa,West Africa,5
-Malta,mt,Europe,West Europe,3
+Malta,mt,Europe,Small European Countries,3
 Marshall Islands,mh,Oceania,North Oceania,4
 Mauritania,mr,Africa,West Africa,2
 Mauritius,mu,Africa,Southeast African Islands,2
 Mexico,mx,North America,Central America,2
 Federated States of Micronesia,fm,Oceania,North Oceania,5
 Moldova,md,Europe,Southeast Europe,1
-Monaco,mc,Europe,West Europe,3
+Monaco,mc,Europe,Small European Countries,3
 Mongolia,mn,Asia,East Asia,1
 Montenegro,me,Europe,Southeast Europe,3
 Morocco,ma,Africa,West Africa,4
@@ -146,18 +146,18 @@ Qatar,qa,Asia,Middle East,1
 Romania,ro,Europe,Southeast Europe,5
 Russia,ru,Asia,North Asia,3
 Rwanda,rw,Africa,Southern Africa,1
-St. Kitts & Nevis,kn,North America,West Caribbean,2
-St. Lucia,lc,North America,West Caribbean,3
-St. Vincent & the Grenadines,vc,North America,West Caribbean,2
+St. Kitts & Nevis,kn,North America,East Caribbean,2
+St. Lucia,lc,North America,East Caribbean,3
+St. Vincent & the Grenadines,vc,North America,East Caribbean,2
 Samoa,ws,Oceania,North Oceania,2
-San Marino,sm,Europe,West Europe,3
+San Marino,sm,Europe,Small European Countries,3
 Sao Tome and Principe,st,Africa,Southern Africa,3
 Saudi Arabia,sa,Asia,Middle East,3
 Senegal,sn,Africa,West Africa,3
 Serbia,rs,Europe,Southeast Europe,6
 Seychelles,sc,Africa,Southeast African Islands,5
 Sierra Leone,sl,Africa,West Africa,1
-Singapore,sg,Asia,Southeast Asia,1
+Singapore,sg,Asia,Singapore,1
 Slovakia,sk,Europe,Central Europe,4
 Slovenia,si,Europe,Southeast Europe,6
 Solomon Islands,sb,Oceania,North Oceania,3
@@ -178,7 +178,7 @@ Thailand,th,Asia,Southeast Asia,6
 Timor-Leste,tl,Asia,Southeast Asia,3
 Togo,tg,Africa,West Africa,2
 Tonga,to,Oceania,North Oceania,1
-Trinidad & Tobago,tt,North America,West Caribbean,1
+Trinidad & Tobago,tt,North America,East Caribbean,1
 Tunisia,tn,Africa,East Africa,1
 Turkey,tr,Asia,Southeast Europe,1
 Turkmenistan,tm,Asia,Central Asia,3

@@ -54,7 +54,7 @@ function initControlPanel() {
 function restart() {
     giveUpButton.disabled = false
     desaturateMap("1")
-    
+
     initContinentSelection();
     initModeSelection();
     
@@ -110,7 +110,7 @@ function newCountryFound(code) {
     progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
 
     if(countriesFound == totalCountries) {
-        gameEnd()
+        gameEnd("Game Won")
     }
 }
 
@@ -141,20 +141,19 @@ function gameEnd(type) {
     mode1Entry.disabled = true
     mode3Entry.disabled = true
     giveUpButton.disabled = true
-    removeHoverListeners()
-    removeClickListeners()
 
+    removeClickListeners()
+    removeHoverListeners()
     showNotFoundCountryLabels()
-    //TODO: make things disabled
 
     if(type === "Game Won") {
-        dialogHeader.innerHTML = "Good job!"
+        dialogHeader.innerHTML = "Good Job!"
     } else {
         dialogHeader.innerHTML = "Better luck next time"
     }
 
     const timeString = timerTextToTimeString(timer.innerHTML)
-    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br>Region: " + regionDropdown.value + "<br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
+    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br>Region: " + regionDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
 
     dialog.showModal()
 }

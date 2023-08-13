@@ -5,12 +5,10 @@ function mode2Init() {
     console.log("\nMode 2 started")
     controlPanel.insertBefore(mode2Control, progressContainer)
 
+    document.getElementById("mode2SkipButton").addEventListener("click", mode2NewCountry)
+
     addHoverListeners()
-    randomCountryCode = getRandomCountryCode()
-    const randomCountry = countryMap.get(randomCountryCode)
-    mode2Label.innerHTML = "Find: " + randomCountry.name
-    console.log(randomCountry.name + " selected")
-    addClickListener(randomCountryCode)
+    mode2NewCountry()
 
     colorAllCountries()
 }
@@ -34,6 +32,7 @@ function removeHoverListeners() {
             element.removeEventListener("mouseout", defaultCursor)
         }
     }
+    svgTag.style.cursor = "auto"
 }
 
 function addClickListener(code) {
@@ -59,15 +58,18 @@ function removeClickListeners() {
 function countryClicked() {
     console.log(countryMap.get(randomCountryCode).name + " found")
     newCountryFound(randomCountryCode)
-    removeClickListener(randomCountryCode)
 
-    if(countriesRemainingArr.length > 0) {
-        randomCountryCode = getRandomCountryCode()
-        const randomCountry = countryMap.get(randomCountryCode);
-        mode2Label.innerHTML = "Find: " + randomCountry.name
-        console.log(randomCountry.name + " selected")
-        addClickListener(randomCountryCode)
-    }
+    mode2NewCountry()
+    
+}
+
+function mode2NewCountry() {
+    removeClickListener(randomCountryCode)
+    randomCountryCode = getRandomCountryCode()
+    const randomCountry = countryMap.get(randomCountryCode);
+    mode2Label.innerHTML = "Find: " + randomCountry.name
+    console.log(randomCountry.name + " selected")
+    addClickListener(randomCountryCode)
 }
 
 function hoverCursor() { svgTag.style.cursor = "pointer" }

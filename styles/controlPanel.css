@@ -13,10 +13,12 @@
     bottom: 15%;
     left: 3%;
 
+
     font-family: "Roboto", sans-serif;
 
     width: 18%;
     text-align: center;
+    align-items: center;
 }
 
 #mode1Entry, #mode3Entry {
@@ -24,6 +26,10 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+#mode2Label {
+    width: 75%;
 }
 
 button:hover:enabled {
@@ -156,4 +162,21 @@ button:hover:enabled {
 .helpContainer:hover .helpTooltip {
     cursor: pointer;
     visibility: visible;
+}
+
+.modeControl {
+    display: flex;
+    flex-direction: row;
+
+    width: 75%;
+    margin: auto;
+}
+
+.modeControl {
+    flex: 4;
+
+}
+
+.skipButton {
+    flex: 1;
 }
