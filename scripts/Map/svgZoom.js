@@ -84,27 +84,23 @@ function zoom(wheelEvent) {
 }
 
 function fitViewBoxInBounds(viewBox) {
- let newWidth = viewBox.width <= MAX_WIDTH ? viewBox.width : MAX_WIDTH
- let newHeight= viewBox.height <= MAX_HEIGHT ? viewBox.height : MAX_HEIGHT
+  const newWidth = clamp(viewBox.width, MIN_WIDTH, MAX_WIDTH)
+  const newHeight = clamp(viewBox.width, MIN_HEIGHT, MAX_HEIGHT)
 
- if(newWidth < MIN_WIDTH) newWidth = MIN_WIDTH
- if(newHeight < MIN_HEIGHT) newHeight = MIN_HEIGHT
-
- let newMinX = viewBox.minX >= 0 ? viewBox.minX : 0
- let newMinY = viewBox.minY >= 0 ? viewBox.minY : 0
-
- if(newMinX + newWidth > defaultViewBox.width) {
-  newMinX = defaultViewBox.width - newWidth
- }
-
- if(newMinY + newHeight > defaultViewBox.height) {
-  newMinY = defaultViewBox.height - newHeight
- }
+  const newMinX = clamp(viewBox.minX, 0, defaultViewBox.width - newWidth)
+  const newMinY = clamp(viewBox.minY, 0, defaultViewBox.height - newHeight)
 
   viewBox.minX = newMinX
   viewBox.minY = newMinY
   viewBox.width = newWidth
   viewBox.height = newHeight
+}
+
+//fits val inside min and max
+function clamp(val, min, max) {
+  if(val < min) return min;
+  if(val > max) return max;
+  return val;
 }
 
 function zoomToFullScreen() {
