@@ -4,11 +4,6 @@ const progressContainer = document.getElementsByClassName("progressContainer")[0
 const progressLabel = document.getElementById("progressLabel")
 const giveUpButton = document.getElementById("giveUpButton")
 const restartButton = document.getElementById("restartButton")
-const dialog = document.getElementById("dialog")
-const dialogHeader = document.getElementById("dialogHeader")
-const dialogText = document.getElementById("dialogText")
-const dialogCloseButton = document.getElementById("dialogCloseButton")
-const dialogRestartButton = document.getElementById("dialogRestartButton")
 const modeDropdown = document.getElementById("modeDropdown")
 const regionDropdown = document.getElementById("regionDropdown")
 
@@ -18,6 +13,8 @@ let totalCountries;
 let randomCountryCode = ""
 
 function initControlPanel() {
+    dialog.close()
+
     document.addEventListener("visibilitychange", function() {
         if(document.visibilityState === "visible" && !timerRunning) {
             timerStart()
@@ -38,11 +35,6 @@ function initControlPanel() {
 
     restartButton.addEventListener("click", restart);
     giveUpButton.addEventListener("click", gameEnd);
-    dialogRestartButton.addEventListener("click", function() {
-        dialog.close()
-        restart();
-    });
-    dialogCloseButton.addEventListener("click", function() { dialog.close() });
 
     modeDropdown.addEventListener("change", restart)
     regionDropdown.addEventListener("change", restart)
@@ -53,6 +45,8 @@ function initControlPanel() {
 
 function restart() {
     giveUpButton.disabled = false
+    mode3SkipButton.disabled = false
+    mode2SkipButton.disabled = false
     desaturateMap("1")
 
     initContinentSelection();
@@ -71,7 +65,8 @@ function initContinentSelection() {
     } else {
        for(const continent of continents) {
             if(continent.name === regionDropdown.value) {
-                animateSetViewBox(continent.viewBox)
+                const continentViewbox = continent.viewBox
+                animateSetViewBox(continentViewbox.minX, continentViewbox.minY, continentViewbox.width, continentViewbox.height)
             }
        }
     }
@@ -110,7 +105,7 @@ function newCountryFound(code) {
     progressLabel.innerHTML = countriesFound.toString() + " / " + totalCountries + " Countries Found"
 
     if(countriesFound == totalCountries) {
-        gameEnd("Game Won")
+        gameEnd(GAME_WON)
     }
 }
 
@@ -134,29 +129,6 @@ function resetCountriesFound(continentName) {
     totalCountries = countriesRemainingArr.length
     progressLabel.innerHTML = "0 / " + totalCountries + " Countries Found"
   }
-
-function gameEnd(type) {
-    timerPause()
-
-    mode1Entry.disabled = true
-    mode3Entry.disabled = true
-    giveUpButton.disabled = true
-
-    removeClickListeners()
-    removeHoverListeners()
-    showNotFoundCountryLabels()
-
-    if(type === "Game Won") {
-        dialogHeader.innerHTML = "Good Job!"
-    } else {
-        dialogHeader.innerHTML = "Better luck next time"
-    }
-
-    const timeString = timerTextToTimeString(timer.innerHTML)
-    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br>Region: " + regionDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
-
-    dialog.showModal()
-}
 
 function timerTextToTimeString(timerText) {
     timerText = timerText.split(":")

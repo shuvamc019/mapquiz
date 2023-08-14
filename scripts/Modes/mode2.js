@@ -1,11 +1,12 @@
 const mode2Control = document.getElementById("mode2Control")
 const mode2Label = document.getElementById("mode2Label");
+const mode2SkipButton = document.getElementById("mode2SkipButton")
 
 function mode2Init() {
     console.log("\nMode 2 started")
     controlPanel.insertBefore(mode2Control, progressContainer)
 
-    document.getElementById("mode2SkipButton").addEventListener("click", mode2NewCountry)
+    mode2SkipButton.addEventListener("click", mode2NewCountry)
 
     addHoverListeners()
     mode2NewCountry()

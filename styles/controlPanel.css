@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
 .panelStyle {
-    background-color: #cbcbcb;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    font-family: "Questrial", sans-serif;
+    border: 3px solid black;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .controlPanel {
@@ -13,8 +11,6 @@
     bottom: 15%;
     left: 3%;
 
-
-    font-family: "Roboto", sans-serif;
 
     width: 18%;
     min-width: 250px;

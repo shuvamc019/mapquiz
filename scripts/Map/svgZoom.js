@@ -1,18 +1,7 @@
-let mouseDown = false
-let panOrigin = null
+let mouseDown, inverseSVGMatrix, mousePoint, panOrigin
 
 const MIN_SCALE = 1 / 10;
-
 const MAX_WIDTH = 2700, MAX_HEIGHT = 1440, MIN_WIDTH = MAX_WIDTH * MIN_SCALE, MIN_HEIGHT = MAX_HEIGHT * MIN_SCALE
-
-const defaultViewBox = {
-  minX: 0,
-  minY: 0,
-  width: MAX_WIDTH,
-  height: MAX_HEIGHT
-}
-
-const aspectRatio = defaultViewBox.height / defaultViewBox.width
 
 let currentViewBox = {
   minX: 0,
@@ -22,6 +11,8 @@ let currentViewBox = {
 }
 
 function initZoom() {
+  inverseSVGMatrix = svgTag.getScreenCTM().inverse() //inverse of SVG point transformation matrix
+
   svg.contentDocument.addEventListener("wheel", zoom);
   svgTag.addEventListener("mousedown", function(mouseEvent) {
     mouseDown = true
@@ -38,43 +29,48 @@ function initZoom() {
   })
 }
 
+//sets mousePoint variable to the mouse location in SVG coordinates
 function getPoint(event) {
+    point = svgTag.createSVGPoint()
+
     //convert screen coordinates to SVG coordinates
-    let point = svgTag.createSVGPoint()
     point.x = event.clientX
     point.y = event.clientY
-    point = point.matrixTransform(svgTag.getScreenCTM().inverse());
-    return point
+    return point.matrixTransform(inverseSVGMatrix);
 }
 
 function pan(mouseEvent) {
   if(mouseDown) { //can only pan if mouse is down and being dragged
     mouseEvent.preventDefault() //stops a selection being made
 
-    const point = getPoint(mouseEvent)
+    mousePoint = getPoint(mouseEvent)
 
-    const newMinX = clamp(currentViewBox.minX + (panOrigin.x - point.x), 0, MAX_WIDTH - currentViewBox.width)
-    const newMinY = clamp(currentViewBox.minY + (panOrigin.y - point.y), 0, MAX_HEIGHT - currentViewBox.height)
+    const newMinX = clamp(currentViewBox.minX + (panOrigin.x - mousePoint.x), 0, MAX_WIDTH - currentViewBox.width)
+    const newMinY = clamp(currentViewBox.minY + (panOrigin.y - mousePoint.y), 0, MAX_HEIGHT - currentViewBox.height)
 
-    setViewBox({minX: newMinX, minY: newMinY, width: currentViewBox.width, height: currentViewBox.height})
+    setViewBox(newMinX, newMinY, currentViewBox.width, currentViewBox.height)
+    console.log("Pan   Mouse Point: (" + parseInt(mousePoint.x) + ", " + parseInt(mousePoint.y) + ")  Viewbox: (" + parseInt(newMinX) + ", " + parseInt(newMinY) + ", " + parseInt(currentViewBox.width) + ", " + parseInt(currentViewBox.height) + ")")
   }
   
 }
 
 function zoom(wheelEvent) {
   //can't zoom in more if already fully zoomed
-  if(wheelEvent.deltaY > 0 && currentViewBox.width == MIN_WIDTH && currentViewBox.height == MIN_HEIGHT) return
+  if(wheelEvent.deltaY > 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
 
-  const point = getPoint(wheelEvent)
-  const factor = 0.9993 ** wheelEvent.deltaY
+  mousePoint = getPoint(wheelEvent)
+  
+  const factor = 1.001 ** (-wheelEvent.deltaY)
 
   const newWidth = clamp(currentViewBox.width * factor, MIN_WIDTH, MAX_WIDTH)
   const newHeight = clamp(currentViewBox.height * factor, MIN_HEIGHT, MAX_HEIGHT)
 
-  const newMinX = clamp(point.x - ((point.x - currentViewBox.minX) * factor), 0, MAX_WIDTH - newWidth)
-  const newMinY = clamp(point.y - ((point.y - currentViewBox.minY) * factor), 0, MAX_HEIGHT - newHeight)
+  const newMinX = clamp(mousePoint.x - ((mousePoint.x - currentViewBox.minX) * factor), 0, MAX_WIDTH - newWidth)
+  const newMinY = clamp(mousePoint.y - ((mousePoint.y - currentViewBox.minY) * factor), 0, MAX_HEIGHT - newHeight)
 
-  setViewBox({minX: newMinX, minY: newMinY, width: newWidth, height: newHeight})
+  setViewBox(newMinX, newMinY, newWidth, newHeight)
+
+  console.log("Zoom   Mouse Point: (" + parseInt(mousePoint.x) + ", " + parseInt(mousePoint.y) + ")  Viewbox: (" + parseInt(newMinX) + ", " + parseInt(newMinY) + ", " + parseInt(newWidth) + ", " + parseInt(newHeight) + ")")
 }
 
 //fits val inside min and max
@@ -85,22 +81,29 @@ function clamp(val, min, max) {
 }
 
 function zoomToFullScreen() {
-  animateSetViewBox(defaultViewBox)
+  animateSetViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
 }
 
-function setViewBox(viewBox) {
-  currentViewBox = viewBox
-  svgTag.setAttribute("viewBox", viewBoxString(viewBox))
+function setViewBox(minX, minY, width, height) {
+  currentViewBox.minX = minX
+  currentViewBox.minY = minY
+  currentViewBox.width = width
+  currentViewBox.height = height
+  svgTag.setAttribute("viewBox", viewBoxString(minX, minY, width, height))
 }
 
-function animateSetViewBox(viewBox) {
-  currentViewBox = viewBox
+function animateSetViewBox(minX, minY, width, height) {
+  currentViewBox.minX = minX
+  currentViewBox.minY = minY
+  currentViewBox.width = width
+  currentViewBox.height = height
+
   gsap.to(svgTag, 0.75, { 
-    attr: { viewBox: viewBoxString(viewBox)
+    attr: { viewBox: viewBoxString(minX, minY, width, height)
   }, 
   ease:"power2.inOut"})
 }
 
-function viewBoxString(viewBox) {
-  return viewBox.minX.toString() + " " + viewBox.minY.toString() + " " + viewBox.width.toString() + " " + viewBox.height.toString()
+function viewBoxString(minX, minY, width, height) {
+  return minX.toString() + " " + minY.toString() + " " + width.toString() + " " + height.toString()
 }

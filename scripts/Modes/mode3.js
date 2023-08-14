@@ -1,6 +1,7 @@
 const mode3Control = document.getElementById("mode3Control")
 const mode3Entry = document.getElementById("mode3Entry");
 mode3Entry.addEventListener("keyup", mode3Entered);
+const mode3SkipButton = document.getElementById("mode3SkipButton")
 
 function mode3Entered(event) {
     const countryName = mode3Entry.value.toLowerCase()
@@ -21,7 +22,7 @@ function mode3Init() {
     mode3Entry.disabled = false
     controlPanel.insertBefore(mode3Control, progressContainer)
 
-    document.getElementById("mode3SkipButton").addEventListener("click", mode3NewCountry)
+    mode3SkipButton.addEventListener("click", mode3NewCountry)
 
     mode3Entry.value = ""
     colorAllCountries()
@@ -33,7 +34,7 @@ function mode3Init() {
 function selectCountry(code) {
     console.log(countryMap.get(code).name + " selected")
     const countryViewbox = countryMap.get(code).viewBox
-    animateSetViewBox(countryViewbox)
+    animateSetViewBox(countryViewbox.minX, countryViewbox.minY, countryViewbox.width, countryViewbox.height)
 
     saturateCountry(code, "1.3")
 }

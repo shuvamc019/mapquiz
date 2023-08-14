@@ -1,19 +1,18 @@
 body {
     margin: 0;
     overflow: hidden;
+
     background-color: #40a8bf;
 }
 
 .mapContainer {
     position: fixed;
-    bottom: -1%;
+    height: 100vh;
+    width: auto;
+    right: 0;
 }
 
 #map {
-    width: 100vw;
-    height: auto;
-}
-
-#dialog::backdrop {
-    backdrop-filter: blur(2px);
+    height: 100vh;
+    width: auto;
 }
