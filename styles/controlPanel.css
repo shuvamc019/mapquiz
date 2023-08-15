@@ -38,13 +38,13 @@ button:hover:enabled {
     transition: all 0.2s;
 }
 
-.popupButton:hover {
+.popupButton:hover:enabled {
     box-shadow: 0.4rem 0.4rem 0 black;
     transform: translate(-0.4rem, -0.4rem);
     border: 2px solid black;
 }
 
-.popupButton:active {
+.popupButton:active:enabled {
     box-shadow: 0 0 0 black;
     transform: translate(0, 0);
 }
@@ -52,6 +52,8 @@ button:hover:enabled {
 .buttonRow {
     display: flex;
     margin: 5%;
+    height: auto;
+
 
     .restartContainer, .giveUpContainer, .buttonSpacer {
         flex: 1;
@@ -61,7 +63,7 @@ button:hover:enabled {
         border: none;
     }
 
-    #restartButton:hover, #giveUpButton:hover {
+    #restartButton:hover:enabled, #giveUpButton:hover:enabled {
         border: 1.5px solid black;
     }
 }
@@ -97,7 +99,6 @@ button:hover:enabled {
     flex-direction: row;
     margin: 5%;
     justify-content: center;
-
 
     .dropDown {
         border: transparent;
