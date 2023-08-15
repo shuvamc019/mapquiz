@@ -1,4 +1,4 @@
-let mouseDown, inverseSVGMatrix, mousePoint, panOrigin
+let mouseDown, inverseSVGMatrix, mousePoint, panOrigin, zoomOrigin
 
 const MIN_SCALE = 1 / 10;
 const MAX_WIDTH = 2700, MAX_HEIGHT = 1440, MIN_WIDTH = MAX_WIDTH * MIN_SCALE, MIN_HEIGHT = MAX_HEIGHT * MIN_SCALE
@@ -13,8 +13,8 @@ let currentViewBox = {
 function initZoom() {
   inverseSVGMatrix = svgTag.getScreenCTM().inverse() //inverse of SVG point transformation matrix
 
-  svg.contentDocument.addEventListener("wheel", zoom);
-  svgTag.addEventListener("mousedown", function(mouseEvent) {
+  svg.contentDocument.addEventListener("wheel", zoom, {passive: false});
+  svg.contentDocument.addEventListener("mousedown", function(mouseEvent) {
     mouseDown = true
     panOrigin = getPoint(mouseEvent)
   });
@@ -55,22 +55,30 @@ function pan(mouseEvent) {
 }
 
 function zoom(wheelEvent) {
-  //can't zoom in more if already fully zoomed
-  if(wheelEvent.deltaY > 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
-
+  wheelEvent.preventDefault()
   mousePoint = getPoint(wheelEvent)
-  
-  const factor = 1.001 ** (-wheelEvent.deltaY)
 
-  const newWidth = clamp(currentViewBox.width * factor, MIN_WIDTH, MAX_WIDTH)
-  const newHeight = clamp(currentViewBox.height * factor, MIN_HEIGHT, MAX_HEIGHT)
+  let scale;
 
-  const newMinX = clamp(mousePoint.x - ((mousePoint.x - currentViewBox.minX) * factor), 0, MAX_WIDTH - newWidth)
-  const newMinY = clamp(mousePoint.y - ((mousePoint.y - currentViewBox.minY) * factor), 0, MAX_HEIGHT - newHeight)
+  if(wheelEvent.ctrlKey) { //pinch zoom event
+      //can't zoom in more if already fully zoomed
+      if(wheelEvent.deltaY < 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
+      scale = 1.01 ** (wheelEvent.deltaY)
+  } else { //normal wheel scrolling
+      //can't zoom in more if already fully zoomed
+      if(wheelEvent.deltaY > 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
+      scale = 1.001 ** (-wheelEvent.deltaY)
+  }
+
+  const newWidth = clamp(currentViewBox.width * scale, MIN_WIDTH, MAX_WIDTH)
+  const newHeight = clamp(currentViewBox.height * scale, MIN_HEIGHT, MAX_HEIGHT)
+
+  const newMinX = clamp(mousePoint.x - ((mousePoint.x - currentViewBox.minX) * scale), 0, MAX_WIDTH - newWidth)
+  const newMinY = clamp(mousePoint.y - ((mousePoint.y - currentViewBox.minY) * scale), 0, MAX_HEIGHT - newHeight)
 
   setViewBox(newMinX, newMinY, newWidth, newHeight)
 
-  console.log("Zoom   Mouse Point: (" + parseInt(mousePoint.x) + ", " + parseInt(mousePoint.y) + ")  Viewbox: (" + parseInt(newMinX) + ", " + parseInt(newMinY) + ", " + parseInt(newWidth) + ", " + parseInt(newHeight) + ")")
+  
 }
 
 //fits val inside min and max

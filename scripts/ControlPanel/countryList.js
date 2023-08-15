@@ -13,11 +13,11 @@ let expanded = false
 function showCountryList() {
     if(expanded) {
         showCountryButton.innerHTML = "Show Country List ▶"
-        controlPanel.style.bottom = "15%"
+        controlPanel.style.bottom = "10%"
         countryListContainer.removeChild(countryListDiv)
     } else {
         showCountryButton.innerHTML = "Hide Country List ▼"
-        controlPanel.style.bottom = "5%"
+        controlPanel.style.bottom = "2%"
         countryListContainer.appendChild(countryListDiv)
     }
 

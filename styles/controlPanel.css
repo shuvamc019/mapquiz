@@ -8,7 +8,7 @@
 
 .controlPanel {
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     left: 3%;
 
 
@@ -143,17 +143,6 @@ button:hover:enabled {
     left: 200%;
     width: 2000%;
     padding: 50%;
-}
-
-.helpTooltip::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent #cbcbcb transparent transparent;
 }
 
 .helpContainer:hover .helpTooltip {
