@@ -49,9 +49,7 @@ function pan(mouseEvent) {
     const newMinY = clamp(currentViewBox.minY + (panOrigin.y - mousePoint.y), 0, MAX_HEIGHT - currentViewBox.height)
 
     setViewBox(newMinX, newMinY, currentViewBox.width, currentViewBox.height)
-    console.log("Pan   Mouse Point: (" + parseInt(mousePoint.x) + ", " + parseInt(mousePoint.y) + ")  Viewbox: (" + parseInt(newMinX) + ", " + parseInt(newMinY) + ", " + parseInt(currentViewBox.width) + ", " + parseInt(currentViewBox.height) + ")")
-  }
-  
+  } 
 }
 
 function zoom(wheelEvent) {
@@ -78,7 +76,6 @@ function zoom(wheelEvent) {
 
   setViewBox(newMinX, newMinY, newWidth, newHeight)
 
-  
 }
 
 //fits val inside min and max
