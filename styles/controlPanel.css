@@ -183,13 +183,19 @@ button:hover:enabled {
         display: block;
     }
 
+    #mode1Entry, #mode3Entry {
+        border: 1px solid black;
+        color: black;
+
+    }
+
     .skipButton, .modeControlSpacer {
         flex: 1;
     }
     
 }
 
-.skipButton:hover {
+.skipButton:hover:enabled {
     text-decoration: underline;
 }
 
@@ -205,4 +211,8 @@ button:hover:enabled {
    #helpIcon {
     color: white;
    }
+}
+
+button:disabled {
+    color: lightgray;
 }
