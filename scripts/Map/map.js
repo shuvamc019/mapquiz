@@ -15,9 +15,9 @@ function grayAllCountries() {
       for(const element of elements) {
         element.style.fill = color;
 
-        if(element.classList.contains("oceania-ellipse")) {
-          element.style.fill = "transparent";
-          element.style.stroke = color;
+        if(element.classList.contains("island-ellipse")) {
+          element.style.opacity = 0.15;
+          element.style.stroke = "none"
         }
       }
     }
@@ -38,21 +38,10 @@ function colorCountry(code) {
   for(const element of elements) {
     element.style.fill = color;
 
-    if(element.classList.contains("oceania-ellipse")) {
-      element.style.fill = "transparent";
-      element.style.stroke = color;
+    if(element.classList.contains("island-ellipse")) {
+      element.style.opacity = 0.2
+      element.style.stroke = "none"
     }
-  }
-}
-
-function initSpecialCases() {
-  //setting dashed lines for oceania island ellipses
-  for(const island of svg.contentDocument.getElementsByClassName("oceania-ellipse")) {
-    island.setAttribute("stroke-dasharray", "6 2")
-  }
-
-  for(const circleOpaque of svg.contentDocument.getElementsByClassName("circle-opaque")) {
-    circleOpaque.style.opacity = "0";
   }
 }
 
@@ -66,8 +55,8 @@ function desaturateCountry(code, saturation) {
   const elements = svg.contentDocument.getElementsByClassName(code)
     for(const element of elements) {
       element.setAttribute("filter", "saturate(" + saturation + ")")
-      if(element.classList.contains("oceania-ellipse")) {
-        element.style.fill = "transparent"
+      if(element.classList.contains("island-ellipse")) {
+        element.style.opacity = 0.1
       }
     }
 }
@@ -76,9 +65,8 @@ function saturateCountry(code, saturation) {
   const elements = svg.contentDocument.getElementsByClassName(code)
   for(const element of elements) {
     element.setAttribute("filter", "saturate(" + saturation + ")")
-    if(element.classList.contains("oceania-ellipse")) {
-      element.style.fill = element.style.stroke
-      element.style.opacity = 0.3
+    if(element.classList.contains("island-ellipse")) {
+      element.style.opacity = 0.5
    }
   }
 }
@@ -114,6 +102,5 @@ function setBaselineColors() {
 function initMap() {
   setBaselineColors()
   removeTitles();
-  initSpecialCases();
   initZoom();
 }
