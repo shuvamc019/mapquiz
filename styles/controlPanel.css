@@ -18,28 +18,8 @@
     align-items: center;
 }
 
-#mode1Entry, #mode3Entry {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-#mode2Label {
-    width: 75%;
-}
-
 button:hover:enabled {
     cursor: pointer;
-}
-
-.buttonRow {
-    display: flex;
-    padding: 5%;
-}
-
-.restartContainer, .giveUpContainer, .buttonSpacer {
-    flex: 1;
 }
 
 .transparentButton {
@@ -48,15 +28,46 @@ button:hover:enabled {
     outline: none;
 }
 
-.transparentButton:hover:enabled {
-    text-decoration: underline;
+.popupButton {
+    color:inherit;
+    font-family:inherit;
+    font-size: inherit;
+    background: white;
+
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
 }
 
-.countryGrid {
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 5%;
-    height: auto;
+.popupButton:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+    border: 2px solid black;
+}
+
+.popupButton:active {
+    box-shadow: 0 0 0 black;
+    transform: translate(0, 0);
+}
+
+.buttonRow {
+    display: flex;
+    margin: 5%;
+
+    .restartContainer, .giveUpContainer, .buttonSpacer {
+        flex: 1;
+    }
+
+    #restartButton, #giveUpButton {
+        border: none;
+    }
+
+    #restartButton:hover, #giveUpButton:hover {
+        border: 1.5px solid black;
+    }
+}
+
+.non-selectable {
+    user-select: none;
 }
 
 .countryListDiv {
@@ -66,24 +77,20 @@ button:hover:enabled {
     flex-direction: column;
     scroll-behavior: smooth;
     padding-top: 5%;
+
+    .countryGrid {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 5%;
+        height: auto;
+    }
+
+    .labelDiv {
+        background-color: rgb(132, 75, 132);
+        margin: 5%;
+    }
 }
 
-.continentLabel {
-    margin: 0;
-}
-
-.hiddenLabel {
-    opacity: 0;
-}
-
-.shownLabel {
-    opacity: 1;
-}
-
-.labelDiv {
-    background-color: rgb(132, 75, 132);
-    margin: 5%;
-}
 
 .optionsContainer {
     display: flex;
@@ -91,36 +98,36 @@ button:hover:enabled {
     margin-left: 5%;
     margin-top: -3%;
     justify-content: center;
+
+
+    .dropDown {
+        border: transparent;
+        background-color: transparent;
+        text-align: center;
+    }
+
+    .dropDown:hover {
+        cursor: pointer;
+    }
+
+    .dropDown:focus {
+        outline: none;
+    }
+
+    #modeContainer, #regionContainer {
+        flex: 1;
+        margin: auto;
+        width: auto;
+    }
+    
 }
 
-.dropDown {
-    border: transparent;
-    background-color: transparent;
-    text-align: center;
-}
 
-.dropDown:hover {
-    cursor: pointer;
-}
-
-.dropDown:focus {
-    outline: none;
-}
-
-#modeContainer, #regionContainer {
-    flex: 1;
-    margin: auto;
-    width: auto;
-}
 
 .timerContainer {
     position: relative;
     align-items: center;
     margin: 5%;
-}
-
-.non-selectable {
-    user-select: none;
 }
 
 .helpContainer {
@@ -129,17 +136,19 @@ button:hover:enabled {
     right: 2%;
     width: 6%;
     height: 6%;
-}
 
-#helpIcon {
-    width: 90%;
-    height: auto;
+    #helpIcon {
+        width: 90%;
+        height: auto;
+    }
+    
+   
 }
 
 .helpTooltip {
     visibility: hidden;
     position: absolute;
-    top: -800%;
+    top: -900%;
     left: 200%;
     width: 2000%;
     padding: 50%;
@@ -157,8 +166,22 @@ button:hover:enabled {
 
     width: 75%;
     margin: auto;
+
+
+    #mode1Entry, #mode2Label, #mode3Entry {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .skipButton, .modeControlSpacer {
+        flex: 1;
+    }
+    
 }
 
-.skipButton, .modeControlSpacer {
-    flex: 1;
+.skipButton:hover {
+    text-decoration: underline;
 }
+
