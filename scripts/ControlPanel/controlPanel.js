@@ -6,11 +6,16 @@ const giveUpButton = document.getElementById("giveUpButton")
 const restartButton = document.getElementById("restartButton")
 const modeDropdown = document.getElementById("modeDropdown")
 const regionDropdown = document.getElementById("regionDropdown")
+const titleDiv = document.getElementsByClassName("titleContainer")[0]
+const zoomIcon = document.getElementById("zoomIcon")
 
 const countriesRemainingArr = []
 let countriesFound = 0;
 let totalCountries;
 let randomCountryCode = ""
+
+let controlPanelMousePoint
+let x, y
 
 function initControlPanel() {
     dialog.close()
@@ -39,6 +44,8 @@ function initControlPanel() {
     modeDropdown.addEventListener("change", restart)
     regionDropdown.addEventListener("change", restart)
 
+    zoomIcon.addEventListener("click", zoomToDefaultViewbox)
+
     initCountryList();
     restart();
 }
@@ -66,6 +73,7 @@ function initContinentSelection() {
        for(const continent of continents) {
             if(continent.name === regionDropdown.value) {
                 const continentViewbox = continent.viewBox
+                setDefaultViewbox(continentViewbox.minX, continentViewbox.minY, continentViewbox.width, continentViewbox.height)
                 animateSetViewBox(continentViewbox.minX, continentViewbox.minY, continentViewbox.width, continentViewbox.height)
             }
        }

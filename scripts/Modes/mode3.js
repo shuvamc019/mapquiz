@@ -34,6 +34,7 @@ function mode3Init() {
 function selectCountry(code) {
     console.log(countryMap.get(code).name + " selected")
     const countryViewbox = countryMap.get(code).viewBox
+    setDefaultViewbox(countryViewbox.minX, countryViewbox.minY, countryViewbox.width, countryViewbox.height)
     animateSetViewBox(countryViewbox.minX, countryViewbox.minY, countryViewbox.width, countryViewbox.height)
 
     saturateCountry(code, "1.3")

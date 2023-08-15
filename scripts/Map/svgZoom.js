@@ -10,6 +10,13 @@ let currentViewBox = {
   height: MAX_HEIGHT
 }
 
+let defaultViewbox = {
+  minX: 0,
+  minY: 0,
+  width: MAX_WIDTH,
+  height: MAX_HEIGHT
+}
+
 function initZoom() {
   inverseSVGMatrix = svgTag.getScreenCTM().inverse() //inverse of SVG point transformation matrix
 
@@ -85,8 +92,20 @@ function clamp(val, min, max) {
   return val;
 }
 
+function setDefaultViewbox(minX, minY, width, height) {
+  defaultViewbox.minX = minX
+  defaultViewbox.minY = minY
+  defaultViewbox.width = width
+  defaultViewbox.height = height
+}
+
 function zoomToFullScreen() {
+  setDefaultViewbox(0, 0, MAX_WIDTH, MAX_HEIGHT)
   animateSetViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
+}
+
+function zoomToDefaultViewbox() {
+  animateSetViewBox(defaultViewbox.minX, defaultViewbox.minY, defaultViewbox.width, defaultViewbox.height)
 }
 
 function setViewBox(minX, minY, width, height) {

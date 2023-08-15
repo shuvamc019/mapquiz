@@ -51,8 +51,8 @@ button:hover:enabled {
 
 .buttonRow {
     display: flex;
-    margin: 5%;
-    height: auto;
+    padding: 5%;
+    resize: none;
 
 
     .restartContainer, .giveUpContainer, .buttonSpacer {
@@ -130,6 +130,14 @@ button:hover:enabled {
     margin: 5%;
 }
 
+#zoomIcon {
+    position: absolute;
+    width: 5.4%;
+    height: auto;
+    top: 2%;
+    left: 2%;
+}
+
 .helpContainer {
     position: absolute;
     top: 2%;
@@ -152,9 +160,10 @@ button:hover:enabled {
     padding: 50%;
 }
 
-.helpContainer:hover {
+#helpIcon:hover, #zoomIcon:hover {
     cursor: pointer;
 }
+
 .helpContainer:hover .helpTooltip {
     cursor: pointer;
     visibility: visible;
