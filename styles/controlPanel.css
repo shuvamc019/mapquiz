@@ -22,37 +22,42 @@ button:hover:enabled {
     cursor: pointer;
 }
 
+button:disabled {
+    color: lightgray;
+}
+
 .transparentButton {
     border: none;
     background: none;
     outline: none;
 }
 
-.popupButton {
-    color:inherit;
-    font-family:inherit;
-    font-size: inherit;
-    background: white;
+.fillButton {
+    transition: all 0.3s ease;
 
-    box-shadow: 0 0 0 black;
-    transition: all 0.2s;
+    background-color: transparent;
+    color: black;
+
+    border: none;
+    border-radius: 5%;
+
+    padding: 5%;
+
 }
 
-.popupButton:hover:enabled {
-    box-shadow: 0.4rem 0.4rem 0 black;
-    transform: translate(-0.4rem, -0.4rem);
-    border: 2px solid black;
+.fillButton:hover:enabled { 
+    box-shadow: inset 8em 0 0 0 black;
+    color: white;
+    border: none;
 }
 
-.popupButton:active:enabled {
-    box-shadow: 0 0 0 black;
-    transform: translate(0, 0);
+.skipButton:hover:enabled {
+    box-shadow: inset 5em 0 0 0 black;
 }
 
 .buttonRow {
     display: flex;
     padding: 5%;
-    resize: none;
 
 
     .restartContainer, .giveUpContainer, .buttonSpacer {
@@ -60,12 +65,10 @@ button:hover:enabled {
     }
 
     #restartButton, #giveUpButton {
-        border: none;
+        width: 100%;
+        height: 120%;
     }
 
-    #restartButton:hover:enabled, #giveUpButton:hover:enabled {
-        border: 1.5px solid black;
-    }
 }
 
 .non-selectable {
@@ -125,7 +128,6 @@ button:hover:enabled {
 .timerContainer {
     position: relative;
     align-items: center;
-    margin: 5%;
 }
 
 #zoomIcon {
@@ -172,31 +174,36 @@ button:hover:enabled {
     flex-direction: row;
     position: relative;
 
-    width: 75%;
+    width: 90%;
     margin: auto;
 
 
-    #mode1Entry, #mode2Label, #mode3Entry {
+    #mode1Entry {
         width: 75%;
         margin-left: auto;
         margin-right: auto;
-        display: block;
+    }
+
+    #mode3Entry, #mode2Label {
+        width: 65%;
+        margin: 3%;
     }
 
     #mode1Entry, #mode3Entry {
         border: 1px solid black;
         color: black;
-
     }
 
-    .skipButton, .modeControlSpacer {
+    .skipDiv, .modeControlSpacer {
         flex: 1;
+        margin: auto;
+    }
+
+    .skipButton {
+        position: relative;
+        width: 120%;
     }
     
-}
-
-.skipButton:hover:enabled {
-    text-decoration: underline;
 }
 
 .titleContainer {
@@ -211,8 +218,4 @@ button:hover:enabled {
    #helpIcon {
     color: white;
    }
-}
-
-button:disabled {
-    color: lightgray;
 }

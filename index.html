@@ -29,8 +29,8 @@
                     <img id="helpIcon" class="non-selectable icon" src="resources/help-icon.svg"/>
                     <div class="helpTooltip panelStyle">
                         <h3>How To Play</h3>
-                        <p> Use the dropdown menus at the top to toggle quiz mode and the region you want to be quizzed on. </p>
-                        <p>Touchpad scroll or mouse wheel can be used to zoom in and out of the map. Drag to pan the map.</p>
+                        <p> Use the dropdown menus to toggle quiz mode and the region you want to be quizzed on. </p>
+                        <p>Drag to pan the map and pinch or scroll to zoom.</p>
 
                         <h4>Mode 1 - Name All Countries</h4>
                         <p>Can you name every country? Countries will show up in color once found. Try to color the whole map!</p>
@@ -44,7 +44,7 @@
                 </div>    
             </div>
             <div class="optionsContainer">
-                <form class="modeContainer">
+                <form id="modeContainer">
                     <select name="mode" id="modeDropdown" class="dropDown non-selectable">
                         <option value="Name All Countries">Name All Countries</option>
                         <option value="Find The Country" selected>Find The Country</option>
@@ -74,12 +74,16 @@
             <div class="mode2Control modeControl" id="mode2Control">
                 <div class="modeControlSpacer"></div>
                 <p id="mode2Label" class="non-selectable">Find:</p>
-                <button id="mode2SkipButton" class="transparentButton skipButton non-selectable">Skip</button>
+                <div class="skipDiv">
+                    <button id="mode2SkipButton" class="transparentButton skipButton fillButton non-selectable">Skip</button>
+                </div>
             </div>
             <div class="mode3Control modeControl" id="mode3Control">
                 <div class="modeControlSpacer"></div>
                 <input id="mode3Entry" placeholder="What country is this?">
-                <button id="mode3SkipButton" class="transparentButton skipButton non-selectable">Skip</button>
+                <div class="skipDiv">
+                    <button id="mode3SkipButton" class="transparentButton skipButton fillButton non-selectable">Skip</button>
+                </div>
             </div>
             <div class="progressContainer">
                 <p id="progressLabel" class="non-selectable">0 / 197 Countries Found</p>
@@ -89,12 +93,12 @@
             </div>
             <div class="buttonRow">
                 <div class="restartContainer">
-                    <button id="restartButton" class="popupButton non-selectable">Restart</button>
+                    <button id="restartButton" class="fillButton non-selectable">Restart</button>
                 </div>
                 <div class="buttonSpacer">
                 </div>
                 <div class="giveUpContainer">
-                    <button id="giveUpButton" class="popupButton non-selectable">Give Up</button>
+                    <button id="giveUpButton" class="fillButton non-selectable">Give Up</button>
                 </div>
             </div>
         </div>
@@ -103,8 +107,8 @@
             <h2 id="dialogHeader">Confirmation</h2>
             <p id="dialogText"></p>
             <footer>
-              <button id="dialogCloseButton" class="dialogButton popupButton non-selectable">Close dialog</button>
-              <button id="dialogRestartButton" class="dialogButton popupButton non-selectable">Restart quiz</button>
+              <button id="dialogCloseButton" class="popupButton non-selectable">Close dialog</button>
+              <button id="dialogRestartButton" class="popupButton non-selectable">Restart quiz</button>
             </footer>
         </dialog>
 
