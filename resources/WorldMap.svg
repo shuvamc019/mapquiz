@@ -7947,7 +7947,7 @@
     </g>
     <circle
        id="ag_"
-       class="island-ellipse ag"
+       class="hide ag"
        r="3"
        cy="606.909"
        cx="805.945" />
