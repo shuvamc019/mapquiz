@@ -158,10 +158,25 @@ button:focus {
 .helpTooltip {
     visibility: hidden;
     position: absolute;
-    top: -900%;
+    top: -300%;
     left: 200%;
-    width: 2000%;
     padding: 50%;
+
+    width: 2000%;
+    height: 2000%;
+    overflow: scroll;
+}
+
+.tooltipSeparator {
+    visibility: hidden;
+    background-color: transparent;
+    position: absolute;
+    top: -300%;
+    left: 100%;
+    padding: 50%;
+
+    width: 2000%;
+    height: 2000%;
 }
 
 #helpIcon:hover, #zoomIcon:hover {
@@ -169,6 +184,11 @@ button:focus {
 }
 
 .helpContainer:hover .helpTooltip {
+    cursor: pointer;
+    visibility: visible;
+}
+
+.helpContainer:hover .tooltipSeparator {
     cursor: pointer;
     visibility: visible;
 }

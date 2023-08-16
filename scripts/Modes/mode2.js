@@ -20,13 +20,6 @@ function addHoverListeners() {
         const elements = svgTag.getElementsByClassName(code);
 
         for(const element of elements) {
-            if(code == "kn") {
-                console.log(element)
-                element.addEventListener("click", function(e) {
-                    console.log("here")
-                    console.log(getPoint(e))
-                })
-            }
             element.addEventListener("mouseover", hoverCursor)
             element.addEventListener("mouseout", defaultCursor)
         }
