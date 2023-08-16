@@ -6,13 +6,14 @@ const countryMap = new Map(); //map code to country object
 
 const continents = []
 
-function Country(name, continent, group, color, grayScale, viewBox) {
+function Country(name, continent, group, color, grayScale, viewBox, saturated) {
   this.name = name;
   this.continent = continent;
   this.group = group;
   this.color = color;
   this.grayScale = grayScale;
   this.viewBox = viewBox;
+  this.saturated = saturated
 }
 
 function Continent(name, countries, viewBox) {
@@ -41,10 +42,12 @@ function readGroupFile(fileText) {
   //start from i=1 since first line of csv is header
   for(let i = 1; i < lines.length; i++) {
     const line = lines[i].split(",");
-    const color = line[1];
-    const grayScale = line[2];
-    groupColors[2 * i - 2] = color;
-    groupColors[2 * i - 1] = grayScale;
+    const colorHex = line[2];
+    const grayScaleHex = line[3];
+    const saturated = line[4];
+    groupColors[3 * i - 3] = colorHex;
+    groupColors[3 * i - 2] = grayScaleHex;
+    groupColors[3 * i - 1] = saturated;
   }
 }
 
@@ -106,12 +109,13 @@ function readCountryFile(fileText) {
     const region = line[3];
     const groupNum = parseInt(line[4]);
 
-    const color = groupColors[2 * groupNum - 2];
-    const grayScale = groupColors[2 * groupNum - 1];
+    const color = groupColors[3 * groupNum - 3];
+    const grayScale = groupColors[3 * groupNum - 2];
+    const saturated = groupColors[3 * groupNum - 1];
 
     const viewBox = regionViewboxes.get(region)
 
-    const country = new Country(countryName, continent, groupNum, color, grayScale, viewBox)
+    const country = new Country(countryName, continent, groupNum, color, grayScale, viewBox, saturated)
     countryMap.set(countryCode, country)
 
     for(let j = 0; j < continents.length; j++) {

@@ -37,11 +37,11 @@ function selectCountry(code) {
     setDefaultViewbox(countryViewbox.minX, countryViewbox.minY, countryViewbox.width, countryViewbox.height)
     animateSetViewBox(countryViewbox.minX, countryViewbox.minY, countryViewbox.width, countryViewbox.height)
 
-    saturateCountry(code, "1.3")
+    saturateCountry(code, countryMap.get(code).saturated.toString())
 }
 
 function deselectCountry(code) {
-    desaturateCountry(code, "0.3")
+    desaturateCountry(code, "0.25")
 }
 
 function mode3NewCountry() {

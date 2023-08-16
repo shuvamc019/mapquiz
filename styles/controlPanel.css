@@ -75,6 +75,10 @@ button:disabled {
     user-select: none;
 }
 
+button:focus {
+    outline:0;
+}
+
 .countryListDiv {
     height: 25vh;
     overflow: auto;
