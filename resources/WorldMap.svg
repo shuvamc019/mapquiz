@@ -263,7 +263,7 @@
          id="title41">Guadeloupe</title>
       <g
          id="gp-"
-         class="landxx smallislandxx fr gp eu">
+         class="landxx smallislandxx gp eu">
         <path
            id="path2582"
            d="m 806.526,618.838 c -0.346,0.584 -0.882,4.254 -1.787,1.758 -0.509,-1.405 0.288,-2.788 1.787,-1.758" />
@@ -276,7 +276,7 @@
       </g>
       <circle
          id="gp_"
-         class="hide subxx fr gp eu"
+         class="hide subxx gp eu"
          r="4.2338"
          cy="615.231"
          cx="809.389" />
@@ -287,11 +287,11 @@
          id="title49">Martinique</title> 
       <path
          id="mq-"
-         class="landxx smallislandxx fr mq eu"
+         class="landxx smallislandxx mq eu"
          d="m 810.336,634.966 c -0.583,-0.893 -1.3,-0.133 -1.584,-0.979 -0.275,-0.819 -0.646,-1.706 -0.657,-2.583 -0.01,-1.149 1.181,-0.144 1.494,0.25 0.61,0.767 1.462,2.361 0.747,3.312" />
       <circle
          id="mq_"
-         class="hide subxx fr mq eu"
+         class="hide subxx mq eu"
          r="4.2338"
          cy="635.369"
          cx="813.595" />
@@ -5892,7 +5892,7 @@
          d="m 752.74,655.56 c -0.163,-0.412 0.08,-1.47 -0.445,-1.681 -0.443,-0.179 -0.638,-0.129 -0.485,-0.768 0.937,0.708 2.108,1.24 0.93,2.449" />
       <circle
          id="bq_"
-         class="hide subxx nl bq"
+         class="hide subxx bq"
          r="4.2338"
          cy="657.426500"
          cx="754.928300" />
@@ -7947,7 +7947,7 @@
     </g>
     <circle
        id="ag_"
-       class="hide ag"
+       class="island-ellipse ag"
        r="3"
        cy="606.909"
        cx="805.945" />
@@ -8091,7 +8091,9 @@
        id="title2749">Saint Kitts and Nevis</title>
     <g
        id="kn-"
-       class="smallislandxx kn">
+       class="landxx smallislandxx kn"
+       transform-origin="799 610"
+       transform="scale(1.3)">
       <path
          id="path5926"
          d="m 798.886,610.63 c -0.501,-0.434 -0.981,-0.89 -1.44,-1.368 0.858,-0.412 1.487,0.631 1.44,1.368" />
@@ -8132,7 +8134,7 @@
     <circle
        id="bl_"
        class="hide bl eu"
-       r="6.01303"
+       r="0.1"
        cy="609.917"
        cx="799.963" />
   </g>

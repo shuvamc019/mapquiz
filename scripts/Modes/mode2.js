@@ -7,18 +7,26 @@ function mode2Init() {
     controlPanel.insertBefore(mode2Control, progressContainer)
 
     mode2SkipButton.addEventListener("click", mode2NewCountry)
-
+    
+    colorAllCountries()
     addHoverListeners()
     mode2NewCountry()
 
-    colorAllCountries()
+
 }
 
 function addHoverListeners() {
     for(const code of countryMap.keys()) {
         const elements = svgTag.getElementsByClassName(code);
-       
+
         for(const element of elements) {
+            if(code == "kn") {
+                console.log(element)
+                element.addEventListener("click", function(e) {
+                    console.log("here")
+                    console.log(getPoint(e))
+                })
+            }
             element.addEventListener("mouseover", hoverCursor)
             element.addEventListener("mouseout", defaultCursor)
         }
@@ -73,5 +81,13 @@ function mode2NewCountry() {
     addClickListener(randomCountryCode)
 }
 
-function hoverCursor() { svgTag.style.cursor = "pointer" }
+function hoverCursor(e) { 
+    svgTag.style.cursor = "pointer" 
+
+    /*const c = e.target.classList
+    console.log(countryMap.get(c[1]))
+    console.log(c)
+    console.log(e.target)
+    console.log(" ")*/
+}
 function defaultCursor() { svgTag.style.cursor = "auto" }
