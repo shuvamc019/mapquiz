@@ -61,7 +61,7 @@ function countryClicked() {
     console.log(countryMap.get(randomCountryCode).name + " found")
     newCountryFound(randomCountryCode)
 
-    mode2NewCountry()
+    if(countriesRemainingArr.length > 0) mode2NewCountry()
     
 }
 

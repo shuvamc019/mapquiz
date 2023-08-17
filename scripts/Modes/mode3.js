@@ -13,7 +13,7 @@ function mode3Entered(event) {
         mode3Entry.value = ""
         console.log(countryMap.get(randomCountryCode).name + " found")
 
-        mode3NewCountry()
+        if(countriesRemainingArr.length > 0) mode3NewCountry()
       }
     }
 }

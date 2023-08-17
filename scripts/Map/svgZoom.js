@@ -34,6 +34,8 @@ function initZoom() {
   svgTag.addEventListener("keydown", function() {
     console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
   })
+
+  window.onresize = resizeWindow
 }
 
 //sets mousePoint variable to the mouse location in SVG coordinates
@@ -130,4 +132,19 @@ function animateSetViewBox(minX, minY, width, height) {
 
 function viewBoxString(minX, minY, width, height) {
   return minX.toString() + " " + minY.toString() + " " + width.toString() + " " + height.toString()
+}
+
+function resizeWindow() {
+  let ratio = window.innerWidth / window.innerHeight
+
+  if(ratio > 2) {
+    window.resizeTo(window.innerHeight * 2, window.innerHeight)
+    ratio = 2
+  }
+
+  const newWidth = clamp(currentViewBox.height * ratio, 0, MAX_WIDTH)
+  const newMinX = clamp((currentViewBox.minX + currentViewBox.width / 2) - newWidth / 2, 0, MAX_WIDTH - newWidth)
+  
+
+  setViewBox(newMinX, currentViewBox.minY, newWidth, currentViewBox.height)
 }
