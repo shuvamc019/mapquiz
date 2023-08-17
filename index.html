@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Countries Of The World Quiz</title>
+        <title>Countries Of The World - Map Quiz Game</title>
 
         <meta charset="UTF-8" />
         <meta name="description" content="Can you name every country? Challenge your mastery of the regions, countries, and continents of the world.">
@@ -9,7 +9,7 @@
         <meta name="author" content="Shuvam Chatterjee">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
-        <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+        <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 
         <link rel="canonical" href="https://countriesoftheworldquiz.com/" />
 
@@ -31,7 +31,7 @@
                     <img id="helpIcon" class="non-selectable icon" src="resources/help-icon.svg"/>
                     <div class="tooltipSeparator"></div>
                     <div class="helpTooltip panelStyle">
-                        <h2>How To Play</h>
+                        <h2>How To Play</h2>
                         <p> Are you ready to test your mastery of the countries of the world?</p>
                         <p> Use the dropdown menus to toggle quiz mode and the region you want to be quizzed on. </p>
                         <p>Drag to pan the map and pinch or scroll to zoom.</p>
@@ -109,11 +109,15 @@
 
         <dialog id="dialog">
             <h2 id="dialogHeader">Confirmation</h2>
+
             <p id="dialogText"></p>
-            <footer>
+
+            <div class="scoreListContainer"></div>
+   
+            <div class="dialogButtons">
               <button id="dialogCloseButton" class="popupButton non-selectable">Close dialog</button>
               <button id="dialogRestartButton" class="popupButton non-selectable">Restart quiz</button>
-            </footer>
+            </div>
         </dialog>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

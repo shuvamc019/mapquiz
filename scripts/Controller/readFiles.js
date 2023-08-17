@@ -6,6 +6,10 @@ const countryMap = new Map(); //map code to country object
 
 const continents = []
 
+const scores = []
+
+window.onbeforeunload = writeScores
+
 function Country(name, continent, group, color, grayScale, viewBox, saturated) {
   this.name = name;
   this.continent = continent;
@@ -20,6 +24,14 @@ function Continent(name, countries, viewBox) {
   this.name = name;
   this.countries = countries;
   this.viewBox = viewBox;
+}
+
+function Score(mode, region, found, total, time) {
+  this.mode = mode
+  this.region = region
+  this.found = found
+  this.total = total
+  this.time = time
 }
 
 //based on codes.csv, build map from country name to code
@@ -124,4 +136,26 @@ function readCountryFile(fileText) {
       }
     }
   }
+}
+
+function readScoreFile(fileText) {
+  const lines = fileText.split("\n")
+
+  for(let i = 1; i < lines.length; i++) {
+    const line = lines[i].split(",")
+
+    const mode = line[0]
+    const region = line[1]
+    const found = line[2]
+    const total = line[3]
+    const time = line[4]
+
+    const score = new Score(mode, region, found, total, time)
+    scores.push(score)
+  }
+}
+
+//write all new scores from this session to file
+function writeScores() {
+
 }
