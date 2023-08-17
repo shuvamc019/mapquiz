@@ -146,9 +146,9 @@ function readScoreFile(fileText) {
 
     const mode = line[0]
     const region = line[1]
-    const found = line[2]
-    const total = line[3]
-    const time = line[4]
+    const found = parseInt(line[2])
+    const total = parseInt(line[3])
+    const time = parseInt(line[4])
 
     const score = new Score(mode, region, found, total, time)
     scores.push(score)

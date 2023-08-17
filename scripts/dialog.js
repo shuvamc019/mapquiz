@@ -3,7 +3,7 @@ const dialogHeader = document.getElementById("dialogHeader")
 const dialogText = document.getElementById("dialogText")
 const dialogCloseButton = document.getElementById("dialogCloseButton")
 const dialogRestartButton = document.getElementById("dialogRestartButton")
-const scoreListContainer = document.getElementsByClassName("scoreListContainer")[0]
+const scoreTable = document.getElementsByClassName("scoreTable")[0]
 
 const GIVE_UP = 1, GAME_WON = 2
 
@@ -48,26 +48,36 @@ function gameEnd(type) {
 }
 
 function initScoreSection() {
-    scoreListContainer.innerHTML = "" //clear all children
+    scoreTable.innerHTML = "" //clear all children
 
-    let scoreExists = false //keeps track of whether any previous scores exist for this configuration
+    scores.sort((a, b) => {
+        if(a.found > b.found) {
+            return -1;
+        } else if(b.found > a.found) {
+            return 1;
+        } else {
+            return a.time < b.time ? -1 : 1;
+        }
+    })
 
-    for(const score of scores) {
+    for(let i = 0; i < scores.length; i++) {
+        const score = scores[i]
+
         if(score.mode === modeDropdown.value && score.region === regionDropdown.value) {
-            scoreExists = true
-
+            const scoreDivWrapper = document.createElement("div") //wrapper is only there so that bottom border can be set with ::after
+            
             const scoreDiv = document.createElement("div")
             scoreDiv.classList.add("scoreDiv")
 
+            const rankLabel = document.createElement("p")
+            rankLabel.classList.add("rankLabel")
+            rankLabel.innerHTML = (i + 1) + "."
+            scoreDiv.appendChild(rankLabel)
+
             const modeLabel = document.createElement("p")
             modeLabel.classList.add("scoreLabel")
-            modeLabel.innerHTML = score.mode
+            modeLabel.innerHTML = score.mode + "<br/>" + score.region
             scoreDiv.appendChild(modeLabel)
-
-            const regionLabel = document.createElement("p")
-            regionLabel.classList.add("scoreLabel")
-            regionLabel.innerHTML = score.region
-            scoreDiv.appendChild(regionLabel)
 
             const foundLabel = document.createElement("p")
             foundLabel.classList.add("scoreLabel")
@@ -76,17 +86,19 @@ function initScoreSection() {
 
             const timeLabel = document.createElement("p")
             timeLabel.classList.add("scoreLabel")
-            console.log(score.time)
-            timeLabel.innerHTML = score.time
+            timeLabel.innerHTML = formatTime(score.time)
             scoreDiv.appendChild(timeLabel)
 
-            scoreListContainer.appendChild(scoreDiv)
+            scoreTable.appendChild(scoreDiv)
+
+            //adding line under each score div
+            const lineDiv = document.createElement("div")
+            lineDiv.classList.add("lineDiv")
+            scoreTable.append(lineDiv)
         }
     }
 
-    if(!scoreExists) {
-
-    }
+    dialog.style.transform = "translate(-75%, -50%)"
 
 
 }
@@ -94,7 +106,7 @@ function initScoreSection() {
 //adds current game score to scores array
 function addScore() {
     if(countriesFound > 0) { //dont' count it as a score if nothing found
-        const score = new Score(modeDropdown.value, regionDropdown.value, countriesFound, totalCountries, timer.innerHTML)
+        const score = new Score(modeDropdown.value, regionDropdown.value, countriesFound, totalCountries, seconds)
         scores.push(score)
     }
 }

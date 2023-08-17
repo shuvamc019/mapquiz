@@ -19,6 +19,9 @@ async function init() {
   //read in country csv and build data structure
   await fetch("resources/countries.csv").then(r=>r.text()).then(readCountryFile);
 
+  //read in scores csv and build data structure
+  await fetch("resources/scores.csv").then(r=>r.text()).then(readScoreFile);
+
   initMap();
   initControlPanel();
 
