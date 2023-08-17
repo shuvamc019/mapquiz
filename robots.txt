@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /?mode=Name+The+Country
+Disallow: /?mode=Name+All+Countries
+Disallow: /?mode=Find+The+Countries
+Disallow: /?region=Asia
+Disallow: /?region=Africa
+Disallow: /?region=Europe
+Disallow: /?region=North+America
+Disallow: /?region=Oceania
+Disallow: /?region=South+America
