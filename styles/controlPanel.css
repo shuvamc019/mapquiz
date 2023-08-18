@@ -97,6 +97,7 @@ button:focus {
     .labelDiv {
         background-color: rgb(132, 75, 132);
         margin: 5%;
+        padding: 1%;
     }
 }
 
