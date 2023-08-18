@@ -34,7 +34,7 @@ function initZoom() {
   svg.contentDocument.addEventListener("mouseleave", function() { mouseDown = false });
   svg.contentDocument.addEventListener("mousemove", pan);
 
-  zoomToFullScreen()
+  setViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
 
   svgTag.addEventListener("keydown", function() {
     console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))

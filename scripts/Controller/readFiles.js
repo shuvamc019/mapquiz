@@ -157,5 +157,14 @@ function readScoreFile(fileText) {
 
 //write all new scores from this session to file
 function writeScores() {
+  const http = new XMLHttpRequest();
+  http.open("POST", "writeScores.php", true);
 
+  http.onreadystatechange = function() { 
+      if(http.readyState == 4 && http.status == 200) { // complete and no errors
+          console.log(http.responseText);
+      }
+  };
+  const scoresJSON = JSON.stringify(scores)
+  http.send(scoresJSON);
 }

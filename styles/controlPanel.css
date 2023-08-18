@@ -105,17 +105,24 @@ button:focus {
 .optionsContainer {
     display: flex;
     flex-direction: row;
-    margin: 5%;
     justify-content: center;
+    margin-top: 5%;
 
     .dropDown {
         border: transparent;
-        background-color: transparent;
         text-align: center;
         
         -moz-appearance: none;
         -webkit-appearance: none; 
         appearance: none;
+
+        background: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        padding-right: 1.5rem;
+        padding-top: 0.3rem;
+
     }
 
     .dropDown:hover {

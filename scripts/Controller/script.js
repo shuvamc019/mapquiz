@@ -24,6 +24,7 @@ async function init() {
 
   initMap();
   initControlPanel();
+  writeScores()
 
   //automateCountryLabels();
 }
