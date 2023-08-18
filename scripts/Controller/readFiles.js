@@ -29,9 +29,9 @@ function Continent(name, countries, viewBox) {
 function Score(mode, region, found, total, time) {
   this.mode = mode
   this.region = region
-  this.found = found
-  this.total = total
-  this.time = time
+  this.found = parseInt(found)
+  this.total = parseInt(total)
+  this.time = parseInt(time)
 }
 
 //based on codes.csv, build map from country name to code
@@ -138,33 +138,37 @@ function readCountryFile(fileText) {
   }
 }
 
-function readScoreFile(fileText) {
-  const lines = fileText.split("\n")
+function getScoresFromCookies() {
+  const cookieList = decodeURIComponent(document.cookie).split(";")
+  for(const cookie of cookieList) {
+    if (cookie.indexOf("expires") == -1) { //make sure this is a score, not an expires section
+      const equalInd = cookie.indexOf("=")
+      const scoreString = cookie.substring(equalInd + 1).trim() //score value will come after the =
 
-  for(let i = 1; i < lines.length; i++) {
-    const line = lines[i].split(",")
-
-    const mode = line[0]
-    const region = line[1]
-    const found = parseInt(line[2])
-    const total = parseInt(line[3])
-    const time = parseInt(line[4])
-
-    const score = new Score(mode, region, found, total, time)
-    scores.push(score)
+      const scoreAttributes = scoreString.split(",")
+      const score = new Score(scoreAttributes[0], scoreAttributes[1], scoreAttributes[2], scoreAttributes[3], scoreAttributes[4])
+      scores.push(score)
+    }
   }
 }
 
-//write all new scores from this session to file
+//write all new scores from this session to cookies
 function writeScores() {
-  const http = new XMLHttpRequest();
-  http.open("POST", "writeScores.php", true);
+  for(let i = 0; i < scores.length; i++) {
+    const name = "score" + i
+    const val = scoreString(scores[i])
+    setCookie(name, val, 365) //score expires in a year
+  }
+}
 
-  http.onreadystatechange = function() { 
-      if(http.readyState == 4 && http.status == 200) { // complete and no errors
-          console.log(http.responseText);
-      }
-  };
-  const scoresJSON = JSON.stringify(scores)
-  http.send(scoresJSON);
+function setCookie(name, val, expireDays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+  let expires = "expires=" + d.toUTCString();
+
+  document.cookie = name + "=" + val + ";" + expires;
+}
+
+function scoreString(score) {
+  return score.mode + "," + score.region + "," + score.found + "," + score.total + "," + score.time
 }
