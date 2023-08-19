@@ -71,7 +71,7 @@ function initScoreSection() {
 
             const rankLabel = document.createElement("p")
             rankLabel.classList.add("rankLabel")
-            rankLabel.innerHTML = (rankNum++) + "."
+            rankLabel.innerHTML = (rankNum) + "."
             scoreDiv.appendChild(rankLabel)
 
             const modeLabel = document.createElement("p")

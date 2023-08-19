@@ -1,12 +1,12 @@
 let mouseDown, inverseSVGMatrix, mousePoint, panOrigin, zoomOrigin
 
-const WINDOW_MAX_WIDTH = window.screen.availWidth
-const WINDOW_MAX_HEIGHT = (window.screen.availHeight - (window.outerHeight - window.innerHeight))
-const ASPECT_RATIO = WINDOW_MAX_WIDTH / WINDOW_MAX_HEIGHT
+let WINDOW_MAX_WIDTH = window.screen.availWidth
+let WINDOW_MAX_HEIGHT = (window.screen.availHeight - (window.outerHeight - window.innerHeight))
+let ASPECT_RATIO = WINDOW_MAX_WIDTH / WINDOW_MAX_HEIGHT
 const MIN_SCALE = 1 / 10;
 
-const MAX_HEIGHT = 1440, MAX_WIDTH = MAX_HEIGHT * ASPECT_RATIO
-const MIN_WIDTH = MAX_WIDTH * MIN_SCALE, MIN_HEIGHT = MAX_HEIGHT * MIN_SCALE
+let MAX_HEIGHT = 1440, MAX_WIDTH = MAX_HEIGHT * ASPECT_RATIO
+let MIN_WIDTH = MAX_WIDTH * MIN_SCALE, MIN_HEIGHT = MAX_HEIGHT * MIN_SCALE
 
 let currentViewBox = {
   minX: 0,
@@ -30,9 +30,9 @@ function initZoom() {
     mouseDown = true
     panOrigin = getPoint(mouseEvent)
   });
-  svg.contentDocument.addEventListener("mouseup", function() { mouseDown = false });
-  svg.contentDocument.addEventListener("mouseleave", function() { mouseDown = false });
-  svg.contentDocument.addEventListener("mousemove", pan);
+  svg.contentDocument.onmouseup = function() { mouseDown = false }
+  svg.contentDocument.onmouseleave =  function() { mouseDown = false }
+  svg.contentDocument.onmousemove = pan
 
   setViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
 

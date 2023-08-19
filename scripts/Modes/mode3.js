@@ -1,6 +1,6 @@
 const mode3Control = document.getElementById("mode3Control")
 const mode3Entry = document.getElementById("mode3Entry");
-mode3Entry.addEventListener("keyup", mode3Entered);
+mode3Entry.onkeyup = mode3Entered
 const mode3SkipButton = document.getElementById("mode3SkipButton")
 
 function mode3Entered(event) {
@@ -22,7 +22,7 @@ function mode3Init() {
     mode3Entry.disabled = false
     controlPanel.insertBefore(mode3Control, progressContainer)
 
-    mode3SkipButton.addEventListener("click", mode3NewCountry)
+    mode3SkipButton.onclick = mode3NewCountry
 
     mode3Entry.value = ""
     colorAllCountries()

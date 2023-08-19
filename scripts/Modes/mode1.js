@@ -1,6 +1,6 @@
 const mode1Control = document.getElementById("mode1Control")
 const mode1Entry = document.getElementById("mode1Entry");
-mode1Entry.addEventListener("keyup", mode1Entered);
+mode1Entry.onkeyup = mode1Entered
 
 function mode1Entered(event) {
     const countryName = mode1Entry.value.toLowerCase()

@@ -6,7 +6,7 @@ function mode2Init() {
     console.log("\nMode 2 started")
     controlPanel.insertBefore(mode2Control, progressContainer)
 
-    mode2SkipButton.addEventListener("click", mode2NewCountry)
+    mode2SkipButton.onclick = mode2NewCountry
     
     colorAllCountries()
     addHoverListeners()
@@ -20,8 +20,8 @@ function addHoverListeners() {
         const elements = svgTag.getElementsByClassName(code);
 
         for(const element of elements) {
-            element.addEventListener("mouseover", hoverCursor)
-            element.addEventListener("mouseout", defaultCursor)
+            element.onmouseover = hoverCursor
+            element.onmouseout = defaultCursor
         }
     }
 }
@@ -30,8 +30,8 @@ function removeHoverListeners() {
     for(const code of countryMap.keys()) {
         const elements = svg.contentDocument.getElementsByClassName(code);
         for(const element of elements) {
-            element.removeEventListener("mouseover", hoverCursor)
-            element.removeEventListener("mouseout", defaultCursor)
+            element.onmouseover = hoverCursor
+            element.onmouseout = defaultCursor
         }
     }
     svgTag.style.cursor = "auto"
@@ -40,14 +40,14 @@ function removeHoverListeners() {
 function addClickListener(code) {
     const elements = svg.contentDocument.getElementsByClassName(code);
     for(const element of elements) {
-        element.addEventListener("click", countryClicked)
+        element.onclick = countryClicked
     }
 }
 
 function removeClickListener(code) {
     const elements = svg.contentDocument.getElementsByClassName(code);
     for(const element of elements) {
-        element.removeEventListener("click", countryClicked)
+        element.onclick = countryClicked
     }
 }
 

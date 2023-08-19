@@ -38,13 +38,13 @@ function initControlPanel() {
         }
     })
 
-    restartButton.addEventListener("click", restart);
-    giveUpButton.addEventListener("click", gameEnd);
+    restartButton.onclick = restart
+    giveUpButton.onclick = gameEnd
 
-    modeDropdown.addEventListener("change", restart)
-    regionDropdown.addEventListener("change", restart)
+    modeDropdown.onchange = restart
+    regionDropdown.onchange = restart
 
-    zoomIcon.addEventListener("click", zoomToDefaultViewbox)
+    zoomIcon.onclick = zoomToDefaultViewbox
 
     initCountryList();
     restart();

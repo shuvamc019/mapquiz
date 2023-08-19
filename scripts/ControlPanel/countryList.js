@@ -7,7 +7,7 @@ const notFoundCountryLabelColor = "#9c2121"
 
 const continentDivs = []
 
-showCountryButton.addEventListener("click", showCountryList);
+showCountryButton.onclick = showCountryList
 let expanded = false
 
 function showCountryList() {

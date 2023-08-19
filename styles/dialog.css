@@ -2,6 +2,8 @@
     font-family: "Questrial", sans-serif;
     
     position: absolute;
+    left: 50%;
+    top: 50%;
 
     padding: 1.6rem 3rem;
     border: 3px solid black;
