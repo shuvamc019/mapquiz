@@ -23,9 +23,10 @@ async function init() {
 
   initMap();
   initControlPanel();
-  writeScores()
 
   //automateCountryLabels();
 }
 
 svg.addEventListener("load", init);
+
+

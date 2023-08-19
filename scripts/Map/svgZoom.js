@@ -40,7 +40,7 @@ function initZoom() {
     console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
   })
 
-  window.onresize = resizeWindow
+  window.onresize = setViewBox(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height)
 }
 
 //sets mousePoint variable to the mouse location in SVG coordinates
@@ -56,7 +56,6 @@ function getPoint(event) {
 function pan(mouseEvent) {
   if(mouseDown) { //can only pan if mouse is down and being dragged
     mouseEvent.preventDefault() //stops a selection being made
-
     mousePoint = getPoint(mouseEvent)
 
     const newMinX = clamp(currentViewBox.minX + (panOrigin.x - mousePoint.x), 0, MAX_WIDTH - currentViewBox.width)
@@ -120,7 +119,10 @@ function setViewBox(minX, minY, width, height) {
   currentViewBox.minY = minY
   currentViewBox.width = width
   currentViewBox.height = height
-  svgTag.setAttribute("viewBox", viewBoxString(minX, minY, width, height))
+
+  resizeWindow()
+
+  svgTag.setAttribute("viewBox", viewBoxString(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height))
 }
 
 function animateSetViewBox(minX, minY, width, height) {
@@ -129,8 +131,10 @@ function animateSetViewBox(minX, minY, width, height) {
   currentViewBox.width = width
   currentViewBox.height = height
 
+  resizeWindow()
+
   gsap.to(svgTag, 0.75, { 
-    attr: { viewBox: viewBoxString(minX, minY, width, height)
+    attr: { viewBox: viewBoxString(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height)
   }, 
   ease:"power2.inOut"})
 }
@@ -139,12 +143,13 @@ function viewBoxString(minX, minY, width, height) {
   return minX.toString() + " " + minY.toString() + " " + width.toString() + " " + height.toString()
 }
 
+//change viewbox dimensions based on window dimensions
 function resizeWindow() {
   let ratio = window.innerWidth / window.innerHeight
 
   const newWidth = clamp(currentViewBox.height * ratio, 0, MAX_WIDTH)
   const newMinX = clamp((currentViewBox.minX + currentViewBox.width / 2) - newWidth / 2, 0, MAX_WIDTH - newWidth)
-  
 
-  setViewBox(newMinX, currentViewBox.minY, newWidth, currentViewBox.height)
+  currentViewBox.width = newWidth
+  currentViewBox.minX = newMinX
 }
