@@ -23,6 +23,7 @@ async function init() {
 
   initMap();
   initControlPanel();
+  initOrientation()
 
   //automateCountryLabels();
 }
