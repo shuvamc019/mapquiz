@@ -47,7 +47,7 @@ function addClickListener(code) {
 function removeClickListener(code) {
     const elements = svg.contentDocument.getElementsByClassName(code);
     for(const element of elements) {
-        element.onclick = countryClicked
+        element.onclick = null
     }
 }
 
