@@ -1,17 +1,19 @@
 const mapContainer = document.getElementsByClassName("mapContainer")[0]
+const mobileDevice = window.screen.availHeight > window.screen.availWidth
 let isLandscape = true
 
 function initOrientation() {
    window.onresize = orientationChange
    orientationChange()
+   
 }
 
 function orientationChange() {
-    if(window.innerWidth > window.innerHeight) { //landscape mode
-        landscape()
-
-    } else { //portrait mode
+    if(window.innerWidth < window.innerHeight && mobileDevice) { //portrait mode
         portrait()
+
+    } else  { //landscape mode
+        landscape()
     }
     setViewBox(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height)
 }
