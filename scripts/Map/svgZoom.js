@@ -40,6 +40,8 @@ function initZoom() {
     console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
   })
 
+  window.onresize = sizeChange
+
 }
 
 //sets mousePoint variable to the mouse location in SVG coordinates
@@ -140,4 +142,20 @@ function animateSetViewBox(minX, minY, width, height) {
 
 function viewBoxString(minX, minY, width, height) {
   return minX.toString() + " " + minY.toString() + " " + width.toString() + " " + height.toString()
+}
+
+//change viewbox dimensions based on window dimensions
+function resizeWindow() {
+  let ratio = window.innerWidth / window.innerHeight
+
+  const newWidth = clamp(currentViewBox.height * ratio, 0, MAX_WIDTH)
+  const newMinX = clamp((currentViewBox.minX + currentViewBox.width / 2) - newWidth / 2, 0, MAX_WIDTH - newWidth)
+
+  currentViewBox.width = newWidth
+  currentViewBox.minX = newMinX
+  
+}
+
+function sizeChange() {
+  setViewBox(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height)
 }

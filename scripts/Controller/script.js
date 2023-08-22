@@ -19,13 +19,16 @@ async function init() {
   //read in country csv and build data structure
   await fetch("resources/countries.csv").then(r=>r.text()).then(readCountryFile);
 
-  getScoresFromCookies()
-
   initMap();
-  initControlPanel();
-  initOrientation()
 
-  //automateCountryLabels();
+  if(!isMobile()) {
+    initZoom();
+    initControlPanel();
+    getScoresFromCookies();
+  } else {
+    initMobile()
+  }
+
 }
 
 svg.onload = init

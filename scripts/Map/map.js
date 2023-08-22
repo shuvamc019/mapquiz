@@ -102,5 +102,4 @@ function setBaselineColors() {
 function initMap() {
   setBaselineColors()
   removeTitles();
-  initZoom();
 }
