@@ -176,7 +176,7 @@ button:focus {
     padding: 50%;
 
     width: 2000%;
-    height: 2000%;
+    max-height: 2000%;
     overflow: scroll;
 }
 

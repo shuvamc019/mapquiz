@@ -30,14 +30,14 @@ function initMobile() {
     //rotate map 90 degrees and style
     const mapContainer = document.getElementsByClassName("mapContainer")[0]
     mapContainer.style.right = null
-    mapContainer.style.transform = "rotate(90deg) translate(-150%, 5%)"
+    mapContainer.style.transform = "rotate(90deg) translate(-170%, 5%)"
     mapContainer.style.width = "100vw"
     mapContainer.style.height = "auto"
 
     //create message saying that website is not usable on mobile
     const mobileBox = document.createElement("div")
     const message = document.createElement("p")
-    message.innerHTML = "This website is not currently usable on mobile. <br/> <br/> Check back again later."
+    message.innerHTML = "This website is not currently supported on mobile. <br/> <br/> Check back again later."
     mobileBox.appendChild(message)
 
     mobileBox.classList.add("panelStyle")

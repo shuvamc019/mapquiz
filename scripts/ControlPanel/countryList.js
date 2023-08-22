@@ -3,7 +3,7 @@ const countryListContainer = document.getElementsByClassName("countryListContain
 const countryListDiv = document.createElement("div")
 
 const defaultCountryLabelColor = "black"
-const notFoundCountryLabelColor = "#9c2121"
+const notFoundCountryLabelColor = "#e90000"
 
 const continentDivs = []
 
