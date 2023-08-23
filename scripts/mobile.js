@@ -29,16 +29,16 @@ function initMobile() {
     //create message saying that website is not usable on mobile
     const mobileBox = document.createElement("div")
     const message = document.createElement("p")
-    message.innerHTML = "This website is not currently supported on mobile. <br/> <br/> Check back again later."
+    message.innerHTML = "<strong>Countries of the World Quiz is not currently supported on mobile.</strong> <br/> <br/> Check back again later."
     mobileBox.appendChild(message)
 
     mobileBox.classList.add("panelStyle")
     mobileBox.style.position = "fixed"
     mobileBox.style.top = "50%"
     mobileBox.style.left = "50%"
-    mobileBox.style.width = "50%"
+    mobileBox.style.width = "250px"
     mobileBox.style.height = "auto"
-    mobileBox.style.padding = "5%"
+    mobileBox.style.padding = "2%"
     mobileBox.style.transform = "translate(-50%, -50%) scale(1.25)"
 
     document.getElementsByTagName("body")[0].appendChild(mobileBox)
