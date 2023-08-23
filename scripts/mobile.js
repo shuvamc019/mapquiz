@@ -21,18 +21,10 @@ function initMobile() {
     colorAllCountries();
     controlPanel.remove()
 
-
-    //TODO: fix viewbox
-    const height = MAX_HEIGHT
-    const width = MAX_HEIGHT * window.screen.availHeight / window.screen.availWidth
-    svgTag.setAttribute("viewBox", viewBoxString(0, 0, width, height))
-
-    //rotate map 90 degrees and style
-    const mapContainer = document.getElementsByClassName("mapContainer")[0]
-    mapContainer.style.right = null
-    mapContainer.style.transform = "rotate(90deg) translate(-170%, 5%)"
-    mapContainer.style.width = "100vw"
-    mapContainer.style.height = "auto"
+    //center viewbox on Africa/Asia/Europe
+    const mobileHeight = 1000, mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
+    const mobileMinX = 1080, mobileMinY = 75
+    svgTag.setAttribute("viewBox", viewBoxString(mobileMinX, mobileMinY, mobileWidth, mobileHeight))
 
     //create message saying that website is not usable on mobile
     const mobileBox = document.createElement("div")
@@ -47,7 +39,7 @@ function initMobile() {
     mobileBox.style.width = "50%"
     mobileBox.style.height = "auto"
     mobileBox.style.padding = "5%"
-    mobileBox.style.transform = "translate(-50%, -50%) rotate(90deg) scale(1.25)"
+    mobileBox.style.transform = "translate(-50%, -50%) scale(1.25)"
 
     document.getElementsByTagName("body")[0].appendChild(mobileBox)
 }
