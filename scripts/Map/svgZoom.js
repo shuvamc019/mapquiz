@@ -1,4 +1,4 @@
-let mouseDown, inverseSVGMatrix, mousePoint, panOrigin, zoomOrigin
+let mouseDown, mousePoint, panOrigin, zoomOrigin
 
 let WINDOW_MAX_WIDTH = window.screen.availWidth
 let WINDOW_MAX_HEIGHT = (window.screen.availHeight - (window.outerHeight - window.innerHeight))
@@ -23,8 +23,6 @@ let defaultViewbox = {
 }
 
 function initZoom() {
-  inverseSVGMatrix = svgTag.getScreenCTM().inverse() //inverse of SVG point transformation matrix
-
   svg.contentDocument.addEventListener("wheel", zoom, {passive: false});
   svg.contentDocument.addEventListener("mousedown", function(mouseEvent) {
     mouseDown = true
@@ -37,7 +35,7 @@ function initZoom() {
   setViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
 
   svgTag.addEventListener("keydown", function() {
-    console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
+    printViewbox()
   })
 
   window.onresize = sizeChange
@@ -51,7 +49,7 @@ function getPoint(event) {
     //convert screen coordinates to SVG coordinates
     point.x = event.clientX
     point.y = event.clientY
-    return point.matrixTransform(inverseSVGMatrix);
+    return point.matrixTransform(svgTag.getScreenCTM().inverse());
 }
 
 function pan(mouseEvent) {
@@ -59,12 +57,12 @@ function pan(mouseEvent) {
     mouseEvent.preventDefault() //stops a selection being made
     mousePoint = getPoint(mouseEvent)
 
+    console.log((panOrigin.y - mousePoint.y))
+
     const newMinX = clamp(currentViewBox.minX + (panOrigin.x - mousePoint.x), 0, MAX_WIDTH - currentViewBox.width)
     const newMinY = clamp(currentViewBox.minY + (panOrigin.y - mousePoint.y), 0, MAX_HEIGHT - currentViewBox.height)
 
     setViewBox(newMinX, newMinY, currentViewBox.width, currentViewBox.height)
-
-    panOrigin = mousePoint
   } 
 }
 
@@ -77,21 +75,22 @@ function zoom(wheelEvent) {
   if(wheelEvent.ctrlKey) { //pinch zoom event
       //can't zoom in more if already fully zoomed
       if(wheelEvent.deltaY < 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
-      scale = 1.01 ** (wheelEvent.deltaY)
+      scale = 1.005 ** (wheelEvent.deltaY)
   } else { //normal wheel scrolling
       //can't zoom in more if already fully zoomed
       if(wheelEvent.deltaY > 0 && (currentViewBox.width == MIN_WIDTH || currentViewBox.height == MIN_HEIGHT)) return
-      scale = 1.001 ** (-wheelEvent.deltaY)
+      scale = 1.0005 ** (-wheelEvent.deltaY)
   }
 
   const newWidth = clamp(currentViewBox.width * scale, MIN_WIDTH, MAX_WIDTH)
   const newHeight = clamp(currentViewBox.height * scale, MIN_HEIGHT, MAX_HEIGHT)
 
-  const newMinX = clamp(mousePoint.x - ((mousePoint.x - currentViewBox.minX) * scale), 0, MAX_WIDTH - newWidth)
-  const newMinY = clamp(mousePoint.y - ((mousePoint.y - currentViewBox.minY) * scale), 0, MAX_HEIGHT - newHeight)
+  let newMinX = clamp(mousePoint.x - ((mousePoint.x - currentViewBox.minX) * scale), 0, MAX_WIDTH - newWidth)
+  let newMinY = clamp(mousePoint.y - ((mousePoint.y - currentViewBox.minY) * scale), 0, MAX_HEIGHT - newHeight)
 
   setViewBox(newMinX, newMinY, newWidth, newHeight)
 }
+
 
 //fits val inside min and max
 function clamp(val, min, max) {
@@ -159,4 +158,8 @@ function resizeWindow() {
 
 function sizeChange() {
   setViewBox(currentViewBox.minX, currentViewBox.minY, currentViewBox.width, currentViewBox.height)
+}
+
+function printViewbox() {
+  console.log(parseInt(currentViewBox.minX) + "," + parseInt(currentViewBox.minY) + "," + parseInt(currentViewBox.width) + "," + parseInt(currentViewBox.height))
 }

@@ -2,8 +2,8 @@ const showCountryButton = document.getElementById("showCountryButton")
 const countryListContainer = document.getElementsByClassName("countryListContainer")[0]
 const countryListDiv = document.createElement("div")
 
-const defaultCountryLabelColor = "black"
-const notFoundCountryLabelColor = "#e90000"
+const defaultLabelDivColor = "#844b84"
+const notFoundLabelDivColor = "#b50d0d"
 
 const continentDivs = []
 
@@ -15,10 +15,12 @@ function showCountryList() {
         showCountryButton.innerHTML = "Show Country List ▶"
         controlPanel.style.bottom = "10%"
         countryListContainer.removeChild(countryListDiv)
+        document.getElementsByClassName("helpTooltip")[0].style.maxHeight = "1750%"
     } else {
         showCountryButton.innerHTML = "Hide Country List ▼"
         controlPanel.style.bottom = "2%"
         countryListContainer.appendChild(countryListDiv)
+        document.getElementsByClassName("helpTooltip")[0].style.maxHeight = "1000%"
     }
 
     expanded = !expanded
@@ -28,7 +30,10 @@ function hideCountryLabels() {
     for(const continentDiv of countryListDiv.getElementsByClassName("continentDiv")) {
         for(const countryLabel of continentDiv.getElementsByClassName("countryLabel")) {
             countryLabel.style.opacity = 0
-            countryLabel.style.color = defaultCountryLabelColor
+        }
+
+        for(const labelDiv of continentDiv.getElementsByClassName("labelDiv")) {
+            labelDiv.style.backgroundColor = defaultLabelDivColor
         }
 
         const continentLabel = continentDiv.getElementsByTagName("h3")[0]
@@ -47,6 +52,7 @@ function showLabel(code) {
     for(const countryLabel of countryListDiv.getElementsByClassName("countryLabel")) {
         if(countryLabel.id === (countryName + "label")) {
             countryLabel.style.opacity = 1;
+            countryLabel.style.color = "black"
             countryLabel.scrollIntoView({block: "center"})
 
             const continentDiv = countryLabel.parentElement.parentElement.parentElement
@@ -59,10 +65,11 @@ function showLabel(code) {
 }
 
 function showNotFoundCountryLabels() {
-    for(const countryLabel of countryListDiv.getElementsByClassName("countryLabel")) {
+    for(const labelDiv of countryListDiv.getElementsByClassName("labelDiv")) {
+        const countryLabel = labelDiv.getElementsByClassName("countryLabel")[0]
         if(countryLabel.style.opacity == 0) {
             countryLabel.style.opacity = 1
-            countryLabel.style.color = notFoundCountryLabelColor
+            labelDiv.style.backgroundColor = notFoundLabelDivColor
         }
     }
 }
@@ -100,6 +107,7 @@ function initCountryList() {
             const country = countryArr[i];
             
             const labelDiv = document.createElement("div");
+            labelDiv.style.backgroundColor = defaultLabelDivColor
             labelDiv.classList.add("labelDiv")
 
             const countryLabel = document.createElement("p")
