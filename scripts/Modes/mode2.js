@@ -4,7 +4,8 @@ const mode2SkipButton = document.getElementById("mode2SkipButton")
 
 function mode2Init() {
     console.log("\nMode 2 started")
-    controlPanel.insertBefore(mode2Control, progressContainer)
+    //controlPanel.insertBefore(mode2Control, progressContainer)
+    mode2Control.style.display = "flex"
 
     mode2SkipButton.onclick = mode2NewCountry
     

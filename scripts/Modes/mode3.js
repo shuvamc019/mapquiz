@@ -20,7 +20,8 @@ function mode3Entered(event) {
 
 function mode3Init() {
     mode3Entry.disabled = false
-    controlPanel.insertBefore(mode3Control, progressContainer)
+    //controlPanel.insertBefore(mode3Control, progressContainer)
+    mode3Control.style.display = "flex"
 
     mode3SkipButton.onclick = mode3NewCountry
 

@@ -57,17 +57,15 @@ button:disabled {
 .buttonRow {
     display: flex;
     padding: 5%;
+}
 
+.restartContainer, .giveUpContainer, .buttonSpacer {
+    flex: 1;
+}
 
-    .restartContainer, .giveUpContainer, .buttonSpacer {
-        flex: 1;
-    }
-
-    #restartButton, #giveUpButton {
-        width: 100%;
-        height: 120%;
-    }
-
+#restartButton, #giveUpButton {
+    width: 100%;
+    height: 120%;
 }
 
 .non-selectable {
@@ -104,41 +102,38 @@ button:focus {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 5%;  
+}
 
-    .dropDown {
-        border: transparent;
-        text-align: center;
-        
-        -moz-appearance: none;
-        -webkit-appearance: none; 
-        appearance: none;
-
-        background: transparent;
-        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-        background-repeat: no-repeat;
-        background-position-x: 100%;
-        padding-right: 1.5rem;
-        padding-top: 0.3rem;
-
-    }
-
-    .dropDown:hover {
-        cursor: pointer;
-    }
-
-    .dropDown:focus {
-        outline: none;
-    }
-
+.dropDown {
+    border: transparent;
+    text-align: center;
     
+    -moz-appearance: none;
+    -webkit-appearance: none; 
+    appearance: none;
 
-    #modeContainer, #regionContainer {
-        flex: 1;
-        margin: auto;
-        width: auto;
-    }
-    
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    padding-right: 1.5rem;
+    padding-top: 0.3rem;
+
+}
+
+.dropDown:hover {
+    cursor: pointer;
+}
+
+.dropDown:focus {
+    outline: none;
+}
+
+#modeContainer, #regionContainer {
+    flex: 1;
+    margin: auto;
+    width: auto;
 }
 
 .timerContainer {
@@ -160,11 +155,11 @@ button:focus {
     right: 2%;
     width: 6%;
     height: 6%;
+}
 
-    #helpIcon {
-        width: 90%;
-        height: auto;
-    }
+#helpIcon {
+    width: 90%;
+    height: auto;
 }
 
 .helpTooltip {
@@ -179,8 +174,6 @@ button:focus {
     width: 2000%;
     max-height: 1750%;
     overflow: scroll;
-
-    
 }
 
 #helpTitle {
@@ -222,52 +215,50 @@ button:focus {
 }
 
 .modeControl {
-    display: flex;
+    display: none;
     flex-direction: row;
     position: relative;
 
     width: 90%;
+    margin: auto;    
+}
+
+#mode1Entry {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mode3Entry, #mode2Label {
+    width: 65%;
+    margin: 3%;
+}
+
+#mode1Entry, #mode3Entry {
+    border: 1px solid black;
+    color: black;
+}
+
+.skipDiv, .modeControlSpacer {
+    flex: 1;
     margin: auto;
+}
 
+.skipButton {
+    position: relative;
+    width: 120%;
+}
 
-    #mode1Entry {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #mode3Entry, #mode2Label {
-        width: 65%;
-        margin: 3%;
-    }
-
-    #mode1Entry, #mode3Entry {
-        border: 1px solid black;
-        color: black;
-    }
-
-    .skipDiv, .modeControlSpacer {
-        flex: 1;
-        margin: auto;
-    }
-
-    .skipButton {
-        position: relative;
-        width: 120%;
-    }
-    
+#mode2Control {
+    display: flex;
 }
 
 .titleContainer {
    background-color: black;
    top: 0;
    padding: 1%;
+}
 
-   #titleLabel {
+#titleLabel {
     color: white;
-   }
-
-   #helpIcon {
-    color: white;
-   }
 }

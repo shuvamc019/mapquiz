@@ -7548,7 +7548,8 @@
        class="cv island-ellipse"
        r="20"
        cy="620.542"
-       cx="1088.73" />
+       cx="1088.73"
+       opacity="0.2" />
   </g>
   <g
      id="pf">
@@ -7610,7 +7611,8 @@
 	ry="6"
        cy="879.049"
        cx="2697.51"
-	transform="rotate(15, 2694.51, 877.049)" />
+	transform="rotate(15, 2694.51, 877.049)"
+   opacity="0.2" />
   </g>
   <g
      id="lu">
@@ -7649,7 +7651,8 @@
        class="km island-ellipse"
        r="10"
        cy="862.799"
-       cx="1603.83" />
+       cx="1603.83"
+       opacity="0.2" />
   </g>
   <g
      id="mu">
@@ -7664,7 +7667,8 @@
        class="mu island-ellipse"
        r="7.5"
        cy="934"
-       cx="1703.8" />
+       cx="1703.8"
+       opacity="0.2" />
   </g>
   <g
      id="fo">
@@ -7718,7 +7722,8 @@
        class="island-ellipse st"
        r="12.01303"
        cy="752"
-       cx="1322.5" />
+       cx="1322.5"
+       opacity="0.2" />
   </g>
   <g
      id="vi">
@@ -7807,7 +7812,8 @@
 	ry="18"
        cy="933.448"
        cx="2656.5"
-	transform="rotate(5, 2656.5, 933.448)" />
+	transform="rotate(5, 2656.5, 933.448)"
+   opacity="0.2"/>
   </g>
   <g
      id="ki">
@@ -7830,7 +7836,8 @@
 	ry="50"
        cy="748.834"
        cx="2720.04"
-	transform="rotate(10, 2600.04, 741.834)" />
+	transform="rotate(10, 2600.04, 741.834)"
+   opacity="0.2" />
   </g>
   <g
      id="fm">
@@ -7848,6 +7855,7 @@
        cy="700.1"
        cx="2437"
 	transform="rotate(7, 2477, 700.1)"
+   opacity="0.2"
  />
   </g>
   <g
@@ -7914,6 +7922,7 @@
        cy="699.398"
        cx="2295.37"
 	transform="rotate(35, 2296.37, 694.398)"
+   opacity="0.2"
 />
   </g>
   <g
@@ -7929,7 +7938,8 @@
        class="island-ellipse sc"
        r="10"
        cy="798"
-       cx="1695.2" />
+       cx="1695.2"
+       opacity="0.2" />
   </g>
   <g
      id="ag">
@@ -8068,7 +8078,8 @@
        cy="730.374"
        cx="1824.8"
        transform-origin="1824 730"
-       transform="rotate(-3)" />
+       transform="rotate(-3)"
+       opacity="0.2" />
   </g>
   <g
      id="ky">
@@ -8235,7 +8246,8 @@
 	ry="50"
        cy="671.2"
        cx="2557.44"
-	transform="rotate(-35, 2557.44, 671.2)" />
+	transform="rotate(-35, 2557.44, 671.2)"
+   opacity="0.2" />
   </g>
   <g
      id="aw">
@@ -8411,7 +8423,8 @@
 	ry="30"
        cy="832.952"
        cx="2629.85"
-	transform="rotate(-20, 2629.85, 832.952)" />
+	transform="rotate(-20, 2629.85, 832.952)"
+   opacity="0.2" />
   </g>
   <g
      id="nr">
@@ -8426,7 +8439,8 @@
        class="island-ellipse nr"
        r="15"
        cy="747.583"
-       cx="2527" />
+       cx="2527"
+       opacity="0.2" />
   </g>
   <g
      id="gi">

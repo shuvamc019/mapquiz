@@ -21,6 +21,11 @@ function initMobile() {
     colorAllCountries();
     controlPanel.remove()
 
+    const mapContainer = document.getElementsByClassName("mapContainer")[0]
+    mapContainer.style.removeProperty("right");
+    mapContainer.style.marginLeft = "auto";
+    mapContainer.style.marginRight = "auto";
+
     //center viewbox on Africa/Asia/Europe
     const mobileHeight = 1000, mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
     const mobileMinX = 1080, mobileMinY = 75

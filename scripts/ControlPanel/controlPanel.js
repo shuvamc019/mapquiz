@@ -8,6 +8,8 @@ const modeDropdown = document.getElementById("modeDropdown")
 const regionDropdown = document.getElementById("regionDropdown")
 const titleDiv = document.getElementsByClassName("titleContainer")[0]
 const zoomIcon = document.getElementById("zoomIcon")
+const helpContainer = document.getElementsByClassName("helpContainer")[0]
+const helpTooltip = document.getElementsByClassName("helpTooltip")[0]
 
 const countriesRemainingArr = []
 let countriesFound = 0;
@@ -37,6 +39,8 @@ function initControlPanel() {
             timerPause()
         }
     })
+
+    helpContainer.addEventListener("mouseleave", function() { helpTooltip.scrollTop = 0 })
 
     restartButton.onclick = restart
     giveUpButton.onclick = gameEnd
@@ -82,9 +86,12 @@ function initContinentSelection() {
 }
 
 function initModeSelection() {
-    if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
+    /*if(controlPanel.contains(mode2Control)) controlPanel.removeChild(mode2Control)
     if(controlPanel.contains(mode3Control)) controlPanel.removeChild(mode3Control)
-    if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)
+    if(controlPanel.contains(mode1Control)) controlPanel.removeChild(mode1Control)*/
+    mode1Control.style.display = "none"
+    mode2Control.style.display = "none"
+    mode3Control.style.display = "none"
     desaturateMap("1")
     removeHoverListeners()
 

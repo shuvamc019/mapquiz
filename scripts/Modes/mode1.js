@@ -19,7 +19,8 @@ function mode1Entered(event) {
 
 function mode1Init() {
     mode1Entry.disabled = false
-    controlPanel.insertBefore(mode1Control, progressContainer)
+    //controlPanel.insertBefore(mode1Control, progressContainer)
+    mode1Control.style.display = "flex"
 
     mode1Entry.value = ""
     grayAllCountries();
