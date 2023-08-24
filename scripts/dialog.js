@@ -63,7 +63,7 @@ function initScoreSection() {
     let rankNum = 1
     for(const score of scores) {
 
-        if(score.mode === modeDropdown.value && score.region === regionDropdown.value) {
+        if(score.region === regionDropdown.value) {
             const scoreDivWrapper = document.createElement("div") //wrapper is only there so that bottom border can be set with ::after
             
             const scoreDiv = document.createElement("div")
