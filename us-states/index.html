@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Countries Of The World - Map Quiz Game</title>
+        <title>US States - Map Quiz Game</title>
 
         <meta charset="UTF-8" />
         <meta name="description" content="Can you name every country? Challenge your mastery of the regions, countries, and continents of the world.">
@@ -11,7 +11,7 @@
         
         <link rel="icon" type="image/x-icon" href="resources/favicon.ico" sizes="144x144">
 
-        <link rel="canonical" href="https://countriesoftheworldquiz.com/" />
+        <link rel="canonical" href="https://countriesoftheworldquiz.com/us-states/" />
 
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/dialog.css">
@@ -21,19 +21,19 @@
             {
                 "@context" : "https://schema.org",
                 "@type" : "WebSite",
-                "name" : "Countries Of The World Quiz",
-                "url" : "https://countriesoftheworldquiz.com/"
+                "name" : "US States Quiz",
+                "url" : "https://countriesoftheworldquiz.com/us-states/"
           }
           </script>
     </head>
     <body>
         <div class="mapContainer">
-            <object id="map" type="image/svg+xml" data="resources/world/WorldMap.svg"></object>
+            <object id="map" type="image/svg+xml" data="resources/us/USMap.svg"></object>
         </div>
 
         <div class="controlPanel panelStyle">
             <div class="titleContainer">
-                <h3 id="titleLabel" class="non-selectable">Countries Of The World Quiz</h3>
+                <h3 id="titleLabel" class="non-selectable">US States Quiz</h3>
                 <img id="zoomIcon" class="non-selectable icon" src="resources/zoom-icon.svg" title="Zoom to selected region">
                 
                 <div class="helpContainer">
@@ -61,9 +61,9 @@
             <div class="optionsContainer">
                 <div id="modeContainer">
                     <select name="mode" id="modeDropdown" class="dropDown non-selectable">
-                        <option value="Name All Countries">Name All Countries</option>
-                        <option value="Find The Country" selected>Find The Country</option>
-                        <option value="Name The Country">Name The Country</option>
+                        <option value="Name All States">Name All States</option>
+                        <option value="Find The State" selected>Find The State</option>
+                        <option value="Name The State">Name The State</option>
                      </select>
                     </div>
 
@@ -84,7 +84,7 @@
                 <p id="timer" class="non-selectable">00:00</p>
             </div>
             <div class="modeControl" id="mode1Control">
-                <input id="mode1Entry" placeholder="Enter a country">
+                <input id="mode1Entry" placeholder="Enter a state">
             </div>
             <div class="modeControl" id="mode2Control">
                 <div class="modeControlSpacer"></div>
@@ -95,7 +95,7 @@
             </div>
             <div class="modeControl" id="mode3Control">
                 <div class="modeControlSpacer"></div>
-                <input id="mode3Entry" placeholder="What country is this?">
+                <input id="mode3Entry" placeholder="What state is this?">
                 <div class="skipDiv">
                     <button id="mode3SkipButton" class="transparentButton skipButton fillButton non-selectable">Skip</button>
                 </div>
@@ -104,7 +104,7 @@
                 <p id="progressLabel" class="non-selectable">0 / 197 Countries Found</p>
             </div>
             <div class="countryListContainer">
-                <button id="showCountryButton" class="transparentButton non-selectable">Show Country List ▶</button>
+                <button id="showCountryButton" class="transparentButton non-selectable">Show State List ▶</button>
             </div>
             <div class="buttonRow">
                 <div class="restartContainer">
@@ -127,7 +127,7 @@
                 <div class="scoreHeader">
                     <p class="rankLabel"></p>
                     <p class="scoreLabel">Mode/Region</p>
-                    <p class="scoreLabel">Countries Found</p>
+                    <p class="scoreLabel">States Found</p>
                     <p class="scoreLabel">Time</p>
                 </div>
                 <div class="scoreTable"></div>
@@ -139,30 +139,19 @@
             </div>
         </dialog>
 
-        <div id="promotionDiv" class="panelStyle" style="display: none;">
-            <button id="promotionCloseButton" class="transparentButton">X</button>
-            <p>Check out my other website <a href="us-states/index.html">here</a> to test yourself on the US states!</p>
-        </div>
-        <script>
-            document.getElementById("promotionCloseButton").onclick = function() {
-                document.getElementById("promotionDiv").style.display = "none";
-            }
-        </script>
-
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="scripts/world/Controller/script.js"></script>
-        <script src="scripts/world/ControlPanel/timer.js"></script>
-        <script src="scripts/world/Map/map.js"></script>
-        <script src="scripts/world/ControlPanel/countryList.js"></script>
-        <script src="scripts/world/Controller/readFiles.js"></script>
-        <script src="scripts/world/Map/svgZoom.js"></script>
-        <script src="scripts/world/ControlPanel/controlPanel.js"></script>
-        <script src="scripts/world/Modes/mode1.js"></script>
-        <script src="scripts/world/Modes/mode2.js"></script>
-        <script src="scripts/world/Modes/mode3.js"></script>
-        <script src="scripts/world/dialog.js"></script>
-        <script src="scripts/world/mobile.js"></script>
+        <script src="scripts/us/Controller/script.js"></script>
+        <script src="scripts/us/ControlPanel/timer.js"></script>
+        <script src="scripts/us/Map/map.js"></script>
+        <script src="scripts/us/ControlPanel/countryList.js"></script>
+        <script src="scripts/us/Controller/readFiles.js"></script>
+        <script src="scripts/us/Map/svgZoom.js"></script>
+        <script src="scripts/us/ControlPanel/controlPanel.js"></script>
+        <script src="scripts/us/Modes/mode1.js"></script>
+        <script src="scripts/us/Modes/mode2.js"></script>
+        <script src="scripts/us/Modes/mode3.js"></script>
+        <script src="scripts/us/dialog.js"></script>
+        <script src="scripts/us/mobile.js"></script>
 
     </body>
 </html>

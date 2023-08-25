@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    overflow: hidden;
+
+    background-color: #40a1bf;
+}
+
+.mapContainer {
+    position: fixed;
+    height: 100vh;
+    width: auto;
+    right: 0;
+}
+
+#map {
+    height: 100vh;
+    width: auto;
+}
+
+#promotionDiv {
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translate(-50%, 0);
+}
+
+#promotionDiv p {
+    padding: 0 1% 0 1%;
+}
+
+#promotionCloseButton {
+    position: absolute;
+    right: 0.3em;
+    top: 0.2em;
+}
