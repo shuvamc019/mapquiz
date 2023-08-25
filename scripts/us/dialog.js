@@ -38,7 +38,7 @@ function gameEnd(type) {
 
     //set up score description section
     const timeString = timerTextToTimeString(timer.innerHTML)
-    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
+    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " states in " + timeString
 
     //set up high score list section
     addScore()

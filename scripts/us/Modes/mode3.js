@@ -8,7 +8,7 @@ function mode3Entered(event) {
 
     for(const code of stateMap.keys()) {
       const state = stateMap.get(code)
-      if(state.name.toLowerCase() === countryName) {
+      if(code == randomCountryCode && state.name.toLowerCase() === countryName) {
         newCountryFound(code)
         mode3Entry.value = ""
         console.log(stateMap.get(randomCountryCode).name + " found")
