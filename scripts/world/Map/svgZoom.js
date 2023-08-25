@@ -25,7 +25,7 @@ let defaultViewbox = {
 function initZoom() {
   if(MAX_WIDTH < 2700) {
     const diff = 2700 - MAX_WIDTH
-    svgTag.getElementById("wholeMap").setAttribute("transform", "translate(-" (75 + diff) + " -20)")
+    svgTag.getElementById("wholeMap").setAttribute("transform", "translate(-" + (75 + diff) + " -20)")
   }
 
   svg.contentDocument.addEventListener("wheel", zoom, {passive: false});
