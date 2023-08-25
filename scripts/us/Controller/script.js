@@ -4,9 +4,9 @@ let svgTag = null
 async function init() {
   svgTag = svg.contentDocument.getElementsByTagName("svg")[0]
   
-  await fetch("resources/us/groups.csv").then(r=>r.text()).then(readGroupFile);
+  await fetch("../resources/us/groups.csv").then(r=>r.text()).then(readGroupFile);
 
-  await fetch("resources/us/states.csv").then(r=>r.text()).then(readStateFile);
+  await fetch("../resources/us/states.csv").then(r=>r.text()).then(readStateFile);
 
   initMap();
 
