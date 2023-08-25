@@ -16,11 +16,25 @@
   stroke-width: 0.5;
 }
 
-/* Individual states can be colored as follows:
-.ks,.mt,.pa {fill:#0000FF}
-.ca,.de {fill:#FF0000}
-In this example, Kansas, Montana and Pennsylvania are colored blue, and California and Delaware are colored red.
-Place this code in the empty space below. */
+.al,.il,.nh,.nc,.ok,.or,.pa,.ri,.wy {
+  fill: #984ea3;
+}
+
+.az,.co,.fl,.hi,.id,.in,.ma,.ms,.sd,.wv,.wi {
+  fill: #e41a1c;
+}
+
+.ak,.ia,.ks,.me,.ny,.nd,.oh,.md,.tn,.tx,.ut {
+  fill: #ff7f00;
+}
+
+.ct,.la,.mt,.nv,.nj,.mn,.mo,.sc,.vt,.va {
+  fill: #ffcf33;
+}
+
+.ar,.ca,.de,.ga,.ky,.ne,.nm,.mi,.wa {
+  fill: #4daf4a;
+}
 
 </style>
 </defs>

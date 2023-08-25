@@ -141,13 +141,25 @@
 
         <div id="promotionDiv" class="panelStyle" >
             <button id="promotionCloseButton" class="transparentButton">x</button>
-            <p>Check out <a href="us-states/index.html">my other website </a> to test yourself on the US states!</p>
+            <p>Check out <a href="us-states/index.html">my other website</a> to test yourself on the US states!</p>
+        </div>
+
+        <!--<div id="promotionDiv" class="panelStyle" >
+            <button id="promotionCloseButton" class="transparentButton">x</button>
+            <p>Check out</p> <button id="link" style="text-decoration: underline">my other website </button><p> to test yourself on the US states!</p>
         </div>
         <script>
-            document.getElementById("promotionCloseButton").onclick = function() {
-                document.getElementById("promotionDiv").style.display = "none";
+            document.getElementById("promotionCloseButton").onclick = function() { document.getElementById("promotionDiv").style.display = "none"; }
+            document.getElementById("link").onclick = function() { 
+                gsap.to(svgTag, 1.5, { 
+                    attr: { viewBox: viewBoxString(297,304,474,251)
+                },   ease:"power2.inOut"})
+                setTimeout(function () {
+                    window.location.href = "/us-states/index.html"
+                }, 1750);
+               
             }
-        </script>
+        </script>-->
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
