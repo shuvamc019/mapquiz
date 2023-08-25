@@ -19,7 +19,7 @@ function isMobile() {
 
 function initMobile() {
     colorAllCountries();
-    controlPanel.remove()
+    controlPanel.style.display = "none"
 
     const mapContainer = document.getElementsByClassName("mapContainer")[0]
     mapContainer.style.removeProperty("right");

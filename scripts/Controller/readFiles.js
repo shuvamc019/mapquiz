@@ -147,7 +147,7 @@ function getScoresFromCookies() {
 
       const scoreAttributes = scoreString.split(",")
       const score = new Score(scoreAttributes[0], scoreAttributes[1], scoreAttributes[2], scoreAttributes[3], scoreAttributes[4])
-      scores.push(score)
+      if(score.region != "undefined") scores.push(score)
     }
   }
 }

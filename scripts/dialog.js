@@ -60,12 +60,10 @@ function initScoreSection() {
         }
     })
 
+    let currentScoreDiv = null
     let rankNum = 1
     for(const score of scores) {
-
         if(score.region === regionDropdown.value) {
-            const scoreDivWrapper = document.createElement("div") //wrapper is only there so that bottom border can be set with ::after
-            
             const scoreDiv = document.createElement("div")
             scoreDiv.classList.add("scoreDiv")
 
@@ -94,13 +92,26 @@ function initScoreSection() {
             //adding line under each score div
             const lineDiv = document.createElement("div")
             lineDiv.classList.add("lineDiv")
-            scoreTable.append(lineDiv)
+            scoreTable.appendChild(lineDiv)
+
+            if(matchesCurrentScore(score)) {
+                currentScoreDiv = scoreDiv
+            }
         }
     }
 
+    if(currentScoreDiv != null) {
+        setTimeout(function () {
+            currentScoreDiv.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+       }, 100);
+    } else {
+        scoreTable.scrollTop = 0;
+    }
+
     dialog.style.transform = "translate(-75%, -50%)"
-
-
 }
 
 //adds current game score to scores array
@@ -109,4 +120,9 @@ function addScore() {
         const score = new Score(modeDropdown.value, regionDropdown.value, countriesFound, totalCountries, seconds)
         scores.push(score)
     }
+}
+
+//returns whether a given score is the current game's score
+function matchesCurrentScore(score) {
+    return score.mode == modeDropdown.value && score.region == regionDropdown.value && score.found == countriesFound && score.time == seconds
 }

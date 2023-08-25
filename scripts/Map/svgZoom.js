@@ -23,6 +23,11 @@ let defaultViewbox = {
 }
 
 function initZoom() {
+  if(MAX_WIDTH < 2700) {
+    const diff = 2700 - MAX_WIDTH
+    svgTag.getElementById("wholeMap").setAttribute("transform", "translate(-" (75 + diff) + " -20)")
+  }
+
   svg.contentDocument.addEventListener("wheel", zoom, {passive: false});
   svg.contentDocument.addEventListener("mousedown", function(mouseEvent) {
     mouseDown = true
@@ -56,8 +61,6 @@ function pan(mouseEvent) {
   if(mouseDown) { //can only pan if mouse is down and being dragged
     mouseEvent.preventDefault() //stops a selection being made
     mousePoint = getPoint(mouseEvent)
-
-    console.log((panOrigin.y - mousePoint.y))
 
     const newMinX = clamp(currentViewBox.minX + (panOrigin.x - mousePoint.x), 0, MAX_WIDTH - currentViewBox.width)
     const newMinY = clamp(currentViewBox.minY + (panOrigin.y - mousePoint.y), 0, MAX_HEIGHT - currentViewBox.height)
