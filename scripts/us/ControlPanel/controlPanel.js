@@ -5,7 +5,6 @@ const progressLabel = document.getElementById("progressLabel")
 const giveUpButton = document.getElementById("giveUpButton")
 const restartButton = document.getElementById("restartButton")
 const modeDropdown = document.getElementById("modeDropdown")
-const regionDropdown = document.getElementById("regionDropdown")
 const titleDiv = document.getElementsByClassName("titleContainer")[0]
 const zoomIcon = document.getElementById("zoomIcon")
 const helpContainer = document.getElementsByClassName("helpContainer")[0]
@@ -46,7 +45,6 @@ function initControlPanel() {
     giveUpButton.onclick = gameEnd
 
     modeDropdown.onchange = restart
-    regionDropdown.onchange = restart
 
     zoomIcon.onclick = zoomToDefaultViewbox
 
@@ -68,20 +66,10 @@ function restart() {
 }
 
 function initContinentSelection() {
-    resetCountriesFound(regionDropdown.value)
-    resetCountryList(regionDropdown.value)
+    resetCountriesFound()
+    resetCountryList()
 
-    if(regionDropdown.value == "Whole World") {
-        zoomToFullScreen();
-    } else {
-       for(const continent of continents) {
-            if(continent.name === regionDropdown.value) {
-                const continentViewbox = continent.viewBox
-                setDefaultViewbox(continentViewbox.minX, continentViewbox.minY, continentViewbox.width, continentViewbox.height)
-                animateSetViewBox(continentViewbox.minX, continentViewbox.minY, continentViewbox.width, continentViewbox.height)
-            }
-       }
-    }
+    zoomToFullScreen();
 
 }
 

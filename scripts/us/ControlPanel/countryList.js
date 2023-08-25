@@ -11,12 +11,12 @@ let expanded = false
 function showCountryList() {
     if(expanded) {
         showCountryButton.innerHTML = "Show State List ▶"
-        controlPanel.style.bottom = "10%"
+        controlPanel.style.bottom = "5%"
         countryListContainer.removeChild(countryListDiv)
         document.getElementsByClassName("helpTooltip")[0].style.maxHeight = "1750%"
     } else {
         showCountryButton.innerHTML = "Hide State List ▼"
-        controlPanel.style.bottom = "2%"
+        controlPanel.style.bottom = "1%"
         countryListContainer.appendChild(countryListDiv)
         document.getElementsByClassName("helpTooltip")[0].style.maxHeight = "1000%"
     }

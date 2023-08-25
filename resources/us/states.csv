@@ -4,9 +4,9 @@ Alaska,ak,3
 Arizona,az,2
 Arkansas,ar,5
 California,ca,5
-Colorado,co,5
+Colorado,co,2
 Connecticut,ct,4
-Delaware,de,1
+Delaware,de,5
 Florida,fl,2
 Georgia,ga,5
 Hawaii,hi,2
@@ -15,37 +15,37 @@ Illinois,il,1
 Indiana,in,2
 Iowa,ia,3
 Kansas,ks,3
-Kentucky,ky,4
-Louisiana,la,2
+Kentucky,ky,5
+Louisiana,la,4
 Maine,me,3
 Montana,mt,4
 Nebraska,ne,5
 Nevada,nv,4
 New Hampshire,nh,1
 New Jersey,nj,4
-New Mexico,nm,4
+New Mexico,nm,5
 New York,ny,3
 North Carolina,nc,1
-North Dakota,nd,4
+North Dakota,nd,3
 Ohio,oh,3
-Oklahoma,ok,2
-Oregon,or,4
+Oklahoma,ok,1
+Oregon,or,1
 Maryland,md,3
 Massachusetts,ma,2
-Michigan,mi,1
+Michigan,mi,5
 Minnesota,mn,4
 Mississippi,ms,2
-Missouri,mo,5
+Missouri,mo,4
 Pennsylvania,pa,1
 Rhode Island,ri,1
 South Carolina,sc,4
 South Dakota,sd,2
-Tennessee,tn,2
+Tennessee,tn,3
 Texas,tx,3
 Utah,ut,3
 Vermont,vt,4
 Virginia,va,4
-Washington,wa,3
-West Virginia,wv,5
+Washington,wa,5
+West Virginia,wv,2
 Wisconsin,wi,2
-Wyoming,wy,5
+Wyoming,wy,1

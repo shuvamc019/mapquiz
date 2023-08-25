@@ -38,7 +38,7 @@ function gameEnd(type) {
 
     //set up score description section
     const timeString = timerTextToTimeString(timer.innerHTML)
-    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br>Region: " + regionDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
+    dialogText.innerHTML = "Mode: " + modeDropdown.value + "<br><br>You found " + countriesFound + " out of " + totalCountries + " countries in " + timeString
 
     //set up high score list section
     addScore()
@@ -63,7 +63,7 @@ function initScoreSection() {
     let currentScoreDiv = null
     let rankNum = 1
     for(const score of scores) {
-        if(score.region === regionDropdown.value) {
+        if(score.mode === modeDropdown.value) {
             const scoreDiv = document.createElement("div")
             scoreDiv.classList.add("scoreDiv")
 
@@ -74,7 +74,7 @@ function initScoreSection() {
 
             const modeLabel = document.createElement("p")
             modeLabel.classList.add("scoreLabel")
-            modeLabel.innerHTML = score.mode + "<br/>" + score.region
+            modeLabel.innerHTML = score.mode
             scoreDiv.appendChild(modeLabel)
 
             const foundLabel = document.createElement("p")
@@ -117,12 +117,12 @@ function initScoreSection() {
 //adds current game score to scores array
 function addScore() {
     if(countriesFound > 0) { //dont' count it as a score if nothing found
-        const score = new Score(modeDropdown.value, regionDropdown.value, countriesFound, totalCountries, seconds)
+        const score = new Score(modeDropdown.value, "USA", countriesFound, totalCountries, seconds)
         scores.push(score)
     }
 }
 
 //returns whether a given score is the current game's score
 function matchesCurrentScore(score) {
-    return score.mode == modeDropdown.value && score.region == regionDropdown.value && score.found == countriesFound && score.time == seconds
+    return score.mode == modeDropdown.value && score.found == countriesFound && score.time == seconds
 }
