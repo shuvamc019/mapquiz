@@ -27,14 +27,14 @@ function initMobile() {
     mapContainer.style.marginRight = "auto";
 
     //center viewbox on Africa/Asia/Europe
-    const mobileHeight = 1000, mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
-    const mobileMinX = 1080, mobileMinY = 75
+    const mobileHeight = 510, mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
+    const mobileMinX = 330, mobileMinY = 40
     svgTag.setAttribute("viewBox", viewBoxString(mobileMinX, mobileMinY, mobileWidth, mobileHeight))
 
     //create message saying that website is not usable on mobile
     const mobileBox = document.createElement("div")
     const message = document.createElement("p")
-    message.innerHTML = "<strong>Countries of the World Quiz is not currently supported on mobile.</strong> <br/> <br/> Check back again later."
+    message.innerHTML = "<strong>US States Quiz is not currently supported on mobile.</strong> <br/> <br/> Check back again later."
     mobileBox.appendChild(message)
 
     mobileBox.classList.add("panelStyle")
