@@ -22,6 +22,7 @@ async function init() {
   initMap();
 
   if(!isMobile()) {
+    document.getElementById("promotionDiv").style.display = "inherit"
     initZoom();
     initControlPanel();
     getScoresFromCookies();

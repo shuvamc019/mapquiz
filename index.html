@@ -139,10 +139,16 @@
             </div>
         </dialog>
 
-        <div id="promotionDiv" class="panelStyle" >
+        <div id="promotionDiv" class="panelStyle" style="display: none">
             <button id="promotionCloseButton" class="transparentButton">x</button>
-            <p>Check out <a href="us-states">my other website</a> to test yourself on the US states!</p>
+            <p>Check out <a href="us-states">my new website</a> to test yourself on the US states!</p>
         </div>
+        <script>
+            document.getElementById("promotionCloseButton").onclick = function() { document.getElementById("promotionDiv").style.display = "none"; }
+            setTimeout(function() {
+                document.getElementById("promotionDiv").style.display = "none";
+            }, 7000)
+        </script>
 
         <!--<div id="promotionDiv" class="panelStyle" >
             <button id="promotionCloseButton" class="transparentButton">x</button>
