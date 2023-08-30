@@ -37,8 +37,6 @@ function initZoom() {
   svg.contentDocument.onmouseleave =  function() { mouseDown = false }
   svg.contentDocument.onmousemove = pan
 
-  setViewBox(0, 0, MAX_WIDTH, MAX_HEIGHT)
-
   svgTag.addEventListener("keydown", function() {
     printViewbox()
   })

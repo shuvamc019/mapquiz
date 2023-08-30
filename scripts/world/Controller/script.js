@@ -20,12 +20,13 @@ async function init() {
   await fetch("resources/world/countries.csv").then(r=>r.text()).then(readCountryFile);
 
   initMap();
+  initControlPanel();
+  getScoresFromCookies();
+  initZoom();
 
   if(!isMobile()) {
     document.getElementById("promotionDiv").style.display = "inherit"
-    initZoom();
-    initControlPanel();
-    getScoresFromCookies();
+    restart();
   } else {
     initMobile()
   }

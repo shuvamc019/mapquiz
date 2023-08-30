@@ -1,3 +1,5 @@
+let mobileBox, message
+
 function isMobile() {
   if ("maxTouchPoints" in navigator) {
     return navigator.maxTouchPoints > 0;
@@ -18,38 +20,61 @@ function isMobile() {
 }
 
 function initMobile() {
-colorAllCountries();
-controlPanel.style.display = "none"
+  //create message saying that website is not usable on mobile
+  mobileBox = document.createElement("div")
+  message = document.createElement("p")
+  message.innerHTML = "<strong>Please use landscape mode for Countries Of The World Quiz</strong>"
+  mobileBox.appendChild(message)
+  mobileBox.classList.add("panelStyle")
+  mobileBox.style.position = "fixed"
+  mobileBox.style.top = "50%"
+  mobileBox.style.left = "50%"
+  mobileBox.style.width = "250px"
+  mobileBox.style.height = "auto"
+  mobileBox.style.padding = "2%"
+  mobileBox.style.transform = "translate(-50%, -50%) scale(1.25)"
+  document.getElementsByTagName("body")[0].appendChild(mobileBox)
 
-const mapContainer = document.getElementsByClassName("mapContainer")[0]
-mapContainer.style.removeProperty("right");
-mapContainer.style.marginLeft = "auto";
-mapContainer.style.marginRight = "auto";
-
-//create message saying that website is not usable on mobile
-const mobileBox = document.createElement("div")
-const message = document.createElement("p")
-message.innerHTML = "<strong>US States Quiz is not currently supported on mobile.</strong> <br/> <br/> Check back again later."
-mobileBox.appendChild(message)
-
-mobileBox.classList.add("panelStyle")
-mobileBox.style.position = "fixed"
-mobileBox.style.top = "50%"
-mobileBox.style.left = "50%"
-mobileBox.style.width = "250px"
-mobileBox.style.height = "auto"
-mobileBox.style.padding = "2%"
-mobileBox.style.transform = "translate(-50%, -50%) scale(1.25)"
-
-document.getElementsByTagName("body")[0].appendChild(mobileBox)
-
-window.onresize = resizeMobile
-resizeMobile()
+  window.onresize = resizeMobile
+  resizeMobile()
 }
 
 function resizeMobile() {
-//center viewbox on Africa/Asia/Europe
-const mobileHeight = 510, mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
-const mobileMinX = 330, mobileMinY = 40
-svgTag.setAttribute("viewBox", viewBoxString(mobileMinX, mobileMinY, mobileWidth, mobileHeight))
+  let mobileHeight, mobileWidth, mobileMinX, mobileMinY
+
+  if(window.innerWidth > window.innerHeight) { //landscape mode
+    const mapContainer = document.getElementsByClassName("mapContainer")[0]
+    mapContainer.style.right = 0
+
+    mobileBox.style.display = "none"
+    controlPanel.style.display = "block"
+    controlPanel.style.minWidth = 0
+    if(controlPanel.offsetWidth < 300) {
+      const fontSize = parseFloat(window.getComputedStyle(controlPanel, null).getPropertyValue('font-size'))
+      const fontScale = controlPanel.offsetWidth / 300
+      for(const child of controlPanel.getElementsByTagName("*")) {
+        child.style.fontSize = (fontSize * fontScale) + "px"
+      }
+
+    }
+    
+
+    restart()
+  } else { //portrait mode
+    mobileHeight = 1000
+    mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
+    mobileMinX = 1080
+    mobileMinY = 75
+
+    const mapContainer = document.getElementsByClassName("mapContainer")[0]
+    mapContainer.style.removeProperty("right");
+
+    colorAllCountries();
+    controlPanel.style.display = "none"
+    mobileBox.style.display = "block"
+
+    svgTag.setAttribute("viewBox", viewBoxString(mobileMinX, mobileMinY, mobileWidth, mobileHeight))
+  }
+
+ 
 }

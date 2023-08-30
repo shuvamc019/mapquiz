@@ -51,7 +51,6 @@ function initControlPanel() {
     zoomIcon.onclick = zoomToDefaultViewbox
 
     initCountryList();
-    restart();
 }
 
 function restart() {
