@@ -62,7 +62,7 @@ function resizeMobile() {
     restart()
   } else { //portrait mode
     mobileHeight = 1000
-    mobileWidth = mobileHeight * window.screen.availWidth / window.screen.availHeight
+    mobileWidth = mobileHeight * window.screen.availHeight / window.screen.availWidth
     mobileMinX = 1080
     mobileMinY = 75
 
